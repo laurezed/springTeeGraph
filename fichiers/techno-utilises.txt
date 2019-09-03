@@ -1,0 +1,17 @@
+TECHNO A UTILISER
+
+- interceptors (pour la gestions des dernières chances)
+- beans (pour les formulaires)
+- validators (formulaires) - BindingResult
+- controllers
+- filters
+- DAO
+- Service
+- Entites
+
+- webServices
+
+
+Fonctions:
+	- Panier:
+	- Administration /gestion profil:
