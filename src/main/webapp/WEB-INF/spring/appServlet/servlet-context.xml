@@ -54,6 +54,9 @@
 			</beans:props>
 		</beans:property>
 	</beans:bean>
+
+
+
 	<!-- Simple implementation of the standard JDBC DataSource interface, configuring 
 		the plain old JDBC DriverManager via bean properties -->
 	<beans:bean id="dataSource"
@@ -98,16 +101,5 @@
 		class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
 		<beans:property name="defaultLocale" value="fr" />
 	</beans:bean>
-
-	<!-- bean qui vient de la bibliothèque spring qui permet de gérer les fichiers -->
-	<beans:bean id="multipartResolver"
-		class="org.springframework.web.multipart.commons.CommonsMultipartResolver"><!-- max upload size in bytes -->
-		<beans:property name="maxUploadSize" value="20971520" /><!-- 
-			20MB --><!-- 
-			max size of file in memory (in bytes) -->
-		<beans:property name="maxInMemorySize" value="1048576" /><!-- 
-			1MB -->
-	</beans:bean>
-
 
 </beans:beans>

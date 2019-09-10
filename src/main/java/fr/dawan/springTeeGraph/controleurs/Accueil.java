@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.context.annotation.RequestScope;
 
 
 //import fr.dawan.springTeeGraph.beans.UserForm;
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 //import fr.dawan.springTeeGraph.service.UserService;
 
 @Controller
-@RequestMapping(value="/")
+@RequestMapping("/")
 public class Accueil {
 
 //	@Autowired
@@ -25,7 +26,7 @@ public class Accueil {
 	private MessageSource messageSource;
 
 	
-	@GetMapping("/accueil")
+	@GetMapping({"/accueil", "/"})
 	public String display(Model model)
 	{
 		model.addAttribute("msg","Je crois que j'y arrive maintenant");

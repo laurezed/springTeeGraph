@@ -34,7 +34,7 @@ public class Serigraphie implements Serializable {
 	private String designation;
 
 	@Column(nullable = false)
-	private File photo;
+	private String photo;
 
 	@Column(nullable = false)
 	private Boolean bestSeller;
@@ -53,7 +53,7 @@ public class Serigraphie implements Serializable {
 		counter++;
 	}
 
-	public Serigraphie(long id, int version, String referenceProduit, String designation, File photo,
+	public Serigraphie(long id, int version, String referenceProduit, String designation, String photo,
 			Boolean bestSeller) {
 		super();
 		this.id = id;
@@ -97,11 +97,11 @@ public class Serigraphie implements Serializable {
 		this.designation = designation;
 	}
 
-	public File getPhoto() {
+	public String getPhoto() {
 		return photo;
 	}
 
-	public void setPhoto(File photo) {
+	public void setPhoto(String photo) {
 		this.photo = photo;
 	}
 
