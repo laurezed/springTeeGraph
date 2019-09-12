@@ -61,6 +61,10 @@
 			
 			<label for="telmob">Téléphone mobile:</label>
 			<input type="text" name="nom" id="mob" />
+			
+			<label for="identifiant">identifiant:</label>
+			<input type="text" name="identifiant" id="identifiant" />
+			
 
 			<label for="email">Email:</label>
 			<input type="email" name="email" id="email" />
