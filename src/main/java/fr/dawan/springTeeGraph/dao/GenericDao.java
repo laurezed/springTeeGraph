@@ -10,7 +10,6 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
-import fr.dawan.springTeeGraph.entites.Serigraphie;
 
 /**
  * Classe utilitaire permettant d'offrir des méthodes génériques pour réaliser
