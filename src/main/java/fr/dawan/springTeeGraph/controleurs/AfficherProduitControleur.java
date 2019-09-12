@@ -1,11 +1,6 @@
 package fr.dawan.springTeeGraph.controleurs;
 
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 import java.util.List;
-
-import javax.imageio.ImageIO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,14 +13,13 @@ import fr.dawan.springTeeGraph.entites.Serigraphie;
 
 @Controller
 @RequestMapping("/product")
-public class AfficherProduit {
+public class AfficherProduitControleur{
 
 	@Autowired
 	SerigraphieDao seridao;
 	
 	@GetMapping("/")
-	public String afficher(Model model)
-	{
+	public String afficher(Model model){
 		
 		
 		List<Serigraphie> myList;

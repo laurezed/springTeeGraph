@@ -3,7 +3,6 @@ package fr.dawan.springTeeGraph.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Repository;
@@ -26,25 +25,6 @@ public class SerigraphieDao {
 		}
 	}
 	
-	@SuppressWarnings("hiding")
-	public static <Serigraphie> void saveOrUpdate(Serigraphie entity, long id, EntityManager em, boolean closeCnx) throws Exception {
-		EntityTransaction tx = em.getTransaction();
-		try {
-			tx.begin();
-			if (id == 0)
-				em.persist(entity);
-			else
-				em.merge(entity);
 
-			tx.commit();
-		} catch (Exception e) {
-			tx.rollback();
-			throw e;
-		} finally {
-			if (closeCnx)
-				em.close();
-		}
-
-	}
 }
 	
