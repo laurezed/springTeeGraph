@@ -14,7 +14,7 @@ import fr.dawan.springTeeGraph.entites.Serigraphie;
 
 
 @Service
-public class ProductService {
+public class ProduitService {
 
 	
 	@Autowired
