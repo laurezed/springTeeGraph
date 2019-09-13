@@ -18,18 +18,28 @@ public class AfficherProduitControleur{
 	@Autowired
 	SerigraphieDao seridao;
 	
-	@GetMapping("/")
+	@GetMapping("")
 	public String afficher(Model model){
-		
 		
 		List<Serigraphie> myList;
 		myList = seridao.readAll();
-		
-
-		
 		model.addAttribute("myList",myList);
-		return "afficher";
 		
+		
+		return "afficher";
+	}
+	
+	@GetMapping("")
+	public String popup(Model model){
+		
+//		List<Serigraphie> myList;
+//		model.addAttribute("myList",myList);
+
+		model.addAttribute("ajax","ma réponse ajax");
+		
+		
+		
+		return "afficher";
 	}
 	
 	
