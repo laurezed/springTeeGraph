@@ -24,10 +24,10 @@ public class ProduitForm implements Serializable {
 
 	private int version;
 
-	@NotNull(message = "Ce champs ne doit pas être vide")
+//	@NotNull(message = "Ce champs ne doit pas être vide")
 	private String referenceProduit;
 
-	@NotNull(message = "Ce champs ne doit pas être vide")
+//	@NotNull(message = "Ce champs ne doit pas être vide")
 	private String designation;
 
 	@NotNull(message = "Ce champs ne doit pas être vide")

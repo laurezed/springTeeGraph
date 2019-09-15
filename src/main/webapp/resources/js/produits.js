@@ -3,23 +3,21 @@
  */
 
 document.addEventListener('DOMContentLoaded', function(event) {
-	let close = document.getElementById("link");
-	close.addEventListener("click", function(e) {
-		e.preventDefault();
-		// let popup = document.getElementsByClassName("overlay");
-		// popup.style.visibility = "hidden";
-
-		var xhr = new XMLHttpRequest();
-		xhr.open('GET', 'product/popup');
-		xhr.onload = function() {
-			if (xhr.status === 200) {
-				alert('User\'s name is ' + xhr.responseText);
-				console.log('User\'s name is ' + xhr.responseText);
-			} else {
-				alert('Request failed.  Returned status of ' + xhr.status);
+	var serigraphie = document.getElementsByClassName("link");
+	// console.log(serigraphie);
+	Array.prototype.forEach.call(serigraphie, function(seri) {
+		seri.addEventListener('click', function(ser) {
+			console.log(seri.getAttribute("id"));
+			if (window.fetch) {
+				fetch("product/" + seri.getAttribute("id"))
+				.then(reponse => console.log(JSON.stringify(reponse)))
 			}
-		};
-		xhr.send();
-
+		})
 	})
+	// Array.from(serigraphie).forEach((seri)=>{
+	// console.log(seri);
+	// })
+	// serigraphie.forEach(function(seri){
+	// console.log(seri);
+	// })
 })

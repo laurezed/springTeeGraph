@@ -23,9 +23,10 @@ import org.springframework.stereotype.Repository;
 @Transactional
 public class GenericDao {
 
-	@PersistenceContext // Permet à Spring d'injecter l'entity manager avec les infos de connexion de la base de données
+	@PersistenceContext // Permet à Spring d'injecter l'entity manager avec les infos de connexion de la
+						// base de données
 	private EntityManager em;
-	
+
 	/**
 	 * Sauvegarde ou modification d'un objet
 	 * 
@@ -40,18 +41,18 @@ public class GenericDao {
 //		EntityTransaction tx = em.getTransaction();
 //		try {
 //			tx.begin();
-			if (id == 0)
-				em.persist(entity);
-			else
-				em.merge(entity);
+		if (id == 0)
+			em.persist(entity);
+		else
+			em.merge(entity);
 
 //			tx.commit();
 //		} catch (Exception e) {
 //			tx.rollback();
 //			throw e;
 //		} finally {
-			if (closeCnx)
-				em.close();
+		if (closeCnx)
+			em.close();
 //		}
 
 	}
@@ -68,15 +69,15 @@ public class GenericDao {
 	 * @throws Exception si erreur
 	 */
 	public <T> T findById(Class<T> entityClass, Object id, boolean closeCnx) throws Exception {
-		EntityTransaction tx = em.getTransaction();
+//		EntityTransaction tx = em.getTransaction();
 
 		T obj = null;
 		try {
-			tx.begin();
+//			tx.begin();
 			obj = em.find(entityClass, id);
-			tx.commit();
+//			tx.commit();
 		} catch (Exception e) {
-			tx.rollback();
+//			tx.rollback();
 			throw e;
 		} finally {
 			if (closeCnx)
@@ -84,7 +85,7 @@ public class GenericDao {
 		}
 		return obj;
 	}
-	
+
 	/**
 	 * 
 	 * @param <T>
@@ -101,23 +102,27 @@ public class GenericDao {
 		T obj = null;
 //		try {
 //			tx.begin();
-			// on peut recuperer un element d'une table quelconque a partir d'un champ quelconque
-			// a partir de cette methode onp eut par exemple:
-			// recuperer une serigraphie par rapport a son nom
-			// recuperer un user par son password
-			// ou un produit fini par sa couleur...
-			// "From :entityClass WHERE :champ= :valeur" signifie: dans la table Utilisateur quand le champ email = donner la valeur du mail (@)
-			obj = (T) em.createQuery("FROM " + entityClass.getName() + " WHERE " + champ + "= :valeur").setParameter("valeur", valeur).getSingleResult();
-			//tx.commit = valide la transaction:
-			
-			// SELECT u FROM fr.dawan.springTeeGraph.Utilisateur WHERE u.email = 'coco@gmail.com'
+		// on peut recuperer un element d'une table quelconque a partir d'un champ
+		// quelconque
+		// a partir de cette methode onp eut par exemple:
+		// recuperer une serigraphie par rapport a son nom
+		// recuperer un user par son password
+		// ou un produit fini par sa couleur...
+		// "From :entityClass WHERE :champ= :valeur" signifie: dans la table Utilisateur
+		// quand le champ email = donner la valeur du mail (@)
+		obj = (T) em.createQuery("FROM " + entityClass.getName() + " WHERE " + champ + "= :valeur")
+				.setParameter("valeur", valeur).getSingleResult();
+		// tx.commit = valide la transaction:
+
+		// SELECT u FROM fr.dawan.springTeeGraph.Utilisateur WHERE u.email =
+		// 'coco@gmail.com'
 //			tx.commit();
 //		} catch (Exception e) {
 //			tx.rollback();
 //			throw e;
 //		} finally {
-			if (closeCnx)
-				em.close();
+		if (closeCnx)
+			em.close();
 //		}
 		return obj;
 	}
@@ -134,14 +139,14 @@ public class GenericDao {
 	 */
 	@SuppressWarnings("unchecked")
 	public <T> List<T> findAll(String entityClassName, boolean closeCnx) throws Exception {
-		EntityTransaction tx = em.getTransaction();
+//		EntityTransaction tx = em.getTransaction();
 		List<T> myList = null;
 		try {
-			tx.begin();
+//			tx.begin();
 			myList = em.createQuery("FROM " + entityClassName).getResultList();
-			tx.commit();
+//			tx.commit();
 		} catch (Exception e) {
-			tx.rollback();
+//			tx.rollback();
 			throw e;
 		} finally {
 			if (closeCnx)
@@ -165,15 +170,15 @@ public class GenericDao {
 	 */
 	@SuppressWarnings("unchecked")
 	public <T> List<T> findPartial(String entityClassName, int start, int nbElts, boolean closeCnx) throws Exception {
-		EntityTransaction tx = em.getTransaction();
+//		EntityTransaction tx = em.getTransaction();
 		List<T> myList = null;
 		try {
-			tx.begin();
+//			tx.begin();
 			myList = em.createQuery("FROM " + entityClassName).setFirstResult(start).setMaxResults(nbElts)
 					.getResultList();
-			tx.commit();
+//			tx.commit();
 		} catch (Exception e) {
-			tx.rollback();
+//			tx.rollback();
 			throw e;
 		} finally {
 			if (closeCnx)
@@ -192,18 +197,17 @@ public class GenericDao {
 	 * @param closeCnx        fermeture de la connexion ?
 	 * @throws Exception si erreur
 	 */
-	public <T> int remove(String entityClassName, Object id, boolean closeCnx)
-			throws Exception {
-		EntityTransaction tx = em.getTransaction();
+	public <T> int remove(String entityClassName, Object id, boolean closeCnx) throws Exception {
+//		EntityTransaction tx = em.getTransaction();
 		int res = 0;
 		try {
-			tx.begin();
+//			tx.begin();
 			res = em.createQuery("DELETE FROM " + entityClassName + " WHERE id=:id").setParameter("id", id)
 					.executeUpdate();
 
-			tx.commit();
+//			tx.commit();
 		} catch (Exception e) {
-			tx.rollback();
+//			tx.rollback();
 			throw e;
 		} finally {
 
@@ -225,20 +229,19 @@ public class GenericDao {
 	 * @throws Exception si erreur
 	 */
 	@SuppressWarnings("unchecked")
-	public <T> List<T> findAll(String hqlQuery, Map<String, Object> parameters,
-			boolean closeCnx) throws Exception {
-		EntityTransaction tx = em.getTransaction();
+	public <T> List<T> findAll(String hqlQuery, Map<String, Object> parameters, boolean closeCnx) throws Exception {
+//		EntityTransaction tx = em.getTransaction();
 		List<T> myList = null;
 		try {
-			tx.begin();
+//			tx.begin();
 			Query q = em.createQuery(hqlQuery);
 			for (Entry<String, Object> entry : parameters.entrySet()) {
 				q.setParameter(entry.getKey(), entry.getValue());
 			}
 			myList = q.getResultList();
-			tx.commit();
+//			tx.commit();
 		} catch (Exception e) {
-			tx.rollback();
+//			tx.rollback();
 			throw e;
 		} finally {
 			if (closeCnx)
@@ -258,14 +261,14 @@ public class GenericDao {
 	 */
 	@SuppressWarnings("unchecked")
 	public long countElements(String entityName, boolean closeCnx) throws Exception {
-		EntityTransaction tx = em.getTransaction();
+//		EntityTransaction tx = em.getTransaction();
 		long nb = 0;
 		try {
-			tx.begin();
+//			tx.begin();
 			nb = (Long) em.createQuery("SELECT COUNT(x) FROM " + entityName + " x").getSingleResult();
-			tx.commit();
+//			tx.commit();
 		} catch (Exception e) {
-			tx.rollback();
+//			tx.rollback();
 			throw e;
 		} finally {
 			if (closeCnx)

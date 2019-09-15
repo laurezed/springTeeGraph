@@ -21,7 +21,7 @@
 
 	<div class="graph">
 		<c:forEach items="${myList}" var="seri">
-			<a href="product/#popup1" id="link"><img alt="graph" src="${seri.photo}"
+			<a href="product/#popup1" id="${seri.designation}" class="link"><img alt="graph" src="${seri.photo}"
 				class="img_product"></a>
 		</c:forEach>
 	</div>
@@ -29,8 +29,8 @@
 
 	<div id="popup1" class="overlay">
 		<div class="popup">
-			<h2>Nom du produit</h2>
-			<a class="close" id="close" href="product/">&times;</a>
+			<h2>${serigraphie.photo}</h2>
+			<a class="close" id="close" href="product/#">&times;</a>
 			<div class="content">
 				<div class="modele">
 					<h3>Modèle</h3>
