@@ -20,6 +20,7 @@ import org.springframework.stereotype.Repository;
  *
  */
 @Repository
+@Transactional
 public class GenericDao {
 
 	@PersistenceContext // Permet à Spring d'injecter l'entity manager avec les infos de connexion de la
@@ -94,7 +95,7 @@ public class GenericDao {
 	 * @return
 	 * @throws Exception
 	 */
-	public <T> T findByString(Class<T> entityClass, String champ, Object valeur, boolean closeCnx) throws Exception {
+	public <T> T findByString(Class<T> entityClass, Object champ, String valeur, boolean closeCnx) throws Exception {
 //		EntityTransaction tx = em.getTransaction();
 //
 		T obj = null;

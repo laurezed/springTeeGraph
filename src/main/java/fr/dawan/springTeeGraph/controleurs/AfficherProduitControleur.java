@@ -32,7 +32,6 @@ public class AfficherProduitControleur {
 	ModeleService modeleService;
 	
 	 private static Logger logger = Logger.getLogger(AfficherProduitControleur.class);
-	 
 	@GetMapping
 	public String afficher(Model model) {
 		
