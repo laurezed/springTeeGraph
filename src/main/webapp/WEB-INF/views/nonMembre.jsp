@@ -31,54 +31,67 @@
 <body>
 
 	<header> </header>
-	<h1>Espace membre</h1>
+	<h1>Formulaire Inscription</h1>
+	
 	<h2>Vos coordonnées</h2>
-
 	<section class="forma center">
+		<form:form method="post" action="${pageContext.request.contextPath}/auth/load" modelAttribute="cocoBean">
 
-		<form:form method="post" action="traitement.php">
-
+			<form:errors path="nom" />
 			<label for="nom">Nom:</label>
 			<input type="text" name="nom" id="nom" />
 
-			<label for="prenom">Prenom:</label>
+			<form:errors path="prenom" />
+			<label for="prenom">Prénom:</label>
 			<input type="text" name="prenom"" id="prenom" />
 			
-			<label for="birthday">Date de naissance:</label>
-			<input type="text" name="birthday"" id="birthday" />
+			<form:errors path="dateNaissance" />
+			<label for="dateNaissance">Date de naissance:</label>
+			<input type="date" name="dateNaissance"" id="dateNaissance" />
 			
+			<form:errors path="v" />
 			<label for="adresse">Adresse:</label>
 			<input type="text" name="adresse" id="adresse"  />
 			
-			<label for="bp">Code Postale:</label>
-			<input type="text" name="bp" id="bp"  />
+			<form:errors path="codePostale" />
+			<label for="codePostale">Code Postale:</label>
+			<input type="text" name="codePostale" id="codePostale"  />
 			
+			<form:errors path="ville" />
 			<label for="ville">Ville:</label>
 			<input type="text" name="ville" id="ville" />
 			
-			<label for="telfixe">Telephone fixe:</label>
-			<input type="text" name="nom" id="fixe" />
+			<form:errors path="telephoneFixe" />
+			<label for="telephoneFixe">Telephone fixe:</label>
+			<input type="text" name="telephoneFixe" id="fixe" />
 			
-			<label for="telmob">Téléphone mobile:</label>
-			<input type="text" name="nom" id="mob" />
-			
-			<label for="identifiant">identifiant:</label>
-			<input type="text" name="identifiant" id="identifiant" />
-			
+			<form:errors path="telephoneMobile" />
+			<label for="telephoneMobile">Téléphone mobile:</label>
+			<input type="text" name="telephoneMobile" id="mob" />
 
+			<form:errors path="email" />
 			<label for="email">Email:</label>
 			<input type="email" name="email" id="email" />
-
-			<label for="email">Verification de l'Email:</label>
-			<input type="email" name="email2" id="email2" />	
-
-			<input class="go-form" type="submit" value="Modifier" />
 			
-			<p>{msg}</p>
+			<form:errors path="email" />
+			<label for="email">Confirmation de l'email:</label>
+			<input type="email" name="email" id="email" />
+			
+			<form:errors path="password" />
+			<label for="password">Password:</label>
+			<input type="password" name="password" id="password" />
+			
+			<form:errors path="password2" />
+			<label for="password2">Confirmation du mot de passe:</label>
+			<input type="password2" name="password2" id="password2" />
+
+			<input class="go-form" type="submit" value="Enregistrer" />
+			
+			<p>${msg}</p>
+			
 		</form:form>
+		
 	</section>
-	
-	
 
 </body>
 </html>

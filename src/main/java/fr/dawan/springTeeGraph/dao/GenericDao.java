@@ -8,6 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
@@ -19,6 +20,7 @@ import org.springframework.stereotype.Repository;
  *
  */
 @Repository
+@Transactional
 public class GenericDao {
 
 	@PersistenceContext // Permet à Spring d'injecter l'entity manager avec les infos de connexion de la base de données
@@ -35,22 +37,22 @@ public class GenericDao {
 	 * @throws Exception si erreur
 	 */
 	public <T> void saveOrUpdate(T entity, long id, boolean closeCnx) throws Exception {
-		EntityTransaction tx = em.getTransaction();
-		try {
-			tx.begin();
+//		EntityTransaction tx = em.getTransaction();
+//		try {
+//			tx.begin();
 			if (id == 0)
 				em.persist(entity);
 			else
 				em.merge(entity);
 
-			tx.commit();
-		} catch (Exception e) {
-			tx.rollback();
-			throw e;
-		} finally {
+//			tx.commit();
+//		} catch (Exception e) {
+//			tx.rollback();
+//			throw e;
+//		} finally {
 			if (closeCnx)
 				em.close();
-		}
+//		}
 
 	}
 
@@ -93,28 +95,30 @@ public class GenericDao {
 	 * @return
 	 * @throws Exception
 	 */
-	public <T> T findByString(Class<T> entityClass, Object valeur, String champ, boolean closeCnx) throws Exception {
-		EntityTransaction tx = em.getTransaction();
-
+	public <T> T findByString(Class<T> entityClass, Object champ, String valeur, boolean closeCnx) throws Exception {
+//		EntityTransaction tx = em.getTransaction();
+//
 		T obj = null;
-		try {
-			tx.begin();
+//		try {
+//			tx.begin();
 			// on peut recuperer un element d'une table quelconque a partir d'un champ quelconque
 			// a partir de cette methode onp eut par exemple:
 			// recuperer une serigraphie par rapport a son nom
 			// recuperer un user par son password
 			// ou un produit fini par sa couleur...
 			// "From :entityClass WHERE :champ= :valeur" signifie: dans la table Utilisateur quand le champ email = donner la valeur du mail (@)
-			obj = (T) em.createQuery("From :entityClass WHERE :champ= :valeur").setParameter("champ", champ).setParameter("valeur", valeur).setParameter("entityClass",entityClass).getSingleResult();
+			obj = (T) em.createQuery("FROM " + entityClass.getName() + " WHERE " + champ + "= :valeur").setParameter("valeur", valeur).getSingleResult();
 			//tx.commit = valide la transaction:
-			tx.commit();
-		} catch (Exception e) {
-			tx.rollback();
-			throw e;
-		} finally {
+			
+			// SELECT u FROM fr.dawan.springTeeGraph.Utilisateur WHERE u.email = 'coco@gmail.com'
+//			tx.commit();
+//		} catch (Exception e) {
+//			tx.rollback();
+//			throw e;
+//		} finally {
 			if (closeCnx)
 				em.close();
-		}
+//		}
 		return obj;
 	}
 

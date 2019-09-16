@@ -30,50 +30,77 @@
 
 <body>
 
-	<header> </header>
+	<header>
+	
+	 </header>
 	<h1>Espace membre</h1>
 	<h2>Vos coordonnées</h2>
 
 	<section class="forma center">
 
-		<form:form method="post" action="traitement.php">
+		<form:form method="post" action="${pageContext.request.contextPath}/base/authentication/coordonnees" modelAttribute="CocoBean">
 
-			<label for="nom">Nom:</label>
+			<form:errors path="nom" />
+			<label for="nom">Nom:*</label>
 			<input type="text" name="nom" id="nom" />
 
-			<label for="prenom">Prenom:</label>
+			<form:errors path="prenom" />
+			<label for="prenom">Prénom:*</label>
 			<input type="text" name="prenom"" id="prenom" />
 			
-			<label for="birthday">Date de naissance:</label>
-			<input type="text" name="birthday"" id="birthday" />
+			<form:errors path="dateNaissance" />
+			<label for="dateNaissance">Date de naissance:*</label>
+			<input type="date" name="birthday"" id="birthday" />
 			
-			<label for="adresse">Adresse:</label>
+			<form:errors path="adresse" />
+			<label for="adresse">Adresse:*</label>
 			<input type="text" name="adresse" id="adresse"  />
 			
-			<label for="bp">Code Postale:</label>
-			<input type="text" name="bp" id="bp"  />
+			<form:errors path="codePostale" />
+			<label for=codePostale>Code Postale:*</label>
+			<input type="text" name="bp" id="codePostale"  />
 			
-			<label for="ville">Ville:</label>
+			<form:errors path="ville" />
+			<label for="ville">Ville:*</label>
 			<input type="text" name="ville" id="ville" />
 			
-			<label for="telfixe">Telephone fixe:</label>
+			<form:errors path="telephoneFixe" />
+			<label for="telephoneFixe">Téléphone fixe:</label>
 			<input type="text" name="nom" id="fixe" />
 			
-			<label for="telmob">Téléphone mobile:</label>
+			<form:errors path="telephoneMobile" />
+			<label for="telephoneMobile">Téléphone mobile:*</label>
 			<input type="text" name="nom" id="mob" />
 
-			<label for="email">Email:</label>
+			<form:errors path="email" />
+			<label for="email">Email:*</label>
 			<input type="email" name="email" id="email" />
-
+			
 			<input class="go-form" type="submit" value="Modifier" />
 			
-			<p>{msg}</p>
+			<form:errors path="password" />
+			<label for="passwordActuel">Mot de passe:*</label>
+			<input type="password" name="password" id="passwordActuel" /> 
+			
+			<form:errors path="passwordNew" />
+			<label for="passwordNew">Modification Mot de passe:*</label>
+			<input type="password" name="password" id="passwordNew" /> 
+			
+			<form:errors path="passwordNewConf" />
+			<label for="passwordNewConf">Confirmation Mot de passe:*</label>
+			<input type="password" name="password" id="passwordNewConf" /> 
+			
+			<input class="go-modif" type="submit" value="Modifier" />
+
 		</form:form>
 	</section>
 	
 	<section>
 	<h2>Historique de commande</h2>
+	
 	<form:form method="post" action="HistoriqueDesProduitAchetés">
+	
+	
 
 			
 	

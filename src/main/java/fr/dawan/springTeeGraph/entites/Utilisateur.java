@@ -56,11 +56,14 @@ public class Utilisateur implements Serializable {
 	
 	@Column(nullable = false)
 	private String role;
+	
 	//variable de classe
 	private static int nbrMember;
+	
 	public Utilisateur() {
 		super();
 	}
+	
 	public Utilisateur(long id, int version, String nom, String prenom, Date dateNaissance, String adresse,
 			String codePostale, String ville, String telephoneFixe, String telephoneMobile, String email,
 			String password, String role) {
