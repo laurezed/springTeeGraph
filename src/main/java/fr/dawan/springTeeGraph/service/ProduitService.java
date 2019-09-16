@@ -37,4 +37,13 @@ public class ProduitService {
 			throw e;
 		}
 	}
+	
+	public GenericDao getGenericDao() {
+		return genericDao;
+	}
+
+	public void setGenericDao(GenericDao genericDao) {
+		this.genericDao = genericDao;
+	}
+	
 }

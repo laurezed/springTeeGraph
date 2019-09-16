@@ -2,24 +2,15 @@ package fr.dawan.springTeeGraph.beans;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Version;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.stereotype.Component;
 
-import fr.dawan.springTeeGraph.entites.ProduitFini.Color;
-import fr.dawan.springTeeGraph.entites.ProduitFini.Modele;
-import fr.dawan.springTeeGraph.entites.ProduitFini.Taille;
-
 @Component
 public class ProduitForm implements Serializable {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	private long id;
 
 	private int version;
@@ -29,6 +20,9 @@ public class ProduitForm implements Serializable {
 
 //	@NotNull(message = "Ce champs ne doit pas être vide")
 	private String designation;
+
+//	@NotNull(message = "Ce champs ne doit pas être vide")
+	private String photo;
 
 	@NotNull(message = "Ce champs ne doit pas être vide")
 	private String color;
@@ -109,6 +103,13 @@ public class ProduitForm implements Serializable {
 	public void setPrix(String prix) {
 		this.prix = prix;
 	}
-	
-	
+
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+
 }

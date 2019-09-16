@@ -20,7 +20,6 @@ import org.springframework.stereotype.Repository;
  *
  */
 @Repository
-@Transactional
 public class GenericDao {
 
 	@PersistenceContext // Permet à Spring d'injecter l'entity manager avec les infos de connexion de la
