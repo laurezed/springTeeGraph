@@ -35,7 +35,7 @@
 	 </header>
 	<h1>Espace membre</h1>
 	<h2>Vos coordonnées</h2>
-
+<h3>${msg}</h3>
 	<section class="forma center">
 
 		<form:form method="post" action="${pageContext.request.contextPath}/auth/modify" modelAttribute="CocoBean">
@@ -47,12 +47,12 @@
 			
 			<form:errors path="prenom" />
 			<label for="prenom">Prénom:*</label>
-			<input type="text" value="${userToModify.prenom}" name="prenom"" id="prenom" />
+			<input type="text" value="${userToModify.prenom}" name="prenom" id="prenom" />
 			<br>
 			
 			<form:errors path="dateNaissance" />
 			<label for="dateNaissance">Date de naissance:*</label>
-			<input type="date" value="${userToModify.dateNaissance}" name="birthday"" id="birthday" />
+			<input type="date" value="${userToModify.dateNaissance}" name="birthday" id="birthday" />
 			<br>
 			
 			<form:errors path="adresse" />
@@ -72,12 +72,12 @@
 			
 			<form:errors path="telephoneFixe" />
 			<label for="telephoneFixe">Téléphone fixe:</label>
-			<input type="text" value="${userToModify.telephoneFixe}" name="nom" id="fixe" />
+			<input type="text" value="${userToModify.telephoneFixe}" name="telephoneFixe" id="fixe" />
 			<br>
 			
 			<form:errors path="telephoneMobile" />
 			<label for="telephoneMobile">Téléphone mobile:*</label>
-			<input type="text" value="${userToModify.telephoneMobile}" name="nom" id="mob" />
+			<input type="text" value="${userToModify.telephoneMobile}" name="telephoneMobile" id="mob" />
 			<br>
 			
 			<form:errors path="email" />
@@ -90,20 +90,23 @@
 		</form:form>
 			
 			
-		<form:form method="post" action="${pageContext.request.contextPath}/auth/modify" modelAttribute="CocoBean">
+		<form:form method="post" action="${pageContext.request.contextPath}/auth/password" modelAttribute="passwordForm">
 		
-			<form:errors path="password" />
+			<form:errors path="actualPassword" />
 			<label for="passwordActuel">Mot de passe:*</label>
-			<input type="password" name="password" id="passwordActuel" /> 
+			<input type="password" name="actualPassword" id="actualPassword" /> 
 			<br>
 			
-			<form:errors path="passwordNew" />
-			<label for="passwordNew">Modification Mot de passe:*</label>
-			<input type="password" name="password" id="passwordNew" /> 
+			<form:errors path="newPassword" />
+			<label for="newPassword">Modification Mot de passe:*</label>
+			<input type="password" name="newPassword" id="newPassword" /> 
 			<br>
-			<form:errors path="passwordNewConf" />
-			<label for="passwordNewConf">Confirmation Mot de passe:*</label>
-			<input type="password" name="password" id="passwordNewConf" /> 
+			<form:errors path="newPasswordConf" />
+			<label for="newPasswordConf">Confirmation Mot de passe:*</label>
+			<input type="password" name="newPasswordConf" id="newPasswordConf" /> 
+			<br>
+			<form:errors path="email" />
+			<input type="email" name="email" id="email" readonly value="${userToModify.email}" /> 
 			<br>
 			<input class="go-modif" type="submit" value="Modifier" />
 			<br>

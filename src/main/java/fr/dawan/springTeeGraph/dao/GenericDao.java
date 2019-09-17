@@ -32,7 +32,6 @@ public class GenericDao {
 	 * @param <T>      le type d'objet à gérer
 	 * @param entity   l'objet à insérer ou modifier
 	 * @param id       la clé primaire
-	 * @param em       connexion
 	 * @param closeCnx fermeture de la connexion
 	 * @throws Exception si erreur
 	 */
@@ -95,7 +94,7 @@ public class GenericDao {
 	 * @return
 	 * @throws Exception
 	 */
-	public <T> T findByString(Class<T> entityClass, Object champ, String valeur, boolean closeCnx) throws Exception {
+	public <T> T findByString(Class<T> entityClass, String champ, Object valeur, boolean closeCnx) throws Exception {
 //		EntityTransaction tx = em.getTransaction();
 //
 		T obj = null;

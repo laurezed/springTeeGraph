@@ -48,6 +48,7 @@
 			           
 			         <label for="identify">Identifiez-vous</label>  
 			         <p>${msg}</p>
+			         <p>${msg2}</p>
 		 
 					<form:errors path="email" />
 					<form:input path="email" type="text" name="utilisateur" placeholder="nom d'utilisateur"/>
