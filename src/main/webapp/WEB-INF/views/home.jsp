@@ -8,13 +8,13 @@
 	 <meta charset="UTF-8">
     <title>Tee Graph</title>
     <meta name="description" content="Tee Graph, une semaine, 8 modèles, qui defilent au grès de nos experts graffeurs! Découvrez notre univers!">
-    <link href="resources/css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="screen">
-    <link href="resources/css/styles.css" rel="stylesheet" type="text/css" media="screen">
-    <link href="resources/css/style.css" rel="stylesheet" type="text/css" media="screen">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css" />
-    <base
-    href="<%=request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+    <link href="<c:url value="/resources/css/font-awesome-4.7.0/css/font-awesome.min.css" />" rel="stylesheet">
+    <link href="<c:url value="/resources/css/styles.css" />" rel="stylesheet">
+    <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
+    <link href="<c:url value="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css" />" rel="stylesheet">
+    <link href="<c:url value="https://fonts.googleapis.com/css?family=Roboto:300,400,700" />" rel="stylesheet">
+    
+    <base href="<%=request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
                     + request.getContextPath() + "/"%>" />
    
     <meta content="IE=edge" http-equiv=X-UA-Compatible>
@@ -46,6 +46,9 @@
 			           action="${pageContext.request.contextPath}/auth/member" 
 			           modelAttribute="userBean">
 			           
+			         <label for="identify">Identifiez-vous</label>  
+			         <p>${msg}</p>
+		 
 					<form:errors path="email" />
 					<form:input path="email" type="text" name="utilisateur" placeholder="nom d'utilisateur"/>
 					 <br>

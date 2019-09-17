@@ -38,61 +38,76 @@
 
 	<section class="forma center">
 
-		<form:form method="post" action="${pageContext.request.contextPath}/base/authentication/coordonnees" modelAttribute="CocoBean">
+		<form:form method="post" action="${pageContext.request.contextPath}/auth/modify" modelAttribute="CocoBean">
 
 			<form:errors path="nom" />
 			<label for="nom">Nom:*</label>
-			<input type="text" name="nom" id="nom" />
-
+			<input type="text" value="${userToModify.nom}" name="nom" id="nom" />
+			<br>
+			
 			<form:errors path="prenom" />
 			<label for="prenom">Prénom:*</label>
-			<input type="text" name="prenom"" id="prenom" />
+			<input type="text" value="${userToModify.prenom}" name="prenom"" id="prenom" />
+			<br>
 			
 			<form:errors path="dateNaissance" />
 			<label for="dateNaissance">Date de naissance:*</label>
-			<input type="date" name="birthday"" id="birthday" />
+			<input type="date" value="${userToModify.dateNaissance}" name="birthday"" id="birthday" />
+			<br>
 			
 			<form:errors path="adresse" />
 			<label for="adresse">Adresse:*</label>
-			<input type="text" name="adresse" id="adresse"  />
+			<input type="text" value="${userToModify.adresse}" name="adresse" id="adresse"  />
+			<br>
 			
 			<form:errors path="codePostale" />
 			<label for=codePostale>Code Postale:*</label>
-			<input type="text" name="bp" id="codePostale"  />
+			<input type="text" value="${userToModify.codePostale}" name="bp" id="codePostale"  />
+			<br>
 			
 			<form:errors path="ville" />
 			<label for="ville">Ville:*</label>
-			<input type="text" name="ville" id="ville" />
+			<input type="text" value="${userToModify.ville}" name="ville" id="ville" />
+			<br>
 			
 			<form:errors path="telephoneFixe" />
 			<label for="telephoneFixe">Téléphone fixe:</label>
-			<input type="text" name="nom" id="fixe" />
+			<input type="text" value="${userToModify.telephoneFixe}" name="nom" id="fixe" />
+			<br>
 			
 			<form:errors path="telephoneMobile" />
 			<label for="telephoneMobile">Téléphone mobile:*</label>
-			<input type="text" name="nom" id="mob" />
-
+			<input type="text" value="${userToModify.telephoneMobile}" name="nom" id="mob" />
+			<br>
+			
 			<form:errors path="email" />
 			<label for="email">Email:*</label>
-			<input type="email" name="email" id="email" />
+			<input type="email" readonly value="${userToModify.email}" name="email" id="email" />
+			<br><br>
 			
-			<input class="go-form" type="submit" value="Modifier" />
+			<input  type="submit" value="Modifier" />
+			<br><br>
+		</form:form>
 			
+			
+		<form:form method="post" action="${pageContext.request.contextPath}/auth/modify" modelAttribute="CocoBean">
+		
 			<form:errors path="password" />
 			<label for="passwordActuel">Mot de passe:*</label>
 			<input type="password" name="password" id="passwordActuel" /> 
+			<br>
 			
 			<form:errors path="passwordNew" />
 			<label for="passwordNew">Modification Mot de passe:*</label>
 			<input type="password" name="password" id="passwordNew" /> 
-			
+			<br>
 			<form:errors path="passwordNewConf" />
 			<label for="passwordNewConf">Confirmation Mot de passe:*</label>
 			<input type="password" name="password" id="passwordNewConf" /> 
-			
+			<br>
 			<input class="go-modif" type="submit" value="Modifier" />
-
-		</form:form>
+			<br>
+	</form:form>
 	</section>
 	
 	<section>

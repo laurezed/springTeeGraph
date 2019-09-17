@@ -6,14 +6,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import fr.dawan.springTeeGraph.beans.ConnectForm;
+
 import fr.dawan.springTeeGraph.beans.UserForm;
 
 @Controller
 @RequestMapping("/")
 public class HomeController {
 	
-	@GetMapping("/")
+	@GetMapping("")
 	public String display(Model model)
 	{
 		return "home";
