@@ -13,6 +13,7 @@ import org.springframework.validation.BindingResult;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -29,7 +30,7 @@ public class AuthenticationController {
 	@Autowired
 	private UserService userService;
 
-	@PostMapping("/member")
+	@RequestMapping("/member")
 	public String authentication(@Valid @ModelAttribute("userBean") UserForm userForm, BindingResult br, Model model) {
 		String email = userForm.getEmail();
 		String msg = "";
@@ -38,7 +39,7 @@ public class AuthenticationController {
 		if (email != null && !email.isEmpty()) {
 			try {
 				u = userService.findByString(userForm.getEmail());
-				model.addAttribute("userToModify", u);
+				model.addAttribute("user", u);
 			} catch (Exception e) {
 				e.printStackTrace();
 				msg = "email incorrect";
@@ -53,12 +54,35 @@ public class AuthenticationController {
 
 		if (u != null && u.getPassword() != null && u.getPassword().equals(userForm.getPassword())) {
 
-			return "membre";
+			model.addAttribute("connecte", "connecte");
+//			model.addAttribute("user", u);
+			return "home";
 		} else {
 			msg = "Couple login password incorrect";
 			model.addAttribute("msg", msg);
+			model.addAttribute("connecte", "connecte");
 			return "home";
 		}
+	}
+	@RequestMapping("/member/{id}")
+	public String authentication(@Valid @ModelAttribute("userBean") UserForm userForm,@PathVariable("id") int id, BindingResult br, Model model) {
+//		String email = userForm.getEmail();
+		String msg = "";
+		Utilisateur u = null;
+
+			try {
+				u = userService.findById((long)id);
+				model.addAttribute("user", u);
+				model.addAttribute("userForm", new UserForm());
+				model.addAttribute("user", u);
+				return "membre";
+			} catch (Exception e) {
+				e.printStackTrace();
+				msg = "email incorrect";
+				model.addAttribute("msg", msg);
+				return "home";
+			}
+
 	}
 
 	// modifier
@@ -112,6 +136,7 @@ public class AuthenticationController {
 			model.addAttribute("msg", "Erreur lors la modification");
 
 		}
+		model.addAttribute("connecte", "connecte");
 		return "membre";
 	}
 
@@ -156,6 +181,8 @@ public class AuthenticationController {
 			model.addAttribute("msg", "Erreur lors la modification");
 
 		}
+
+		model.addAttribute("connecte", "connecte");
 		return "membre";
 	}
 
