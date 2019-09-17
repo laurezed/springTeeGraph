@@ -1,6 +1,5 @@
 package fr.dawan.springTeeGraph.controleurs;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -12,12 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import fr.dawan.springTeeGraph.beans.ProduitForm;
 import fr.dawan.springTeeGraph.entites.Modele;
@@ -33,7 +27,7 @@ public class AfficherProduitControleur {
 	@Autowired
 	ProduitService produitService;
 
-
+	@Autowired
 	ModeleService modeleService;
 
 	@GetMapping
@@ -59,7 +53,7 @@ public class AfficherProduitControleur {
 
 //		List<Serigraphie> myList;
 //		model.addAttribute("myList",myList);
-		modeleService = new ModeleService();
+//		modeleService = new ModeleService();
 
 		Serigraphie seri = null;
 		String msg = "";
@@ -67,7 +61,7 @@ public class AfficherProduitControleur {
 		try {
 			System.out.println(s_nom);
 			seri = produitService.findByName(s_nom);
-//			model.addAttribute("serigraphie", seri);
+			model.addAttribute("serigraphie", seri);
 			Serigraphie sg = produitService.findByName(s_nom);
 
 			produitForm = new ProduitForm();
@@ -80,6 +74,7 @@ public class AfficherProduitControleur {
 			e.printStackTrace();
 			msg = "Erreur lors du chargement de la sérigraphie";
 			msg = e.getMessage();
+			System.out.println("AfficherProduitController.popup: " + e.getMessage());
 		}
 		
 		
@@ -101,6 +96,15 @@ public class AfficherProduitControleur {
 		model.addAttribute("msg", msg);
 		model.addAttribute("msg2", msg2);
 
+		List<Serigraphie> myList;
+		try {
+			myList = produitService.findAll();
+			model.addAttribute("myList", myList);
+		} catch (Exception e) {
+			e.printStackTrace();
+			msg = "Erreur lors du chargement des sérigraphies";
+		}
+		
 //		{ "seri" : seri };
 		return "selectProduit";
 	}

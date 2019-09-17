@@ -25,6 +25,7 @@ public class ProduitService {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			System.out.println("ProduitService.findAll: " + e.getMessage());
 			throw e;
 		}
 	}
@@ -34,6 +35,7 @@ public class ProduitService {
 			return genericDao.findByString(Serigraphie.class, "designation", name, true);
 		} catch (Exception e) {
 			e.printStackTrace();
+			System.out.println("ProduitService.findByName: " + e.getMessage());
 			throw e;
 		}
 	}

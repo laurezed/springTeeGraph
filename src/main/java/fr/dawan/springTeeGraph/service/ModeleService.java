@@ -15,31 +15,34 @@ import fr.dawan.springTeeGraph.entites.Serigraphie;
 @Service
 public class ModeleService {
 
+	@Autowired
+	private GenericDao genericDao;
+
 //	@Autowired
-//	private static GenericDao genericDao;
+//	private ModeleDao modeleDao;
 
 	public List<Modele> findAll() throws Exception {
-		Modele modele = new Modele();
-		ModeleDao modeleDao = new ModeleDao();
+//		Modele modele = new Modele();
+//		ModeleDao modeleDao = new ModeleDao();
 		try {
-			List<Modele> modeles = modeleDao.findAll();
+			List<Modele> modeles = genericDao.findAll("Modele", true);
 			System.out.println(modeles);
 			return modeles;
 		} catch (NullPointerException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+//			e.printStackTrace();
+			System.out.println("ModeleService.findAll: " + e.getMessage());
 			throw e;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+//			e.printStackTrace();
+			System.out.println("ModeleService.findAll: " + e.getMessage());
 			throw e;
-		} finally {
-			modeleDao = null;
 		}
 	}
 
 	public Modele findByName(String name) throws Exception {
-		GenericDao genericDao = new GenericDao();
+//		GenericDao genericDao = new GenericDao();
 		try {
 			return genericDao.findByString(Modele.class, "designation", name, true);
 		} catch (Exception e) {

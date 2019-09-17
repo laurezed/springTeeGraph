@@ -146,6 +146,7 @@ public class GenericDao {
 //			tx.commit();
 		} catch (Exception e) {
 //			tx.rollback();
+			System.out.println("GenericDao.findAll: " + e.getMessage());
 			throw e;
 		} finally {
 			if (closeCnx)

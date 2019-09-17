@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
+@SuppressWarnings("serial")
 @Entity
 @Table(name="t_modele")
 public class Modele implements Serializable {
