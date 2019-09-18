@@ -42,10 +42,10 @@ CREATE TABLE IF NOT EXISTS `t_modele` (
 --
 
 INSERT INTO `t_modele` (`id`, `image`, `label`, `version`) VALUES
-(1, 'resources/img/base/base-coupe-femme.png', 'Tee-Shirt Femme', 0),
-(2, 'resources/img/base/base-homme-femme.png', 'Tee-Shirt Homme', 0),
-(3, 'resources/img/base/base-pull.png', 'Pull', 0),
-(4, 'resources/img/base/base-sweat.png', 'Sweat', 0);
+(1, 'resources/images/base/base-coupe-femme.png', 'Tee-Shirt Femme', 0),
+(2, 'resources/images/base/base-homme-femme.png', 'Tee-Shirt Homme', 0),
+(3, 'resources/images/base/base-pull.png', 'Pull', 0),
+(4, 'resources/images/base/base-sweat.png', 'Sweat', 0);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

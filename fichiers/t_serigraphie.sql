@@ -33,14 +33,14 @@ SET time_zone = "+00:00";
 --
 
 INSERT INTO `t_serigraphie` (`id`, `bestSeller`, `designation`, `photo`, `referenceProduit`, `version`, `derniereChance_id`) VALUES
-(1, b'0', 'S_graphiti1', 'resources/img/model/modele-1/graphiti-1.jpg', 'aaaaaa1aaaaa', 0, NULL),
-(2, b'0', 'S_graphiti2', 'resources/img/model/modele-2/graphiti-2.jpg', 'aaaaaa2aaaaaa', 0, NULL),
-(3, b'0', 'S_graphiti3', 'resources/img/model/modele-3/graphiti-3.jpg', 'aaaaaa2aaaaa', 0, NULL),
-(4, b'0', 'S_graphiti4', 'resources/img/model/modele-4/graphiti-4.jpg', 'aaaaaa3aaaa', 0, NULL),
-(5, b'0', 'S_graphiti5', 'resources/img/model/modele-5/graphiti-5.jpg', 'aaaaaa4aaaa', 0, NULL),
-(6, b'0', 'S_graphiti6', 'resources/img/model/modele-5/graphiti-5.jpg', 'aaaaa5aaaa', 0, NULL),
-(7, b'0', 'S_graphiti7', 'resources/img/model/modele-5/graphiti-5.jpg', 'aaaaa6aaaa', 0, NULL),
-(8, b'0', 'S_graphiti8', 'resources/img/model/modele-5/graphiti-5.jpg', 'aaaaaa7aaa', 0, NULL);
+(1, b'0', 'S_graphiti1', 'resources/images/model/modele-1/graphiti-1.jpg', 'aaaaaa1aaaaa', 0, NULL),
+(2, b'0', 'S_graphiti2', 'resources/images/model/modele-2/graphiti-2.jpg', 'aaaaaa2aaaaaa', 0, NULL),
+(3, b'0', 'S_graphiti3', 'resources/images/model/modele-3/graphiti-3.jpg', 'aaaaaa2aaaaa', 0, NULL),
+(4, b'0', 'S_graphiti4', 'resources/images/model/modele-4/graphiti-4.jpg', 'aaaaaa3aaaa', 0, NULL),
+(5, b'0', 'S_graphiti5', 'resources/images/model/modele-5/graphiti-5.jpg', 'aaaaaa4aaaa', 0, NULL),
+(6, b'0', 'S_graphiti6', 'resources/images/model/modele-5/graphiti-5.jpg', 'aaaaa5aaaa', 0, NULL),
+(7, b'0', 'S_graphiti7', 'resources/images/model/modele-5/graphiti-5.jpg', 'aaaaa6aaaa', 0, NULL),
+(8, b'0', 'S_graphiti8', 'resources/images/model/modele-5/graphiti-5.jpg', 'aaaaaa7aaa', 0, NULL);
 
 --
 -- Index pour les tables déchargées

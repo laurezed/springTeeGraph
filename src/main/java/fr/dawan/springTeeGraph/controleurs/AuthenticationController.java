@@ -142,13 +142,10 @@ public class AuthenticationController {
 					&& u.getTelephoneMobile() != connectForm.getTelephoneMobile()) {
 				u.setTelephoneMobile(connectForm.getTelephoneMobile());
 			}
-			if (connectForm.getEmail() != null && u.getEmail() != connectForm.getEmail()) {
-				u.setEmail(connectForm.getEmail());
-			}
 
-			model.addAttribute("userToModify", u);
 
 			userService.update(u);
+			model.addAttribute("userToModify", u);
 			model.addAttribute("msg", "Votre profil a bien été modifié");
 			model.addAttribute("passwordForm", new PasswordForm());
 
@@ -238,6 +235,7 @@ public class AuthenticationController {
 						"utilisateur");
 
 				userService.create(u);
+				model.addAttribute("user", u);
 				// bravo nouveau client chargé en BDD!!!!!
 				msg = "Félicitation et bienvenue parmi nos membres actifs!";
 
@@ -252,6 +250,7 @@ public class AuthenticationController {
 		}
 
 		model.addAttribute("msg", msg);
+		model.addAttribute("connecte", "connecte");
 		logger.info("FIN - Load: " + connectForm.toString() );
 		return "home";
 

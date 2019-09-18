@@ -80,7 +80,7 @@ public class ConnectForm implements Serializable {
 	}
 
 	public String getCodePostale() {
-		return codePostale;
+		return this.codePostale;
 	}
 
 	public void setCodePostale(String codePostale) {
