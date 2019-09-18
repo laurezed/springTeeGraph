@@ -64,24 +64,36 @@ public class AuthenticationController {
 			return "home";
 		}
 	}
+
 	@RequestMapping("/member/{id}")
-	public String authentication(@Valid @ModelAttribute("userBean") UserForm userForm,@PathVariable("id") int id, BindingResult br, Model model) {
+	public String afficheProfil(@ModelAttribute("cocoBean") ConnectForm connectForm, @PathVariable("id") String id,
+			BindingResult br, Model model) {
 //		String email = userForm.getEmail();
 		String msg = "";
 		Utilisateur u = null;
 
-			try {
-				u = userService.findById((long)id);
-				model.addAttribute("user", u);
-				model.addAttribute("userForm", new UserForm());
-				model.addAttribute("user", u);
-				return "membre";
-			} catch (Exception e) {
-				e.printStackTrace();
-				msg = "email incorrect";
-				model.addAttribute("msg", msg);
-				return "home";
-			}
+		try {
+			u = userService.findById(Long.parseLong(id));
+			model.addAttribute("userToModify", u);
+
+			connectForm.setNom(u.getNom());
+			connectForm.setPrenom(u.getPrenom());
+			connectForm.setAdresse(u.getAdresse());
+			connectForm.setCodePostale(u.getCodePostale());
+			connectForm.setVille(u.getVille());
+			connectForm.setTelephoneFixe(u.getTelephoneFixe());
+			connectForm.setTelephoneMobile(u.getTelephoneMobile());
+			connectForm.setEmail(u.getEmail());
+//			connectForm.setDateNaissance(Date.valueOf(u.getDateNaissance().toString()).toString());
+
+			model.addAttribute("userForm", new ConnectForm());
+			return "membre";
+		} catch (Exception e) {
+			e.printStackTrace();
+			msg = "email incorrect";
+			model.addAttribute("msg", msg);
+			return "home";
+		}
 
 	}
 
@@ -197,7 +209,7 @@ public class AuthenticationController {
 	@PostMapping("/load")
 	public String load(@Valid @ModelAttribute("cocoBean") ConnectForm connectForm, BindingResult br, Model model) {
 		String msg = "";
-		if (connectForm.getEmail() == connectForm.getEmail2()) {
+		if (connectForm.getEmail().equals(connectForm.getEmail2())) {
 			try {
 				Utilisateur u = new Utilisateur(0, 0, connectForm.getNom(), connectForm.getPrenom(),
 						Date.valueOf(connectForm.getDateNaissance()), connectForm.getAdresse(),
@@ -228,6 +240,11 @@ public class AuthenticationController {
 	@ModelAttribute("userBean")
 	public UserForm getUserForm() {
 		return new UserForm();
+	}
+
+	@ModelAttribute("connectBean")
+	public ConnectForm getConnectForm() {
+		return new ConnectForm();
 	}
 
 	@ModelAttribute("passwordBean")

@@ -106,7 +106,7 @@
 			<input type="password" name="newPasswordConf" id="newPasswordConf" /> 
 			<br>
 			<form:errors path="email" />
-			<input type="email" name="email" id="email" readonly value="${userToModify.email}" /> 
+			<input type="email" name="email" id="email" hidden readonly value="${userToModify.email}" /> 
 			<br>
 			<input class="go-modif" type="submit" value="Modifier" />
 			<br>
