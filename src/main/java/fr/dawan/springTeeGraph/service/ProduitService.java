@@ -35,20 +35,23 @@ public class ProduitService {
 			return genericDao.findByString(Serigraphie.class, "designation", name, true);
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw e;
-		}
-	}
-
-	public Serigraphie findByName(String name) throws Exception {
-		try {
-			return genericDao.findByString(Serigraphie.class, "designation", name, true);
-		} catch (Exception e) {
-			e.printStackTrace();
 			System.out.println("ProduitService.findByName: " + e.getMessage());
 			throw e;
 		}
 	}
 	
+	@Transactional
+	public <LigneCommande> LigneCommande create(LigneCommande ligneCommande, long id, boolean closeCnx) throws Exception{
+		try {
+			genericDao.saveOrUpdate(ligneCommande, 1, true);
+			return ligneCommande;
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		}
+		
+	}
+
 	public GenericDao getGenericDao() {
 		return genericDao;
 	}

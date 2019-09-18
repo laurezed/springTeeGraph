@@ -1,6 +1,5 @@
 package fr.dawan.springTeeGraph.entites;
 
-import java.io.File;
 import java.io.Serializable;
 import java.util.List;
 
