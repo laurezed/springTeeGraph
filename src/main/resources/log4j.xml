@@ -10,8 +10,8 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="springTeeGraph">
-		<level value="debug" />
+	<logger name="fr.dawan.springTeeGraph">
+		<level value="info" />
 	</logger>
 	
 	<!-- 3rdparty Loggers -->
@@ -73,7 +73,7 @@
 	<logger name="org.hibernate.secure">
 		<level value="info" />
 	</logger>
-	<!-- Log everything (a lot of debugrmation, but very useful for troubleshooting) -->
+	<!-- Log everything (a lot of debugInformation, but very useful for troubleshooting) -->
 	<logger name="org.hibernate">
 		<level value="info" />
 	</logger>

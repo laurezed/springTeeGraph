@@ -38,6 +38,11 @@ public class UserForm implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	@Override
+	public String toString() {
+		return "UserForm [email=" + email + ", password=" + password + "]";
+	}
 	
 	
 	
