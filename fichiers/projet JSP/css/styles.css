@@ -592,9 +592,24 @@ section.formulaire-membre section.forma,
 section.formulaire-non-membre section.forma {
   padding: 0 40px;
   width: 50%;
-  margin: 0;
+  margin: 0 auto;
+  text-align: center;
   display: inline-block;
   margin-bottom: 50px;
+}
+section.formulaire-membre section.forma button,
+section.formulaire-non-membre section.forma button {
+  background-color: #3a2a32;
+  color: #f3f3f3;
+  font-size: 16px;
+  border-radius: 5px;
+  margin: 3px auto 10px auto;
+  padding: 8px 100px;
+  border: none;
+}
+section.formulaire-membre section.forma button:hover,
+section.formulaire-non-membre section.forma button:hover {
+  background-color: #dd772d;
 }
 section.formulaire-membre section.forma label,
 section.formulaire-non-membre section.forma label {
@@ -630,7 +645,7 @@ section.formulaire-non-membre section.forma div.droit {
   width: 50%;
   display: inline-block;
   float: left;
-  margin: 0;
+  margin: 0 auto;
 }
 section.formulaire-membre section.forma div.gauche label,
 section.formulaire-non-membre section.forma div.gauche label,
@@ -653,15 +668,38 @@ section.formulaire-non-membre section.forma div.centre {
 }
 section.formulaire-membre section.forma div.centre label#email,
 section.formulaire-non-membre section.forma div.centre label#email {
-  width: 90%;
-  display: block;
-  text-align: left;
+  width: 80%;
 }
 section.formulaire-membre section.forma div.centre input[type="email"],
 section.formulaire-non-membre section.forma div.centre input[type="email"] {
-  width: 50%;
+  width: 80%;
   display: block;
-  margin: 0px;
+  margin: 0px auto;
+  background-color: rgba(128, 128, 128, 0.13);
+  border: solid 1px rgba(128, 128, 128, 0.3);
+  margin-bottom: 10px;
+}
+section.formulaire-membre section.forma div.password,
+section.formulaire-non-membre section.forma div.password {
+  margin: 0 auto;
+  width: 80%;
+  border: solid 5px #3a2a32;
+  padding: 40px;
+}
+section.formulaire-membre section.forma div.password input,
+section.formulaire-non-membre section.forma div.password input {
+  width: 100%;
+}
+section.formulaire-membre section.forma div.password button,
+section.formulaire-non-membre section.forma div.password button {
+  width: calc(50% - 4px);
+  float: left;
+  margin: 2px;
+}
+section.formulaire-membre section.forma div.password input[type="submit"],
+section.formulaire-non-membre section.forma div.password input[type="submit"] {
+  width: calc(50% - 4px);
+  margin: 2px;
 }
 section.formulaire-membre section.nm,
 section.formulaire-non-membre section.nm {
@@ -686,6 +724,15 @@ section.formulaire-non-membre section.historique table th {
   background-color: #226b71;
   color: #f3f3f3;
 }
+section.formulaire-membre section.historique table th.graph,
+section.formulaire-non-membre section.historique table th.graph {
+  width: 200px;
+}
+section.formulaire-membre section.historique table th.input,
+section.formulaire-non-membre section.historique table th.input {
+  width: 50px;
+  padding: 3px;
+}
 section.formulaire-membre section.historique table th i,
 section.formulaire-non-membre section.historique table th i {
   font-size: 30px;
@@ -696,11 +743,21 @@ section.formulaire-non-membre section.historique table td {
   border-bottom: solid 1px grey;
   padding: 5px;
   text-align: center;
+  border-right: dashed 1px grey;
 }
 section.formulaire-membre section.historique table td a,
 section.formulaire-non-membre section.historique table td a {
   text-decoration: none;
   color: #dd772d;
+}
+section.formulaire-membre section.historique table td a:hover,
+section.formulaire-non-membre section.historique table td a:hover {
+  color: #3a2a32;
+}
+section.formulaire-membre section.historique table td img,
+section.formulaire-non-membre section.historique table td img {
+  width: 30%;
+  margin: 0 auto;
 }
 section.formulaire-membre section.historique div.boutons,
 section.formulaire-non-membre section.historique div.boutons {
