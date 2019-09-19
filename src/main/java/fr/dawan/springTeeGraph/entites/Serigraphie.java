@@ -128,6 +128,62 @@ public class Serigraphie implements Serializable {
 		return serialVersionUID;
 	}
 
+	public String getModeleTHomme() {
+		return modeleTHomme;
+	}
+
+	public void setModeleTHomme(String modeleTHomme) {
+		this.modeleTHomme = modeleTHomme;
+	}
+
+	public String getModeleTFemme() {
+		return modeleTFemme;
+	}
+
+	public void setModeleTFemme(String modeleTFemme) {
+		this.modeleTFemme = modeleTFemme;
+	}
+
+	public String getModelePull() {
+		return modelePull;
+	}
+
+	public void setModelePull(String modelePull) {
+		this.modelePull = modelePull;
+	}
+
+	public String getModeleSweat() {
+		return modeleSweat;
+	}
+
+	public void setModeleSweat(String modeleSweat) {
+		this.modeleSweat = modeleSweat;
+	}
+
+	public DerniereChance getDerniereChance() {
+		return derniereChance;
+	}
+
+	public void setDerniereChance(DerniereChance derniereChance) {
+		this.derniereChance = derniereChance;
+	}
+
+	public List<ProduitFini> getProduitFini() {
+		return produitFini;
+	}
+
+	public void setProduitFini(List<ProduitFini> produitFini) {
+		this.produitFini = produitFini;
+	}
+
+	public static int getCounter() {
+		return counter;
+	}
+
+	public static void setCounter(int counter) {
+		Serigraphie.counter = counter;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

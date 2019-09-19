@@ -50,6 +50,7 @@ body {
   background-size: cover;
   display: block;
   font-family: 'Roboto', sans-serif;
+  background-color: white;
 }
 img,
 object,
@@ -229,7 +230,7 @@ header div.droit div.connection input[type="submit"] {
   font-weight: 700;
   width: 200px;
 }
-header div.droit div.connection a {
+header div.droit div.connection input[type="submit"] a {
   text-decoration: none;
   color: #226b71;
   font-size: 12px;
@@ -237,13 +238,23 @@ header div.droit div.connection a {
   margin: 0 auto;
   text-align: center;
 }
-header section.introduction {
+header div.droit div.connection div.langue {
+  width: 100%;
+}
+header div.droit div.connection div.langue a {
+  display: inline-block;
+  width: 15%;
+}
+header div.droit div.connection div.langue a#anglais {
+  width: 14%;
+}
+section.introduction {
   display: inline-block;
   width: 60%;
   padding: 100px 50px 80px 50px;
   text-transform: capitalize;
 }
-header section.introduction h1 {
+section.introduction h1 {
   color: #226b71;
   font-size: 50px;
   font-weight: 700;
@@ -251,7 +262,7 @@ header section.introduction h1 {
   animation-name: texte;
   animation-duration: 2s;
 }
-header section.introduction p {
+section.introduction p {
   width: 80%;
   font-size: 20px;
   color: rgba(34, 107, 113, 0.7);
@@ -362,6 +373,7 @@ section.color {
   height: 120px;
   width: 100%;
 }
+/* -- FOOTER -- */
 footer {
   background-color: #3a2a32;
   padding: 50px;
@@ -492,6 +504,307 @@ header#accueil section.introduction h1 {
 header#accueil section.introduction p {
   color: rgba(221, 119, 45, 0.7);
 }
+header#member {
+  background-image: url(../images/);
+  margin-bottom: 0;
+}
+header#member div.droit {
+  float: right;
+  width: 50%;
+  margin: 0;
+  padding: 0;
+  background-color: rgba(201, 196, 194, 0.4);
+  height: 200px;
+  padding-top: 30px;
+}
+header#member div.droit a {
+  color: #226b71;
+}
+header#member div.droit a:hover {
+  color: #3a2a32;
+}
+header#member div.droit div.membre {
+  display: inline-block;
+  width: 35%;
+  float: right;
+}
+header#member div.droit div.membre h1 {
+  color: #226b71;
+  font-size: 20px;
+  border-bottom: solid 2px #226b71;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+header#member div.droit div.membre h1 p {
+  font-size: 16px;
+}
+section.formulaire-membre,
+section.formulaire-non-membre {
+  width: 100%;
+  margin: 0 auto;
+}
+section.formulaire-membre h2,
+section.formulaire-non-membre h2 {
+  font-size: 30px;
+  background-color: #226b71;
+  -webkit-box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.75);
+  text-align: center;
+}
+section.formulaire-membre div.explications,
+section.formulaire-non-membre div.explications {
+  margin: 50px auto;
+}
+section.formulaire-membre div.explications p,
+section.formulaire-non-membre div.explications p {
+  color: #226b71;
+  text-align: center;
+}
+section.formulaire-membre section.imagerie,
+section.formulaire-non-membre section.imagerie {
+  width: 50%;
+  margin: 0 auto;
+  float: left;
+  height: 500px;
+  display: inline-block;
+}
+section.formulaire-membre section.imagerie img,
+section.formulaire-non-membre section.imagerie img {
+  border-radius: 20px;
+  width: 80%;
+  margin: 50px auto;
+}
+section.formulaire-membre section.imagerie#nm,
+section.formulaire-non-membre section.imagerie#nm {
+  float: right;
+  width: 30%;
+}
+section.formulaire-membre section.imagerie#nm img#connect,
+section.formulaire-non-membre section.imagerie#nm img#connect {
+  width: 100%;
+  margin: 0;
+  position: relative;
+  left: -50px;
+  top: -50px;
+}
+section.formulaire-membre section.forma,
+section.formulaire-non-membre section.forma {
+  padding: 0 40px;
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  display: inline-block;
+  margin-bottom: 50px;
+}
+section.formulaire-membre section.forma button,
+section.formulaire-non-membre section.forma button {
+  background-color: #3a2a32;
+  color: #f3f3f3;
+  font-size: 16px;
+  border-radius: 5px;
+  margin: 3px auto 10px auto;
+  padding: 8px 100px;
+  border: none;
+}
+section.formulaire-membre section.forma button:hover,
+section.formulaire-non-membre section.forma button:hover {
+  background-color: #dd772d;
+}
+section.formulaire-membre section.forma label,
+section.formulaire-non-membre section.forma label {
+  color: #226b71;
+  font-size: 14px;
+  display: inline-block;
+  text-align: left;
+}
+section.formulaire-membre section.forma input,
+section.formulaire-non-membre section.forma input {
+  width: 50%;
+  margin: 3px auto 10px auto;
+  padding: 8px;
+}
+section.formulaire-membre section.forma input[type="submit"],
+section.formulaire-non-membre section.forma input[type="submit"] {
+  font-size: 16px;
+  background-color: #dd772d;
+  border: none;
+  border-radius: 5px;
+  display: inline-block;
+  width: 200px;
+}
+section.formulaire-membre section.forma input[type="submit"]:hover,
+section.formulaire-non-membre section.forma input[type="submit"]:hover {
+  background-color: #3a2a32;
+  color: #f3f3f3;
+}
+section.formulaire-membre section.forma div.gauche,
+section.formulaire-non-membre section.forma div.gauche,
+section.formulaire-membre section.forma div.droit,
+section.formulaire-non-membre section.forma div.droit {
+  width: 50%;
+  display: inline-block;
+  float: left;
+  margin: 0 auto;
+}
+section.formulaire-membre section.forma div.gauche label,
+section.formulaire-non-membre section.forma div.gauche label,
+section.formulaire-membre section.forma div.droit label,
+section.formulaire-non-membre section.forma div.droit label {
+  display: inline-block;
+  width: 90%;
+}
+section.formulaire-membre section.forma div.gauche input,
+section.formulaire-non-membre section.forma div.gauche input,
+section.formulaire-membre section.forma div.droit input,
+section.formulaire-non-membre section.forma div.droit input {
+  display: inline-block;
+  width: 90%;
+  margin: 3px auto 10px auto;
+}
+section.formulaire-membre section.forma div.centre,
+section.formulaire-non-membre section.forma div.centre {
+  width: 100%;
+}
+section.formulaire-membre section.forma div.centre label#email,
+section.formulaire-non-membre section.forma div.centre label#email {
+  width: 80%;
+}
+section.formulaire-membre section.forma div.centre input[type="email"],
+section.formulaire-non-membre section.forma div.centre input[type="email"] {
+  width: 80%;
+  display: block;
+  margin: 0px auto;
+  background-color: rgba(128, 128, 128, 0.13);
+  border: solid 1px rgba(128, 128, 128, 0.3);
+  margin-bottom: 10px;
+}
+section.formulaire-membre section.forma div.password,
+section.formulaire-non-membre section.forma div.password {
+  margin: 0 auto;
+  width: 80%;
+  border: solid 5px #3a2a32;
+  padding: 40px;
+}
+section.formulaire-membre section.forma div.password input,
+section.formulaire-non-membre section.forma div.password input {
+  width: 100%;
+}
+section.formulaire-membre section.forma div.password button,
+section.formulaire-non-membre section.forma div.password button {
+  width: calc(50% - 4px);
+  float: left;
+  margin: 2px;
+}
+section.formulaire-membre section.forma div.password input[type="submit"],
+section.formulaire-non-membre section.forma div.password input[type="submit"] {
+  width: calc(50% - 4px);
+  margin: 2px;
+}
+section.formulaire-membre section.nm,
+section.formulaire-non-membre section.nm {
+  width: 70%;
+}
+section.formulaire-membre section.historique,
+section.formulaire-non-membre section.historique {
+  margin-top: 50px;
+}
+section.formulaire-membre section.historique table,
+section.formulaire-non-membre section.historique table {
+  width: 60%;
+  margin: 0 auto;
+  border: solid 4px #3a2a32;
+  margin-bottom: 50px;
+}
+section.formulaire-membre section.historique table th,
+section.formulaire-non-membre section.historique table th {
+  border: solid 2px grey;
+  padding: 10px;
+  text-align: center;
+  background-color: #226b71;
+  color: #f3f3f3;
+}
+section.formulaire-membre section.historique table th.graph,
+section.formulaire-non-membre section.historique table th.graph {
+  width: 200px;
+}
+section.formulaire-membre section.historique table th.input,
+section.formulaire-non-membre section.historique table th.input {
+  width: 50px;
+  padding: 3px;
+}
+section.formulaire-membre section.historique table th i,
+section.formulaire-non-membre section.historique table th i {
+  font-size: 30px;
+  margin: 0;
+}
+section.formulaire-membre section.historique table td,
+section.formulaire-non-membre section.historique table td {
+  border-bottom: solid 1px grey;
+  padding: 5px;
+  text-align: center;
+  border-right: dashed 1px grey;
+}
+section.formulaire-membre section.historique table td a,
+section.formulaire-non-membre section.historique table td a {
+  text-decoration: none;
+  color: #dd772d;
+}
+section.formulaire-membre section.historique table td a:hover,
+section.formulaire-non-membre section.historique table td a:hover {
+  color: #3a2a32;
+}
+section.formulaire-membre section.historique table td img,
+section.formulaire-non-membre section.historique table td img {
+  width: 30%;
+  margin: 0 auto;
+}
+section.formulaire-membre section.historique div.boutons,
+section.formulaire-non-membre section.historique div.boutons {
+  text-align: center;
+  margin-bottom: 100px;
+}
+section.formulaire-membre section.historique div.boutons a,
+section.formulaire-non-membre section.historique div.boutons a {
+  text-align-last: center;
+  text-decoration: none;
+  color: #3a2a32;
+  background-color: #226b71;
+  padding: 10px 50px;
+  margin: 0 20px;
+  border-radius: 5px;
+  font-size: 14px;
+  width: 200px;
+  color: #f3f3f3;
+}
+section.formulaire-membre section.historique div.boutons a:hover,
+section.formulaire-non-membre section.historique div.boutons a:hover {
+  background-color: #3a2a32;
+}
+section.formulaire-membre .StripeElement,
+section.formulaire-non-membre .StripeElement {
+  box-sizing: border-box;
+  height: 40px;
+  padding: 10px 12px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background-color: white;
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+}
+section.formulaire-membre .StripeElement--focus,
+section.formulaire-non-membre .StripeElement--focus {
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
+section.formulaire-membre .StripeElement--invalid,
+section.formulaire-non-membre .StripeElement--invalid {
+  border-color: #fa755a;
+}
+section.formulaire-membre .StripeElement--webkit-autofill,
+section.formulaire-non-membre .StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
+}
 section.modele {
   width: 100%;
   padding: 50px;
@@ -533,4 +846,651 @@ section.modele #slideshow2 > div {
   left: 10px;
   right: 10px;
   bottom: 10px;
+}
+/* -- PRODUITS -- */
+section.prod1,
+section.prod2,
+section.prod3,
+section.prod4,
+section.prod5,
+section.prod6,
+section.prod7,
+section.prod8 {
+  height: 100vh;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+section.prod1 .fade,
+section.prod2 .fade,
+section.prod3 .fade,
+section.prod4 .fade,
+section.prod5 .fade,
+section.prod6 .fade,
+section.prod7 .fade,
+section.prod8 .fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+@-webkit-keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+section.prod1 .prev,
+section.prod2 .prev,
+section.prod3 .prev,
+section.prod4 .prev,
+section.prod5 .prev,
+section.prod6 .prev,
+section.prod7 .prev,
+section.prod8 .prev,
+section.prod1 .next,
+section.prod2 .next,
+section.prod3 .next,
+section.prod4 .next,
+section.prod5 .next,
+section.prod6 .next,
+section.prod7 .next,
+section.prod8 .next {
+  position: absolute;
+  cursor: pointer;
+  top: 40%;
+  padding: 20px;
+  color: #3a2a32;
+  font-weight: bold;
+  font-size: 60px;
+  transition: 0.6s ease;
+  user-select: none;
+  box-shadow: 0px 10px 23px 0px rgba(0, 0, 0, 0.75);
+}
+section.prod1 .prev,
+section.prod2 .prev,
+section.prod3 .prev,
+section.prod4 .prev,
+section.prod5 .prev,
+section.prod6 .prev,
+section.prod7 .prev,
+section.prod8 .prev {
+  left: 200px;
+  border-radius: 5px 0px 0px 5px;
+}
+section.prod1 .next,
+section.prod2 .next,
+section.prod3 .next,
+section.prod4 .next,
+section.prod5 .next,
+section.prod6 .next,
+section.prod7 .next,
+section.prod8 .next {
+  right: 200px;
+  border-radius: 0px 5px 5px 0px;
+}
+section.prod1 .prev:hover,
+section.prod2 .prev:hover,
+section.prod3 .prev:hover,
+section.prod4 .prev:hover,
+section.prod5 .prev:hover,
+section.prod6 .prev:hover,
+section.prod7 .prev:hover,
+section.prod8 .prev:hover,
+section.prod1 .next:hover,
+section.prod2 .next:hover,
+section.prod3 .next:hover,
+section.prod4 .next:hover,
+section.prod5 .next:hover,
+section.prod6 .next:hover,
+section.prod7 .next:hover,
+section.prod8 .next:hover {
+  background-color: #dd772d;
+  color: #3a2a32;
+}
+section.prod1 div.prod,
+section.prod2 div.prod,
+section.prod3 div.prod,
+section.prod4 div.prod,
+section.prod5 div.prod,
+section.prod6 div.prod,
+section.prod7 div.prod,
+section.prod8 div.prod {
+  box-shadow: 0px 10px 20px 0px black;
+  background-color: #f3f3f3;
+  border-radius: 50px;
+  height: 90vh;
+  width: 65%;
+  margin: 5vh auto;
+  position: relative;
+}
+section.prod1 div.prod div.left,
+section.prod2 div.prod div.left,
+section.prod3 div.prod div.left,
+section.prod4 div.prod div.left,
+section.prod5 div.prod div.left,
+section.prod6 div.prod div.left,
+section.prod7 div.prod div.left,
+section.prod8 div.prod div.left {
+  width: 20%;
+  background-color: #226b71;
+  height: 90vh;
+  border-radius: 40px 0 0 40px;
+  display: inline-block;
+  float: left;
+  text-align: center;
+  padding-top: 30px;
+}
+section.prod1 div.prod div.left img.logo,
+section.prod2 div.prod div.left img.logo,
+section.prod3 div.prod div.left img.logo,
+section.prod4 div.prod div.left img.logo,
+section.prod5 div.prod div.left img.logo,
+section.prod6 div.prod div.left img.logo,
+section.prod7 div.prod div.left img.logo,
+section.prod8 div.prod div.left img.logo {
+  margin: 0 auto;
+  width: 80%;
+  display: block;
+}
+section.prod1 div.prod div.left div.connection,
+section.prod2 div.prod div.left div.connection,
+section.prod3 div.prod div.left div.connection,
+section.prod4 div.prod div.left div.connection,
+section.prod5 div.prod div.left div.connection,
+section.prod6 div.prod div.left div.connection,
+section.prod7 div.prod div.left div.connection,
+section.prod8 div.prod div.left div.connection {
+  display: block;
+  width: 200px;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 20px;
+}
+section.prod1 div.prod div.left div.connection label,
+section.prod2 div.prod div.left div.connection label,
+section.prod3 div.prod div.left div.connection label,
+section.prod4 div.prod div.left div.connection label,
+section.prod5 div.prod div.left div.connection label,
+section.prod6 div.prod div.left div.connection label,
+section.prod7 div.prod div.left div.connection label,
+section.prod8 div.prod div.left div.connection label {
+  color: #f3f3f3;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 14px;
+}
+section.prod1 div.prod div.left div.connection input,
+section.prod2 div.prod div.left div.connection input,
+section.prod3 div.prod div.left div.connection input,
+section.prod4 div.prod div.left div.connection input,
+section.prod5 div.prod div.left div.connection input,
+section.prod6 div.prod div.left div.connection input,
+section.prod7 div.prod div.left div.connection input,
+section.prod8 div.prod div.left div.connection input {
+  margin: 2px;
+  padding: 3px;
+  width: auto;
+}
+section.prod1 div.prod div.left div.connection input[type="submit"],
+section.prod2 div.prod div.left div.connection input[type="submit"],
+section.prod3 div.prod div.left div.connection input[type="submit"],
+section.prod4 div.prod div.left div.connection input[type="submit"],
+section.prod5 div.prod div.left div.connection input[type="submit"],
+section.prod6 div.prod div.left div.connection input[type="submit"],
+section.prod7 div.prod div.left div.connection input[type="submit"],
+section.prod8 div.prod div.left div.connection input[type="submit"] {
+  padding: 3px 20px;
+  background-color: rgba(201, 102, 18, 0.7);
+  border: none;
+  color: white;
+  font-weight: 700;
+  width: auto;
+  text-align: center;
+}
+section.prod1 div.prod div.left div.connection a,
+section.prod2 div.prod div.left div.connection a,
+section.prod3 div.prod div.left div.connection a,
+section.prod4 div.prod div.left div.connection a,
+section.prod5 div.prod div.left div.connection a,
+section.prod6 div.prod div.left div.connection a,
+section.prod7 div.prod div.left div.connection a,
+section.prod8 div.prod div.left div.connection a {
+  text-decoration: none;
+  color: #f3f3f3;
+  font-size: 12px;
+}
+section.prod1 div.prod div.left div.sociaux,
+section.prod2 div.prod div.left div.sociaux,
+section.prod3 div.prod div.left div.sociaux,
+section.prod4 div.prod div.left div.sociaux,
+section.prod5 div.prod div.left div.sociaux,
+section.prod6 div.prod div.left div.sociaux,
+section.prod7 div.prod div.left div.sociaux,
+section.prod8 div.prod div.left div.sociaux {
+  margin: 50px auto;
+  width: 100%;
+  display: block;
+  text-align: center;
+}
+section.prod1 div.prod div.left div.sociaux ul,
+section.prod2 div.prod div.left div.sociaux ul,
+section.prod3 div.prod div.left div.sociaux ul,
+section.prod4 div.prod div.left div.sociaux ul,
+section.prod5 div.prod div.left div.sociaux ul,
+section.prod6 div.prod div.left div.sociaux ul,
+section.prod7 div.prod div.left div.sociaux ul,
+section.prod8 div.prod div.left div.sociaux ul {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+}
+section.prod1 div.prod div.left div.sociaux ul li,
+section.prod2 div.prod div.left div.sociaux ul li,
+section.prod3 div.prod div.left div.sociaux ul li,
+section.prod4 div.prod div.left div.sociaux ul li,
+section.prod5 div.prod div.left div.sociaux ul li,
+section.prod6 div.prod div.left div.sociaux ul li,
+section.prod7 div.prod div.left div.sociaux ul li,
+section.prod8 div.prod div.left div.sociaux ul li {
+  width: 100%;
+  text-decoration: none;
+  list-style-type: none;
+  display: inline-block;
+}
+section.prod1 div.prod div.left div.sociaux ul li a.btn-sociaux,
+section.prod2 div.prod div.left div.sociaux ul li a.btn-sociaux,
+section.prod3 div.prod div.left div.sociaux ul li a.btn-sociaux,
+section.prod4 div.prod div.left div.sociaux ul li a.btn-sociaux,
+section.prod5 div.prod div.left div.sociaux ul li a.btn-sociaux,
+section.prod6 div.prod div.left div.sociaux ul li a.btn-sociaux,
+section.prod7 div.prod div.left div.sociaux ul li a.btn-sociaux,
+section.prod8 div.prod div.left div.sociaux ul li a.btn-sociaux {
+  width: 100%;
+  display: block;
+}
+section.prod1 div.prod div.left div.sociaux ul li a.btn-sociaux i.fa,
+section.prod2 div.prod div.left div.sociaux ul li a.btn-sociaux i.fa,
+section.prod3 div.prod div.left div.sociaux ul li a.btn-sociaux i.fa,
+section.prod4 div.prod div.left div.sociaux ul li a.btn-sociaux i.fa,
+section.prod5 div.prod div.left div.sociaux ul li a.btn-sociaux i.fa,
+section.prod6 div.prod div.left div.sociaux ul li a.btn-sociaux i.fa,
+section.prod7 div.prod div.left div.sociaux ul li a.btn-sociaux i.fa,
+section.prod8 div.prod div.left div.sociaux ul li a.btn-sociaux i.fa {
+  color: #dd772d;
+  font-size: 50px;
+  margin: 10px;
+}
+section.prod1 div.prod div.left div.sociaux ul li a.btn-sociaux i.fa:hover,
+section.prod2 div.prod div.left div.sociaux ul li a.btn-sociaux i.fa:hover,
+section.prod3 div.prod div.left div.sociaux ul li a.btn-sociaux i.fa:hover,
+section.prod4 div.prod div.left div.sociaux ul li a.btn-sociaux i.fa:hover,
+section.prod5 div.prod div.left div.sociaux ul li a.btn-sociaux i.fa:hover,
+section.prod6 div.prod div.left div.sociaux ul li a.btn-sociaux i.fa:hover,
+section.prod7 div.prod div.left div.sociaux ul li a.btn-sociaux i.fa:hover,
+section.prod8 div.prod div.left div.sociaux ul li a.btn-sociaux i.fa:hover {
+  color: #f3f3f3;
+}
+section.prod1 div.prod div.detail,
+section.prod2 div.prod div.detail,
+section.prod3 div.prod div.detail,
+section.prod4 div.prod div.detail,
+section.prod5 div.prod div.detail,
+section.prod6 div.prod div.detail,
+section.prod7 div.prod div.detail,
+section.prod8 div.prod div.detail {
+  float: right;
+  width: 80%;
+  height: 90vh;
+  padding: 20px;
+  border-radius: 0 40px 40px 0;
+  display: inline-block;
+  /* Fading animation */
+}
+section.prod1 div.prod div.detail a#croix,
+section.prod2 div.prod div.detail a#croix,
+section.prod3 div.prod div.detail a#croix,
+section.prod4 div.prod div.detail a#croix,
+section.prod5 div.prod div.detail a#croix,
+section.prod6 div.prod div.detail a#croix,
+section.prod7 div.prod div.detail a#croix,
+section.prod8 div.prod div.detail a#croix {
+  display: block;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  color: #3a2a32;
+  float: right;
+}
+section.prod1 div.prod div.detail a#croix i,
+section.prod2 div.prod div.detail a#croix i,
+section.prod3 div.prod div.detail a#croix i,
+section.prod4 div.prod div.detail a#croix i,
+section.prod5 div.prod div.detail a#croix i,
+section.prod6 div.prod div.detail a#croix i,
+section.prod7 div.prod div.detail a#croix i,
+section.prod8 div.prod div.detail a#croix i {
+  font-size: 50px;
+}
+section.prod1 div.prod div.detail div.gauche,
+section.prod2 div.prod div.detail div.gauche,
+section.prod3 div.prod div.detail div.gauche,
+section.prod4 div.prod div.detail div.gauche,
+section.prod5 div.prod div.detail div.gauche,
+section.prod6 div.prod div.detail div.gauche,
+section.prod7 div.prod div.detail div.gauche,
+section.prod8 div.prod div.detail div.gauche {
+  width: 50%;
+  text-align: center;
+  margin-top: 200px;
+  float: left;
+  display: inline-block;
+  position: relative;
+}
+section.prod1 div.prod div.detail div.gauche .mySlides,
+section.prod2 div.prod div.detail div.gauche .mySlides,
+section.prod3 div.prod div.detail div.gauche .mySlides,
+section.prod4 div.prod div.detail div.gauche .mySlides,
+section.prod5 div.prod div.detail div.gauche .mySlides,
+section.prod6 div.prod div.detail div.gauche .mySlides,
+section.prod7 div.prod div.detail div.gauche .mySlides,
+section.prod8 div.prod div.detail div.gauche .mySlides {
+  display: none;
+}
+section.prod1 div.prod div.detail div.gauche .mySlides img,
+section.prod2 div.prod div.detail div.gauche .mySlides img,
+section.prod3 div.prod div.detail div.gauche .mySlides img,
+section.prod4 div.prod div.detail div.gauche .mySlides img,
+section.prod5 div.prod div.detail div.gauche .mySlides img,
+section.prod6 div.prod div.detail div.gauche .mySlides img,
+section.prod7 div.prod div.detail div.gauche .mySlides img,
+section.prod8 div.prod div.detail div.gauche .mySlides img {
+  width: 80%;
+  display: inline-block;
+  position: relative;
+  box-shadow: 0px 10px 23px 0px rgba(0, 0, 0, 0.75);
+}
+section.prod1 div.prod div.detail div.gauche .prev,
+section.prod2 div.prod div.detail div.gauche .prev,
+section.prod3 div.prod div.detail div.gauche .prev,
+section.prod4 div.prod div.detail div.gauche .prev,
+section.prod5 div.prod div.detail div.gauche .prev,
+section.prod6 div.prod div.detail div.gauche .prev,
+section.prod7 div.prod div.detail div.gauche .prev,
+section.prod8 div.prod div.detail div.gauche .prev,
+section.prod1 div.prod div.detail div.gauche .next,
+section.prod2 div.prod div.detail div.gauche .next,
+section.prod3 div.prod div.detail div.gauche .next,
+section.prod4 div.prod div.detail div.gauche .next,
+section.prod5 div.prod div.detail div.gauche .next,
+section.prod6 div.prod div.detail div.gauche .next,
+section.prod7 div.prod div.detail div.gauche .next,
+section.prod8 div.prod div.detail div.gauche .next {
+  position: absolute;
+  cursor: pointer;
+  top: 105%;
+  width: 35px;
+  padding: 10px;
+  color: #f3f3f3;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  user-select: none;
+  background-color: #3a2a32;
+  box-shadow: 0px 10px 23px 0px rgba(0, 0, 0, 0.75);
+}
+section.prod1 div.prod div.detail div.gauche .prev,
+section.prod2 div.prod div.detail div.gauche .prev,
+section.prod3 div.prod div.detail div.gauche .prev,
+section.prod4 div.prod div.detail div.gauche .prev,
+section.prod5 div.prod div.detail div.gauche .prev,
+section.prod6 div.prod div.detail div.gauche .prev,
+section.prod7 div.prod div.detail div.gauche .prev,
+section.prod8 div.prod div.detail div.gauche .prev {
+  left: 160px;
+  border-radius: 5px 0px 0px 5px;
+}
+section.prod1 div.prod div.detail div.gauche .next,
+section.prod2 div.prod div.detail div.gauche .next,
+section.prod3 div.prod div.detail div.gauche .next,
+section.prod4 div.prod div.detail div.gauche .next,
+section.prod5 div.prod div.detail div.gauche .next,
+section.prod6 div.prod div.detail div.gauche .next,
+section.prod7 div.prod div.detail div.gauche .next,
+section.prod8 div.prod div.detail div.gauche .next {
+  right: 150px;
+  border-radius: 0px 5px 5px 0px;
+}
+section.prod1 div.prod div.detail div.gauche .prev:hover,
+section.prod2 div.prod div.detail div.gauche .prev:hover,
+section.prod3 div.prod div.detail div.gauche .prev:hover,
+section.prod4 div.prod div.detail div.gauche .prev:hover,
+section.prod5 div.prod div.detail div.gauche .prev:hover,
+section.prod6 div.prod div.detail div.gauche .prev:hover,
+section.prod7 div.prod div.detail div.gauche .prev:hover,
+section.prod8 div.prod div.detail div.gauche .prev:hover,
+section.prod1 div.prod div.detail div.gauche .next:hover,
+section.prod2 div.prod div.detail div.gauche .next:hover,
+section.prod3 div.prod div.detail div.gauche .next:hover,
+section.prod4 div.prod div.detail div.gauche .next:hover,
+section.prod5 div.prod div.detail div.gauche .next:hover,
+section.prod6 div.prod div.detail div.gauche .next:hover,
+section.prod7 div.prod div.detail div.gauche .next:hover,
+section.prod8 div.prod div.detail div.gauche .next:hover {
+  background-color: #dd772d;
+  color: #3a2a32;
+}
+section.prod1 div.prod div.detail .fade,
+section.prod2 div.prod div.detail .fade,
+section.prod3 div.prod div.detail .fade,
+section.prod4 div.prod div.detail .fade,
+section.prod5 div.prod div.detail .fade,
+section.prod6 div.prod div.detail .fade,
+section.prod7 div.prod div.detail .fade,
+section.prod8 div.prod div.detail .fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+@-webkit-keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+section.prod1 div.prod div.detail div.droit,
+section.prod2 div.prod div.detail div.droit,
+section.prod3 div.prod div.detail div.droit,
+section.prod4 div.prod div.detail div.droit,
+section.prod5 div.prod div.detail div.droit,
+section.prod6 div.prod div.detail div.droit,
+section.prod7 div.prod div.detail div.droit,
+section.prod8 div.prod div.detail div.droit {
+  width: 50%;
+  float: left;
+  padding: 120px 10px 10px 10px;
+}
+section.prod1 div.prod div.detail div.droit select,
+section.prod2 div.prod div.detail div.droit select,
+section.prod3 div.prod div.detail div.droit select,
+section.prod4 div.prod div.detail div.droit select,
+section.prod5 div.prod div.detail div.droit select,
+section.prod6 div.prod div.detail div.droit select,
+section.prod7 div.prod div.detail div.droit select,
+section.prod8 div.prod div.detail div.droit select {
+  align-items: left;
+}
+section.prod1 div.prod div.detail div.droit select option [selected="selected"],
+section.prod2 div.prod div.detail div.droit select option [selected="selected"],
+section.prod3 div.prod div.detail div.droit select option [selected="selected"],
+section.prod4 div.prod div.detail div.droit select option [selected="selected"],
+section.prod5 div.prod div.detail div.droit select option [selected="selected"],
+section.prod6 div.prod div.detail div.droit select option [selected="selected"],
+section.prod7 div.prod div.detail div.droit select option [selected="selected"],
+section.prod8 div.prod div.detail div.droit select option [selected="selected"] {
+  color: red;
+}
+section.prod1 div.prod div.detail div.droit img,
+section.prod2 div.prod div.detail div.droit img,
+section.prod3 div.prod div.detail div.droit img,
+section.prod4 div.prod div.detail div.droit img,
+section.prod5 div.prod div.detail div.droit img,
+section.prod6 div.prod div.detail div.droit img,
+section.prod7 div.prod div.detail div.droit img,
+section.prod8 div.prod div.detail div.droit img {
+  display: inline-block;
+  width: 15%;
+}
+section.prod1 div.prod div.detail div.droit img.color,
+section.prod2 div.prod div.detail div.droit img.color,
+section.prod3 div.prod div.detail div.droit img.color,
+section.prod4 div.prod div.detail div.droit img.color,
+section.prod5 div.prod div.detail div.droit img.color,
+section.prod6 div.prod div.detail div.droit img.color,
+section.prod7 div.prod div.detail div.droit img.color,
+section.prod8 div.prod div.detail div.droit img.color {
+  width: 10%;
+}
+section.prod1 div.prod div.detail div.droit p,
+section.prod2 div.prod div.detail div.droit p,
+section.prod3 div.prod div.detail div.droit p,
+section.prod4 div.prod div.detail div.droit p,
+section.prod5 div.prod div.detail div.droit p,
+section.prod6 div.prod div.detail div.droit p,
+section.prod7 div.prod div.detail div.droit p,
+section.prod8 div.prod div.detail div.droit p {
+  text-align: left;
+  padding: 20px 0;
+}
+section.prod1 div.prod div.detail div.droit p span,
+section.prod2 div.prod div.detail div.droit p span,
+section.prod3 div.prod div.detail div.droit p span,
+section.prod4 div.prod div.detail div.droit p span,
+section.prod5 div.prod div.detail div.droit p span,
+section.prod6 div.prod div.detail div.droit p span,
+section.prod7 div.prod div.detail div.droit p span,
+section.prod8 div.prod div.detail div.droit p span {
+  font-size: 18px;
+  font-weight: 400;
+}
+section.prod1 div.prod div.detail div.droit p.titre,
+section.prod2 div.prod div.detail div.droit p.titre,
+section.prod3 div.prod div.detail div.droit p.titre,
+section.prod4 div.prod div.detail div.droit p.titre,
+section.prod5 div.prod div.detail div.droit p.titre,
+section.prod6 div.prod div.detail div.droit p.titre,
+section.prod7 div.prod div.detail div.droit p.titre,
+section.prod8 div.prod div.detail div.droit p.titre {
+  display: inline-block;
+  text-align: left;
+}
+section.prod1 div.prod div.detail div.droit div.boutons,
+section.prod2 div.prod div.detail div.droit div.boutons,
+section.prod3 div.prod div.detail div.droit div.boutons,
+section.prod4 div.prod div.detail div.droit div.boutons,
+section.prod5 div.prod div.detail div.droit div.boutons,
+section.prod6 div.prod div.detail div.droit div.boutons,
+section.prod7 div.prod div.detail div.droit div.boutons,
+section.prod8 div.prod div.detail div.droit div.boutons {
+  margin-top: 40px;
+}
+section.prod1 div.prod div.detail div.droit div.boutons div.boutonselect,
+section.prod2 div.prod div.detail div.droit div.boutons div.boutonselect,
+section.prod3 div.prod div.detail div.droit div.boutons div.boutonselect,
+section.prod4 div.prod div.detail div.droit div.boutons div.boutonselect,
+section.prod5 div.prod div.detail div.droit div.boutons div.boutonselect,
+section.prod6 div.prod div.detail div.droit div.boutons div.boutonselect,
+section.prod7 div.prod div.detail div.droit div.boutons div.boutonselect,
+section.prod8 div.prod div.detail div.droit div.boutons div.boutonselect {
+  width: 100%;
+}
+section.prod1 div.prod div.detail div.droit div.boutons div.boutonselect a.panier,
+section.prod2 div.prod div.detail div.droit div.boutons div.boutonselect a.panier,
+section.prod3 div.prod div.detail div.droit div.boutons div.boutonselect a.panier,
+section.prod4 div.prod div.detail div.droit div.boutons div.boutonselect a.panier,
+section.prod5 div.prod div.detail div.droit div.boutons div.boutonselect a.panier,
+section.prod6 div.prod div.detail div.droit div.boutons div.boutonselect a.panier,
+section.prod7 div.prod div.detail div.droit div.boutons div.boutonselect a.panier,
+section.prod8 div.prod div.detail div.droit div.boutons div.boutonselect a.panier,
+section.prod1 div.prod div.detail div.droit div.boutons div.boutonselect a.commande,
+section.prod2 div.prod div.detail div.droit div.boutons div.boutonselect a.commande,
+section.prod3 div.prod div.detail div.droit div.boutons div.boutonselect a.commande,
+section.prod4 div.prod div.detail div.droit div.boutons div.boutonselect a.commande,
+section.prod5 div.prod div.detail div.droit div.boutons div.boutonselect a.commande,
+section.prod6 div.prod div.detail div.droit div.boutons div.boutonselect a.commande,
+section.prod7 div.prod div.detail div.droit div.boutons div.boutonselect a.commande,
+section.prod8 div.prod div.detail div.droit div.boutons div.boutonselect a.commande {
+  background-color: #dd772d;
+  color: #f3f3f3;
+  padding: 5px 2px;
+  display: inline-block;
+  width: calc(45%);
+  border-radius: 10px;
+  margin-bottom: 10px;
+  text-decoration: none;
+  font-size: 14px;
+  text-align: center;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.75);
+}
+section.prod1 div.prod div.detail div.droit div.boutons div.boutonselect a.panier,
+section.prod2 div.prod div.detail div.droit div.boutons div.boutonselect a.panier,
+section.prod3 div.prod div.detail div.droit div.boutons div.boutonselect a.panier,
+section.prod4 div.prod div.detail div.droit div.boutons div.boutonselect a.panier,
+section.prod5 div.prod div.detail div.droit div.boutons div.boutonselect a.panier,
+section.prod6 div.prod div.detail div.droit div.boutons div.boutonselect a.panier,
+section.prod7 div.prod div.detail div.droit div.boutons div.boutonselect a.panier,
+section.prod8 div.prod div.detail div.droit div.boutons div.boutonselect a.panier {
+  float: left;
+  margin-left: 0;
+}
+section.prod1 div.prod div.detail div.droit div.boutons div.boutonselect a.commande,
+section.prod2 div.prod div.detail div.droit div.boutons div.boutonselect a.commande,
+section.prod3 div.prod div.detail div.droit div.boutons div.boutonselect a.commande,
+section.prod4 div.prod div.detail div.droit div.boutons div.boutonselect a.commande,
+section.prod5 div.prod div.detail div.droit div.boutons div.boutonselect a.commande,
+section.prod6 div.prod div.detail div.droit div.boutons div.boutonselect a.commande,
+section.prod7 div.prod div.detail div.droit div.boutons div.boutonselect a.commande,
+section.prod8 div.prod div.detail div.droit div.boutons div.boutonselect a.commande {
+  float: right;
+  margin: 0;
+}
+section.prod1 div.prod div.detail div.droit div.boutons a.valid,
+section.prod2 div.prod div.detail div.droit div.boutons a.valid,
+section.prod3 div.prod div.detail div.droit div.boutons a.valid,
+section.prod4 div.prod div.detail div.droit div.boutons a.valid,
+section.prod5 div.prod div.detail div.droit div.boutons a.valid,
+section.prod6 div.prod div.detail div.droit div.boutons a.valid,
+section.prod7 div.prod div.detail div.droit div.boutons a.valid,
+section.prod8 div.prod div.detail div.droit div.boutons a.valid {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+  border-radius: 10px;
+  background-color: #dd772d;
+  color: #f3f3f3;
+  padding: 5px;
+  font-size: 14px;
+  text-align: center;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.75);
 }
