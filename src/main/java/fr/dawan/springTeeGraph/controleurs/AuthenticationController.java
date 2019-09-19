@@ -1,7 +1,9 @@
 package fr.dawan.springTeeGraph.controleurs;
 
-import java.sql.Date;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 import javax.validation.Valid;
 
@@ -28,21 +30,22 @@ public class AuthenticationController {
 
 	@Autowired
 	private UserService userService;
-	
+
 	private static Logger logger = Logger.getLogger(AuthenticationController.class);
-	
+
 	@RequestMapping("/member")
 	public String authentication(@Valid @ModelAttribute("userBean") UserForm userForm, BindingResult br, Model model) {
-		
-		logger.info("DEBUT - authentification membre.userBean: " + userForm.toString() );
-		
+
+		logger.info("DEBUT - authentification membre.userBean: " + userForm.toString());
+
 		String email = userForm.getEmail();
 		String msg = "";
 		Utilisateur u = null;
+		logger.info("DEBUT - connectForm.getEmail " + userForm.getEmail());
 
 		if (email != null && !email.isEmpty()) {
 			try {
-				logger.info("DEBUT - authentification findByString " + userForm.toString() );
+				logger.info("DEBUT - authentification findByString " + userForm.toString());
 				u = userService.findByString(userForm.getEmail());
 				model.addAttribute("user", u);
 			} catch (Exception e) {
@@ -51,8 +54,9 @@ public class AuthenticationController {
 				model.addAttribute("msg", msg);
 				return "home";
 			}
-		} else {logger.info("FIN - authentification findByString " + userForm.toString() );
-			
+		} else {
+			logger.info("FIN - authentification findByString " + userForm.toString());
+
 			msg = "Veuillez remplir le champ email";
 			model.addAttribute("msg", msg);
 			return "home";
@@ -61,22 +65,22 @@ public class AuthenticationController {
 		if (u != null && u.getPassword() != null && u.getPassword().equals(userForm.getPassword())) {
 
 			model.addAttribute("connecte", "connecte");
-//			model.addAttribute("user", u);
+			// model.addAttribute("user", u);
 			return "home";
 		} else {
 			msg = "Couple login password incorrect";
 			model.addAttribute("msg", msg);
 			model.addAttribute("connecte", "connecte");
-			logger.info("FIN - authentification membre.userBean: " + userForm.toString() );
+			logger.info("FIN - authentification membre.userBean: " + userForm.toString());
 			return "home";
-		}	
+		}
 	}
 
 	@RequestMapping("/member/{id}")
 	public String afficheProfil(@ModelAttribute("cocoBean") ConnectForm connectForm, @PathVariable("id") String id,
 			BindingResult br, Model model) {
-//		String email = userForm.getEmail();
-		logger.info("DEBUT - afficheProfil findById: " + connectForm.toString() );
+		// String email = userForm.getEmail();
+		logger.info("DEBUT - afficheProfil findById: " + connectForm.toString());
 		String msg = "";
 		Utilisateur u = null;
 
@@ -92,15 +96,15 @@ public class AuthenticationController {
 			connectForm.setTelephoneFixe(u.getTelephoneFixe());
 			connectForm.setTelephoneMobile(u.getTelephoneMobile());
 			connectForm.setEmail(u.getEmail());
-//			connectForm.setDateNaissance(Date.valueOf(u.getDateNaissance().toString()).toString());
+			connectForm.setDateNaissance(u.getDateNaissance().toString());
 
-			model.addAttribute("userForm", new ConnectForm());
+			model.addAttribute("userForm", connectForm);
 			return "membre";
 		} catch (Exception e) {
 			e.printStackTrace();
 			msg = "email incorrect";
 			model.addAttribute("msg", msg);
-			logger.info("FIN - afficheProfil findById: " + connectForm.toString() );
+			logger.info("FIN - afficheProfil findById: " + connectForm.toString());
 			return "home";
 		}
 
@@ -109,12 +113,13 @@ public class AuthenticationController {
 	// modifier
 	@PostMapping("/modify")
 	public String UserModify(@ModelAttribute("passwordForm") PasswordForm passwordForm,
-			@ModelAttribute("cocoBean") ConnectForm connectForm, Model model) {
+			@ModelAttribute("cocoBean") ConnectForm connectForm, BindingResult br, Model model) {
+
 		try {
-			logger.info("DEBUT - modify findByString: " + passwordForm.toString() );
+			logger.info("DEBUT - modify findByString: " + passwordForm.toString());
 			Utilisateur u = userService.findByString(connectForm.getEmail());
 
-//			System.out.println("userToModify: " + connectForm.getCodePostale());
+			// System.out.println("userToModify: " + connectForm.getCodePostale());
 
 			if (connectForm.getNom() != null && u.getNom() != connectForm.getNom()) {
 				u.setNom(connectForm.getNom());
@@ -122,13 +127,10 @@ public class AuthenticationController {
 			if (connectForm.getPrenom() != null && u.getPrenom() != connectForm.getPrenom()) {
 				u.setPrenom(connectForm.getPrenom());
 			}
-			if (connectForm.getDateNaissance() != null
-					&& u.getDateNaissance() != Date.valueOf(connectForm.getDateNaissance())) {
-				u.setDateNaissance(Date.valueOf(connectForm.getDateNaissance()));
-			}
 			if (connectForm.getAdresse() != null && u.getAdresse() != connectForm.getAdresse()) {
 				u.setAdresse(connectForm.getAdresse());
 			}
+			logger.info("DEBUT - modify connectForm.getCodePostale(): " + connectForm.getCodePostale());
 			if (connectForm.getCodePostale() != null && u.getCodePostale() != connectForm.getCodePostale()) {
 				u.setCodePostale(connectForm.getCodePostale());
 			}
@@ -143,7 +145,6 @@ public class AuthenticationController {
 				u.setTelephoneMobile(connectForm.getTelephoneMobile());
 			}
 
-
 			userService.update(u);
 			model.addAttribute("userToModify", u);
 			model.addAttribute("msg", "Votre profil a bien été modifié");
@@ -156,21 +157,21 @@ public class AuthenticationController {
 
 		}
 		model.addAttribute("connecte", "connecte");
-		logger.info("FIN - modify findByString: " + passwordForm.toString() );
+		logger.info("FIN - modify findByString: " + passwordForm.toString());
 		return "membre";
 	}
 
 	@PostMapping("/password")
 	public String ChangePassword(@ModelAttribute("passwordForm") PasswordForm passwordForm,
 			@ModelAttribute("cocoBean") ConnectForm connectForm, BindingResult br, Model model) {
-		logger.info("DEBUT - ChangePassword: " + passwordForm.toString() );
+		logger.info("DEBUT - ChangePassword: " + passwordForm.toString());
 		model.addAttribute("passwordForm", passwordForm);
 		Utilisateur u = null;
 		try {
-			logger.info("DEBUT - ChangePassword findByString : " + passwordForm.toString() );
+			logger.info("DEBUT - ChangePassword findByString : " + passwordForm.toString());
 			u = userService.findByString(passwordForm.getEmail());
 		} catch (Exception e) {
-			
+
 			e.printStackTrace();
 			System.out.println(e.getMessage());
 			model.addAttribute("msg", "Erreur lors la modification");
@@ -184,14 +185,14 @@ public class AuthenticationController {
 		System.out.println(newPasswordConf);
 
 		try {
-//			System.out.println("userToModify: " + connectForm.getCodePostale());
+			// System.out.println("userToModify: " + connectForm.getCodePostale());
 			if (actualPassword != null && newPassword != null && newPasswordConf != null) {
-//				if(!actualPassword.isEmpty() && !newPassword.isEmpty() && !newPasswordConf.isEmpty()) {
-				if (actualPassword.equals(u.getPassword())) {
-					u.setPassword(newPassword);
-					userService.update(u);
+				if (!actualPassword.isEmpty() && !newPassword.isEmpty() && !newPasswordConf.isEmpty()) {
+					if (actualPassword.equals(u.getPassword())) {
+						u.setPassword(newPassword);
+						userService.update(u);
+					}
 				}
-//				}
 			}
 
 			model.addAttribute("userToModify", u);
@@ -206,33 +207,49 @@ public class AuthenticationController {
 		}
 
 		model.addAttribute("connecte", "connecte");
-		logger.info("FIN - ChangePassword findByString : " + passwordForm.toString() );
+		logger.info("FIN - ChangePassword findByString : " + passwordForm.toString());
 		return "membre";
 	}
 
 	// en reference au lien de la page home pour lancer une nouvelle inscription
 	@GetMapping("/noMember")
 	public String display(Model model) {
-	logger.info("DEBUT - afficher: " + model.toString() );
-	logger.info("FIN - afficher: " + model.toString() );
+		logger.info("DEBUT - afficher: " + model.toString());
+		logger.info("FIN - afficher: " + model.toString());
 
 		return "nonMembre";
-		
+
 	}
 
 	// pour enregistrer le nouveau membre en BDD
 	@PostMapping("/load")
-	public String load(@Valid @ModelAttribute("cocoBean") ConnectForm connectForm, BindingResult br, Model model) {
-		logger.info("DEBUT - Load: " + connectForm.toString() );
+	public String load(@Valid @ModelAttribute("cocoBean") ConnectForm connectForm, BindingResult br, Model model,
+			Locale locale) {
+		logger.info("DEBUT - Load: " + connectForm.toString());
+
+		Date dateNaissance = null;
+
+		try {
+			dateNaissance = new SimpleDateFormat("dd-MM-yyyy").parse((connectForm.getDateNaissance()));
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 		String msg = "";
+		try {
+			logger.info("DEBUT - creation: " + dateNaissance);
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		logger.info("DEBUT - creation2: " + connectForm.getDateNaissance());
 		if (connectForm.getEmail().equals(connectForm.getEmail2())) {
 			try {
-				
-				Utilisateur u = new Utilisateur(0, 0, connectForm.getNom(), connectForm.getPrenom(),
-						Date.valueOf(connectForm.getDateNaissance()), connectForm.getAdresse(),
-						connectForm.getCodePostale(), connectForm.getVille(), connectForm.getTelephoneFixe(),
-						connectForm.getTelephoneMobile(), connectForm.getEmail(), connectForm.getPassword(),
-						"utilisateur");
+				Utilisateur u = new Utilisateur(0, 0, connectForm.getNom(), connectForm.getPrenom(), dateNaissance,
+						connectForm.getAdresse(), connectForm.getCodePostale(), connectForm.getVille(),
+						connectForm.getTelephoneFixe(), connectForm.getTelephoneMobile(), connectForm.getEmail(),
+						connectForm.getPassword(), "utilisateur");
 
 				userService.create(u);
 				model.addAttribute("user", u);
@@ -251,7 +268,7 @@ public class AuthenticationController {
 
 		model.addAttribute("msg", msg);
 		model.addAttribute("connecte", "connecte");
-		logger.info("FIN - Load: " + connectForm.toString() );
+		logger.info("FIN - Load: " + connectForm.toString());
 		return "home";
 
 	}

@@ -83,7 +83,7 @@
 			
 			<form:errors path="password2" />
 			<label for="password2">Confirmation du mot de passe:</label>
-			<input type="password2" name="password2" id="password2" />
+			<input type="password" name="password2" id="password2" />
 
 			<input class="go-form" type="submit" value="Enregistrer" />
 			

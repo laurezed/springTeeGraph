@@ -50,11 +50,6 @@
 			<input type="text" value="${userToModify.prenom}" name="prenom" id="prenom" />
 			<br>
 			
-			<form:errors path="dateNaissance" />
-			<label for="dateNaissance">Date de naissance:*</label>
-			<input type="date" value="${userToModify.dateNaissance}" name="birthday" id="birthday" />
-			<br>
-			
 			<form:errors path="adresse" />
 			<label for="adresse">Adresse:*</label>
 			<input type="text" value="${userToModify.adresse}" name="adresse" id="adresse"  />
@@ -62,7 +57,7 @@
 			
 			<form:errors path="codePostale" />
 			<label for=codePostale>Code Postale:*</label>
-			<input type="text" value="${userToModify.codePostale}" name="bp" id="codePostale"  />
+			<input type="text" value="${userToModify.codePostale}" name="codePostale" id="codePostale"  />
 			<br>
 			
 			<form:errors path="ville" />
