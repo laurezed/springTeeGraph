@@ -43,11 +43,11 @@
 
 			<form:errors path="prenom" />
 			<label for="prenom">Prénom:</label>
-			<input type="text" name="prenom"" id="prenom" />
+			<input type="text" name="prenom" id="prenom" />
 			
 			<form:errors path="dateNaissance" />
 			<label for="dateNaissance">Date de naissance:</label>
-			<input type="date" name="dateNaissance"" id="dateNaissance" />
+			<input type="date" name="dateNaissance" id="dateNaissance" />
 			
 			<form:errors path="v" />
 			<label for="adresse">Adresse:</label>
@@ -73,9 +73,9 @@
 			<label for="email">Email:</label>
 			<input type="email" name="email" id="email" />
 			
-			<form:errors path="email" />
-			<label for="email">Confirmation de l'email:</label>
-			<input type="email" name="email" id="email" />
+			<form:errors path="email2" />
+			<label for="email2">Confirmation de l'email:</label>
+			<input type="email" name="email2" id="email2" />
 			
 			<form:errors path="password" />
 			<label for="password">Password:</label>
@@ -83,7 +83,7 @@
 			
 			<form:errors path="password2" />
 			<label for="password2">Confirmation du mot de passe:</label>
-			<input type="password2" name="password2" id="password2" />
+			<input type="password" name="password2" id="password2" />
 
 			<input class="go-form" type="submit" value="Enregistrer" />
 			

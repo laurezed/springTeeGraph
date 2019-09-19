@@ -33,6 +33,10 @@ public class ConnectForm implements Serializable {
 	
 	@NotNull(message = "*champ obligatoire")
 	private String email;
+
+	// Pour la confirmation de l'email
+	@NotNull(message = "*champ obligatoire")
+	private String email2;
 	
 	@NotNull(message = "*champ obligatoire")
 	private String password;
@@ -76,7 +80,7 @@ public class ConnectForm implements Serializable {
 	}
 
 	public String getCodePostale() {
-		return codePostale;
+		return this.codePostale;
 	}
 
 	public void setCodePostale(String codePostale) {
@@ -137,6 +141,14 @@ public class ConnectForm implements Serializable {
 
 	public void setPasswordNewConf(String passwordNewConf) {
 		this.passwordNewConf = passwordNewConf;
+	}
+
+	public String getEmail2() {
+		return email2;
+	}
+
+	public void setEmail2(String email2) {
+		this.email2 = email2;
 	}
 	
 	

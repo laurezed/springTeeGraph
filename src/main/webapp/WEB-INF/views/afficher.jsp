@@ -13,20 +13,24 @@
 					+ request.getContextPath() + "/"%>" />
 </head>
 <body>
+
+<h3>${ajax}</h3>
+
 	<h1>Bonjour</h1>
 
 
 	<div class="graph">
 		<c:forEach items="${myList}" var="seri">
-			<a href="#"><img alt="graph" src="${seri.photo}"
+			<a href="product/${seri.designation}" id="${seri.designation}" class="link"><img alt="graph" src="${seri.photo}"
 				class="img_product"></a>
 		</c:forEach>
 	</div>
 
+
 	<div id="popup1" class="overlay">
 		<div class="popup">
-			<h2>Nom du produit</h2>
-			<a class="close" href="#">&times;</a>
+			<h2>${serigraphie.photo}</h2>
+			<a class="close" id="close" href="product/#">&times;</a>
 			<div class="content">
 				<div class="modele">
 					<h3>Modèle</h3>
@@ -55,5 +59,6 @@
 		</div>
 	</div>
 
+<script type="text/javascript" src="resources/js/produits.js"></script>
 </body>
 </html>

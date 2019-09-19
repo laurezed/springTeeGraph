@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
@@ -24,9 +25,9 @@ public class ProduitFini implements Serializable {
 		XL, L, M, S
 	};
 
-	public enum Modele {
-		SWEAT, TSHIRTH, TSHIRTF, PULL
-	}
+//	public enum Modele {
+//		SWEAT, TSHIRTH, TSHIRTF, PULL
+//	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -47,7 +48,8 @@ public class ProduitFini implements Serializable {
 	@Column(nullable = false)
 	private Taille taille;
 
-	@Column(nullable = false)
+//	@Column(nullable = false)
+	@OneToOne
 	private Modele modele;
 
 	@Column(nullable = false)
