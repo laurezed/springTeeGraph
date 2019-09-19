@@ -538,11 +538,13 @@ header#member div.droit div.membre h1 {
 header#member div.droit div.membre h1 p {
   font-size: 16px;
 }
-section.formulaire-membre {
+section.formulaire-membre,
+section.formulaire-non-membre {
   width: 100%;
   margin: 0 auto;
 }
-section.formulaire-membre h2 {
+section.formulaire-membre h2,
+section.formulaire-non-membre h2 {
   font-size: 30px;
   background-color: #226b71;
   -webkit-box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.75);
@@ -550,44 +552,65 @@ section.formulaire-membre h2 {
   box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.75);
   text-align: center;
 }
-section.formulaire-membre div.explications {
+section.formulaire-membre div.explications,
+section.formulaire-non-membre div.explications {
   margin: 50px auto;
 }
-section.formulaire-membre div.explications p {
+section.formulaire-membre div.explications p,
+section.formulaire-non-membre div.explications p {
   color: #226b71;
   text-align: center;
 }
-section.formulaire-membre section.imagerie {
+section.formulaire-membre section.imagerie,
+section.formulaire-non-membre section.imagerie {
   width: 50%;
   margin: 0 auto;
   float: left;
   height: 500px;
   display: inline-block;
 }
-section.formulaire-membre section.imagerie img {
+section.formulaire-membre section.imagerie img,
+section.formulaire-non-membre section.imagerie img {
   border-radius: 20px;
   width: 80%;
   margin: 50px auto;
 }
-section.formulaire-membre section.forma {
+section.formulaire-membre section.imagerie#nm,
+section.formulaire-non-membre section.imagerie#nm {
+  float: right;
+  width: 30%;
+}
+section.formulaire-membre section.imagerie#nm img#connect,
+section.formulaire-non-membre section.imagerie#nm img#connect {
+  width: 100%;
+  margin: 0;
+  position: relative;
+  left: -50px;
+  top: -50px;
+}
+section.formulaire-membre section.forma,
+section.formulaire-non-membre section.forma {
   padding: 0 40px;
   width: 50%;
   margin: 0;
   display: inline-block;
   margin-bottom: 50px;
 }
-section.formulaire-membre section.forma label {
+section.formulaire-membre section.forma label,
+section.formulaire-non-membre section.forma label {
   color: #226b71;
   font-size: 14px;
   display: inline-block;
   text-align: left;
 }
-section.formulaire-membre section.forma input {
+section.formulaire-membre section.forma input,
+section.formulaire-non-membre section.forma input {
   width: 50%;
   margin: 3px auto 10px auto;
   padding: 8px;
 }
-section.formulaire-membre section.forma input[type="submit"] {
+section.formulaire-membre section.forma input[type="submit"],
+section.formulaire-non-membre section.forma input[type="submit"] {
   font-size: 16px;
   background-color: #dd772d;
   border: none;
@@ -595,75 +618,97 @@ section.formulaire-membre section.forma input[type="submit"] {
   display: inline-block;
   width: 200px;
 }
-section.formulaire-membre section.forma input[type="submit"]:hover {
+section.formulaire-membre section.forma input[type="submit"]:hover,
+section.formulaire-non-membre section.forma input[type="submit"]:hover {
   background-color: #3a2a32;
   color: #f3f3f3;
 }
 section.formulaire-membre section.forma div.gauche,
-section.formulaire-membre section.forma div.droit {
+section.formulaire-non-membre section.forma div.gauche,
+section.formulaire-membre section.forma div.droit,
+section.formulaire-non-membre section.forma div.droit {
   width: 50%;
   display: inline-block;
   float: left;
   margin: 0;
 }
 section.formulaire-membre section.forma div.gauche label,
-section.formulaire-membre section.forma div.droit label {
+section.formulaire-non-membre section.forma div.gauche label,
+section.formulaire-membre section.forma div.droit label,
+section.formulaire-non-membre section.forma div.droit label {
   display: inline-block;
   width: 90%;
 }
 section.formulaire-membre section.forma div.gauche input,
-section.formulaire-membre section.forma div.droit input {
+section.formulaire-non-membre section.forma div.gauche input,
+section.formulaire-membre section.forma div.droit input,
+section.formulaire-non-membre section.forma div.droit input {
   display: inline-block;
   width: 90%;
   margin: 3px auto 10px auto;
 }
-section.formulaire-membre section.forma div.centre {
+section.formulaire-membre section.forma div.centre,
+section.formulaire-non-membre section.forma div.centre {
   width: 100%;
 }
-section.formulaire-membre section.forma div.centre label#email {
+section.formulaire-membre section.forma div.centre label#email,
+section.formulaire-non-membre section.forma div.centre label#email {
   width: 90%;
   display: block;
   text-align: left;
 }
-section.formulaire-membre section.forma div.centre input[type="email"] {
+section.formulaire-membre section.forma div.centre input[type="email"],
+section.formulaire-non-membre section.forma div.centre input[type="email"] {
   width: 50%;
   display: block;
   margin: 0px;
 }
-section.formulaire-membre section.historique {
+section.formulaire-membre section.nm,
+section.formulaire-non-membre section.nm {
+  width: 70%;
+}
+section.formulaire-membre section.historique,
+section.formulaire-non-membre section.historique {
   margin-top: 50px;
 }
-section.formulaire-membre section.historique table {
+section.formulaire-membre section.historique table,
+section.formulaire-non-membre section.historique table {
   width: 60%;
   margin: 0 auto;
   border: solid 4px #3a2a32;
   margin-bottom: 50px;
 }
-section.formulaire-membre section.historique table th {
+section.formulaire-membre section.historique table th,
+section.formulaire-non-membre section.historique table th {
   border: solid 2px grey;
   padding: 10px;
   text-align: center;
   background-color: #226b71;
   color: #f3f3f3;
 }
-section.formulaire-membre section.historique table th i {
+section.formulaire-membre section.historique table th i,
+section.formulaire-non-membre section.historique table th i {
   font-size: 30px;
   margin: 0;
 }
-section.formulaire-membre section.historique table td {
+section.formulaire-membre section.historique table td,
+section.formulaire-non-membre section.historique table td {
   border-bottom: solid 1px grey;
   padding: 5px;
   text-align: center;
 }
-section.formulaire-membre section.historique table td a {
+section.formulaire-membre section.historique table td a,
+section.formulaire-non-membre section.historique table td a {
   text-decoration: none;
   color: #dd772d;
 }
-section.formulaire-membre section.historique div.boutons {
+section.formulaire-membre section.historique div.boutons,
+section.formulaire-non-membre section.historique div.boutons {
   text-align: center;
   margin-bottom: 100px;
 }
-section.formulaire-membre section.historique div.boutons a {
+section.formulaire-membre section.historique div.boutons a,
+section.formulaire-non-membre section.historique div.boutons a {
   text-align-last: center;
   text-decoration: none;
   color: #3a2a32;
@@ -675,8 +720,33 @@ section.formulaire-membre section.historique div.boutons a {
   width: 200px;
   color: #f3f3f3;
 }
-section.formulaire-membre section.historique div.boutons a:hover {
+section.formulaire-membre section.historique div.boutons a:hover,
+section.formulaire-non-membre section.historique div.boutons a:hover {
   background-color: #3a2a32;
+}
+section.formulaire-membre .StripeElement,
+section.formulaire-non-membre .StripeElement {
+  box-sizing: border-box;
+  height: 40px;
+  padding: 10px 12px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background-color: white;
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+}
+section.formulaire-membre .StripeElement--focus,
+section.formulaire-non-membre .StripeElement--focus {
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
+section.formulaire-membre .StripeElement--invalid,
+section.formulaire-non-membre .StripeElement--invalid {
+  border-color: #fa755a;
+}
+section.formulaire-membre .StripeElement--webkit-autofill,
+section.formulaire-non-membre .StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
 }
 section.modele {
   width: 100%;

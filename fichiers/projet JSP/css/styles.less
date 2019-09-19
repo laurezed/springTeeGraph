@@ -609,7 +609,7 @@ header#member {
     }
    
 }
-section.formulaire-membre {
+section.formulaire-membre, section.formulaire-non-membre {
     width: 100%;
     margin: 0 auto;
     h2 {
@@ -641,6 +641,18 @@ section.formulaire-membre {
         }
         
     }
+    section.imagerie#nm {
+        float: right;
+        width: 30%;
+        img#connect {
+            width: 100%;
+            margin: 0;
+            position: relative;
+            left: -50px;
+            top: -50px;
+        }
+    }
+
     section.forma {
         padding: 0 40px;
         width: 50%;
@@ -699,6 +711,9 @@ section.formulaire-membre {
             }
         }
     }
+    section.nm {
+        width: 70%;
+    }
     section.historique {
         margin-top: 50px;
         table {
@@ -746,9 +761,30 @@ section.formulaire-membre {
                 }
             }
         }
-    } 
-}
+    }
+    // partie de payement CB
+    .StripeElement {
+      box-sizing: border-box;
+      height: 40px;
+      padding: 10px 12px;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      background-color: white;
 
+      box-shadow: 0 1px 3px 0 #e6ebf1;
+      -webkit-transition: box-shadow 150ms ease;
+      transition: box-shadow 150ms ease;
+    }
+    .StripeElement--focus {
+      box-shadow: 0 1px 3px 0 #cfd7df;
+    }
+    .StripeElement--invalid {
+      border-color: #fa755a;
+    }
+    .StripeElement--webkit-autofill {
+      background-color: #fefde5 !important;
+    }
+}
 
 section.modele {
     width: 100%;
