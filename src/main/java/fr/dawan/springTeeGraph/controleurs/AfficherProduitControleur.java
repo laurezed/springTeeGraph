@@ -129,7 +129,7 @@ public class AfficherProduitControleur {
 
 		logger.info("FIN - popup ProduitService : " + model.toString() );
 //		{ "seri" : seri };
-		return "selectProduit";
+		return "produit";
 	}
 
 	@ModelAttribute("ProduitForm")

@@ -35,6 +35,18 @@ public class Serigraphie implements Serializable {
 	@Column(nullable = false)
 	private String photo;
 
+	@Column
+	private String modeleTHomme;
+
+	@Column
+	private String modeleTFemme;
+
+	@Column
+	private String modelePull;
+
+	@Column
+	private String modeleSweat;
+
 	@Column(nullable = false)
 	private Boolean bestSeller;
 

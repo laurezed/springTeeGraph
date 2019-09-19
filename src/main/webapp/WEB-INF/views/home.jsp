@@ -2,29 +2,23 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ page session="false"%>
+<!DOCTYPE html>
+<html lang="fr">
 
-<html>
 <head>
 <meta charset="UTF-8">
 <title>Tee Graph</title>
 <meta name="description"
 	content="Tee Graph, une semaine, 8 modèles, qui defilent au grès de nos experts graffeurs! Découvrez notre univers!">
-<link
-	href="<c:url value="/resources/css/font-awesome-4.7.0/css/font-awesome.min.css" />"
-	rel="stylesheet">
-<link href="<c:url value="/resources/css/styles.css" />"
-	rel="stylesheet">
-<link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
-<link
-	href="<c:url value="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css" />"
-	rel="stylesheet">
-<link
-	href="<c:url value="https://fonts.googleapis.com/css?family=Roboto:300,400,700" />"
-	rel="stylesheet">
+<link href="<c:url value="/resources/css/font-awesome-4.7.0/css/font-awesome.min.css" />" rel="stylesheet">
+    <link href="<c:url value="/resources/css/styles.css" />" rel="stylesheet">
+    <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
+    <link href="<c:url value="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css" />" rel="stylesheet">
+    <link href="<c:url value="https://fonts.googleapis.com/css?family=Roboto:300,400,700" />" rel="stylesheet">
+<base href="
+<%=request.getScheme() + "://" + request.getServerName() + ":" +
+request.getServerPort() + request.getContextPath() + "/"%>" />
 
-<base
-	href="<%=request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
-					+ request.getContextPath() + "/"%>" />
 
 <meta content="IE=edge" http-equiv=X-UA-Compatible>
 <meta content="width=device-width, initial-scale=1" name="viewport">
@@ -37,50 +31,44 @@
 	<header id="top" class="header">
 		<div class="bandeau">
 			<div class="gauche">
-				<a href="index.html"><img
-					src="resources/images/logo-Tee-Graph.png" alt=""></a>
+				<a href="index.html"><img src="resources/images/logo-Tee-Graph.png" alt=""></a>
 			</div>
 			<div class="droit">
 				<div class="menu">
 					<nav class="menu">
 						<ul>
-							<li><a id="actif" href="index.html">Accueil</a></li>
+							<li><a id="actif" href="<c:url value="/" />">Accueil</a></li>
 							<li><a href="atelier.html">Notre atelier</a></li>
 							<li><a href="contact.html">Contact</a></li>
 						</ul>
 					</nav>
 				</div>
+
 				<div class="connection">
 					<c:if test="${connecte == 'connecte'}">
-					<h2>${user.nom}</h2>
-					<a href="auth/member/${user.id}" alt="">Mon compte</a>
+						<h2>${user.nom}</h2>
+						<a href="auth/member/${user.id}" alt="">Mon compte</a>
 					</c:if>
 					<c:if test="${connecte != 'connecte'}">
-						<form:form method="post"
+						<form method="post"
 							action="${pageContext.request.contextPath}/auth/member"
 							modelAttribute="userBean">
-
 							<label for="identify">Identifiez-vous</label>
 							<p>${msg}</p>
-							<p>${msg2}</p>
-
-							<form:errors path="email" />
-							<form:input path="email" type="text" name="utilisateur"
-								placeholder="nom d'utilisateur" />
-							<br>
-							<form:errors path="password" />
-							<form:input path="password" type="password" name="password"
-								placeholder="mot de passe" />
-							<br>
-							<input type="submit" value="- GO- ">
+							<br> 
+							<input type="text" name="email" placeholder="nom d'utilisateur"> <br> 
+							<input type="password" name="password" placeholder="mot de passe"> <br> 
+							<input type="submit" value="- GO -"> <br>
 							<a href="${pageContext.request.contextPath}/auth/noMember"
-								modelAttribute="cocoBean">Vous n'êtes pas encore membre!!!!!
-								<br>
-							<strong>Cliquez ICI</strong>
-							</a>
-						</form:form>
-					</c:if>
-
+								modelAttribute="cocoBean">Vous n'êtes pas encore membre!!!!<br>
+							<strong>Cliquez ICI</strong></a>
+						</form>
+						</c:if>
+						<div class="langue">
+							<a id="francais" href=""><img
+								src="resources/images/drapeau-francais.png" alt=""></a> <a id="anglais"
+								href=""><img src="resources/images/drapeau-anglais.png" alt=""></a>
+						</div>
 				</div>
 				<div class="clear"></div>
 			</div>
@@ -100,21 +88,15 @@
 			</p>
 		</section>
 	</header>
-	<h2>- Découvrez notre sélection -</h2>
 
-	<section class="produits">
-		<a class="rayon" href="#"><img
-			src="resources/images/graphiti-1.jpg" alt=""></a> <a class="rayon"
-			href="#"><img src="resources/images/graphiti-2.jpg" alt=""></a>
-		<a class="rayon" href="#"><img
-			src="resources/images/graphiti-3.jpg" alt=""></a> <a class="rayon"
-			href="#"><img src="resources/images/graphiti-4.jpg" alt=""></a>
-		<a class="rayon" href="#"><img
-			src="resources/images/graphiti-5.jpg" alt=""></a> <a class="rayon"
-			href="#"><img src="resources/images/graphiti-1.jpg" alt=""></a>
-		<a class="rayon" href="#"><img
-			src="resources/images/graphiti-2.jpg" alt=""></a> <a class="rayon"
-			href="#"><img src="resources/images/graphiti-3.jpg" alt=""></a>
+	<h2 id="fiches">- Découvrez notre sélection -</h2>
+
+	<section class="produits" id="fiches">
+		<c:forEach items="${myList}" var="seri">
+			<a href="product/${seri.designation}" id="${seri.designation}"
+				class="link"><img alt="graph" src="${seri.photo}"
+				class="img_product"></a>
+		</c:forEach>
 	</section>
 
 	<section class="atelier">
@@ -133,21 +115,18 @@
 		amis! -</h2>
 
 	<section class="chance">
-		<img src="resources/images/graphiti-1.jpg"
-			alt="proposition-serigraphie-1"> <img
-			src="resources/images/graphiti-2.jpg" alt="proposition-serigraphie-2">
-		<img src="resources/images/graphiti-3.jpg"
-			alt="proposition-serigraphie-3"> <img
-			src="resources/images/graphiti-4.jpg" alt="proposition-serigraphie-4">
-
+		<c:forEach items="${myBestSeller}" var="seri">
+			<a href="product/${seri.designation}" id="${seri.designation}"
+				class="link"><img alt="graph" src="${seri.photo}"
+				class="img_product"></a>
+		</c:forEach>
 
 	</section>
 	<section class="color"></section>
 
 	<footer>
 		<div class="logo">
-			<img src="resources/images/logo-Tee-Graph-footer.png"
-				alt="logo-TeeGraph">
+			<img src="resources/images/logo-Tee-Graph-footer.png" alt="logo-TeeGraph">
 		</div>
 		<div class="sociaux">
 			<p>Retrouvez-nous sur les réseaux</p>
@@ -167,15 +146,21 @@
 			</p>
 		</div>
 		<div class="connection">
-			<form action="connection" method="post" modelAttribute="">
-				<label for="identify">Identifiez-vous</label> <br> <input
-					type="text" name="utilisateur" placeholder="nom d'utilisateur">
-				<br> <input type="password" name="password"
-					placeholder="mot de passe"> <br> <input type="submit"
-					value="- GO -"> <br> <a href="">Vous n'êtes pas
-					encore membre!!!!<br>Cliquez ICI
-				</a>
-			</form>
+			<c:if test="${connecte == 'connecte'}">
+				<h2>${user.nom}</h2>
+				<a href="auth/member/${user.id}" alt="">Mon compte</a>
+			</c:if>
+			<c:if test="${connecte != 'connecte'}">
+				<form action="connection" method="post" modelAttribute="">
+					<label for="identify">Identifiez-vous</label> <br> <input
+						type="text" name="utilisateur" placeholder="nom d'utilisateur">
+					<br> <input type="password" name="password"
+						placeholder="mot de passe"> <br> <input type="submit"
+						value="- GO -"> <br> <a href="">Vous n'êtes pas
+						encore membre!!!!<br>Cliquez ICI
+					</a>
+				</form>
+			</c:if>
 		</div>
 		<div class="clear"></div>
 		<div class="bottom">
@@ -210,6 +195,6 @@
 		});
 	</script>
 
-
 </body>
+
 </html>
