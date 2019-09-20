@@ -34,8 +34,7 @@
 </head>
 
 <body>
-	<a href="${requestScope['javax.servlet.forward.request_uri']}?lang=fr"><spring:message code="${lang.fr}" /></a>
-	<a href="${requestScope['javax.servlet.forward.request_uri']}?lang=en"><spring:message code="${lang.en}"/></a>
+	
 	
 	<header id="top" class="header">
 		<div class="bandeau">
@@ -47,23 +46,23 @@
 				<div class="menu">
 					<nav class="menu">
 						<ul>
-							<li><a id="actif" href="index.html"><spring:message code="${menu.actif}" /></a></li>
-							<li><a href="atelier.html"><spring:message code="${menu.workshop}" /></a></li>
-							<li><a href="contact.html"><spring:message code="${menu.contact}" /></a></li>
+							<li><a id="actif" href="index.html"><spring:message code="menu.actif" /></a></li>
+							<li><a href="atelier.html"><spring:message code="menu.workshop" /></a></li>
+							<li><a href="contact.html"><spring:message code="menu.contact" /></a></li>
 						</ul>
 					</nav>
 				</div>
 				<div class="connection">
 					<c:if test="${connecte == 'connecte'}">
 						<h2>${user.nom}</h2>
-						<a href="auth/member/${user.id}" alt=""><spring:message code = "${auth.member}" /></a>
+						<a href="auth/member/${user.id}" alt=""><spring:message code = "auth.member" /></a>
 					</c:if>
 					<c:if test="${connecte != 'connecte'}">
 						<form:form method="post"
 							action="${pageContext.request.contextPath}/auth/member"
 							modelAttribute="userBean">
 
-							<label for="identify"><spring:message code = "${identification.member}" /></label>
+							<label for="identify"><spring:message code = "identification.member" /></label>
 							<p>${msg}</p>
 							<p>${msg2}</p>
 
@@ -77,10 +76,14 @@
 							<br>
 							<input type="submit" value="- GO- ">
 							<a href="${pageContext.request.contextPath}/auth/noMember"
-								modelAttribute="cocoBean"><spring:message code = "${noMember.auth}" />
-								<br> <strong><spring:message code = "${noMember.clic}" /></strong>
+								modelAttribute="cocoBean"><spring:message code = "noMember.auth" />
+								<br> <strong><spring:message code = "noMember.clic" /></strong>
 							</a>
 						</form:form>
+						<div class="langue">
+						<a href="${requestScope['javax.servlet.forward.request_uri']}?lang=fr" ><img src="resources/images/drapeau-francais.png" alt=""></a>
+						<a href="${requestScope['javax.servlet.forward.request_uri']}?lang=en"><img src="resources/images/drapeau-anglais.png" alt=""></a>
+	</div>
 					</c:if>
 
 				</div>
@@ -89,16 +92,16 @@
 		</div>
 		<section class="introduction">
 			<h1>
-				Tee Graph. <br><spring:message code = "${introduction}" />
+				Tee Graph. <br><spring:message code = "introduction" />
 			</h1>
-			<p><spring:message code = "${description1}" />
-			   <spring:message code = "${description2}" />
-			   <spring:message code = "${description3}" />
+			<p><spring:message code = "description1" />
+			   <spring:message code = "description2" />
+			   <spring:message code = "description3" />
 				
 			</p>
 		</section>
 	</header>
-	<h2>- <spring:message code = "${selection.discovery}" /> -</h2>
+	<h2>- <spring:message code = "selection.discovery" /> -</h2>
 
 	<section class="produits">
 		<a class="rayon" href="#"><img
@@ -116,11 +119,8 @@
 	</section>
 
 	<section class="atelier">
-		<p><spring:message code = "${workshop.discovery1}" />
-		<spring:message code = "${workshop.discovery2}" />
-			Retrouvez notre newletter avec les dates de visite de notre atelier!
-			<br> L'occasion pour vous, d'échanger avec notre équipe, sur les
-			techniques de sérigraphies.
+		<p>	<spring:message code = "workshop.discovery1" />
+			<spring:message code = "workshop.discovery2" />
 		</p>
 
 		<img src="resources/images/atelier.jpg" alt="">
@@ -128,7 +128,7 @@
 	</section>
 
 
-	<h2><spring:message code = "${best.sellers.week}" /></h2>
+	<h2><spring:message code = "best.sellers.week" /></h2>
 
 	<section class="chance">
 		<img src="resources/images/graphiti-1.jpg"
@@ -148,7 +148,7 @@
 				alt="logo-TeeGraph">
 		</div>
 		<div class="sociaux">
-			<p><spring:message code = "${networks}" /></p>
+			<p><spring:message code = "networks" /></p>
 			<ul>
 				<li><a href="#" class="btn-sociaux"><i
 						class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
@@ -166,17 +166,17 @@
 		</div>
 		<div class="connection">
 			<form action="connection" method="post" modelAttribute="">
-				<label for="identify"><spring:message code = "${connection.member}" /></label> <br> <input
+				<label for="identify"><spring:message code = "connection.member" /></label> <br> <input
 					type="text" name="utilisateur" placeholder="nom d'utilisateur">
 				<br> <input type="password" name="password"
 					placeholder="mot de passe"> <br> <input type="submit"
-					value="- GO -"> <br> <a href=""><spring:message code = "${noMember.auth}" />br><spring:message code = "${noMember.clic}" />
+					value="- GO -"> <br> <a href=""><spring:message code = "noMember.auth" /><br><spring:message code = "noMember.clic" />
 				</a>
 			</form>
 		</div>
 		<div class="clear"></div>
 		<div class="bottom">
-			<a class="mention" href="#"><spring:message code = "${legal.mention}" /></a>
+			<a class="mention" href="#"><spring:message code = "legal.mention" /></a>
 			<p class="mention" href="">| Copyright TeeGraph.</p>
 		</div>
 
