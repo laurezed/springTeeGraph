@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 
 import fr.dawan.springTeeGraph.dao.GenericDao;
 import fr.dawan.springTeeGraph.dao.SerigraphieDao;
+import fr.dawan.springTeeGraph.entites.LigneCommande;
+import fr.dawan.springTeeGraph.entites.ProduitFini;
 import fr.dawan.springTeeGraph.entites.Serigraphie;
 
 @Service
@@ -41,10 +43,22 @@ public class ProduitService {
 	}
 	
 	@Transactional
-	public <LigneCommande> LigneCommande create(LigneCommande ligneCommande, long id, boolean closeCnx) throws Exception{
+	public LigneCommande create(LigneCommande ligneCommande, long id, boolean closeCnx) throws Exception{
 		try {
-			genericDao.saveOrUpdate(ligneCommande, 1, true);
+			genericDao.saveOrUpdate(ligneCommande, 0, true);
 			return ligneCommande;
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		}
+		
+	}
+	
+	@Transactional
+	public ProduitFini create(ProduitFini produitFini, long id, boolean closeCnx) throws Exception{
+		try {
+			genericDao.saveOrUpdate(produitFini, 0, true);
+			return produitFini;
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw e;

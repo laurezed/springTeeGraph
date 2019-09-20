@@ -90,9 +90,9 @@ request.getServerPort() + request.getContextPath() + "/"%>" />
 
 	<section class="produits" id="fiches">
 		<c:forEach items="${myList}" var="seri">
-			<a href="product/${seri.designation}" id="${seri.designation}"
-				class="link"><img alt="graph" src="${seri.photo}"
-				class="img_product"></a>
+			<a href="product/${seri.designation}" id="${seri.designation}" class="link">
+				<img alt="graph" src="${seri.photo}" class="img_product">
+			</a>
 		</c:forEach>
 	</section>
 

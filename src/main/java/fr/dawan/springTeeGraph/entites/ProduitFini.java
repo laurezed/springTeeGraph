@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Version;
@@ -18,7 +19,7 @@ public class ProduitFini implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	public enum Color {
-		ROUGE, BLEUFONCE, NOIR, ORANGE, BLEUCIEL, VERT
+		ROUGE, BLEUFONCE, NOIR, ORANGE, BLEUCLAIR, VERT
 	}
 
 	public enum Taille {
@@ -40,9 +41,6 @@ public class ProduitFini implements Serializable {
 	private String referenceProduit;
 
 	@Column(nullable = false)
-	private String designation;
-
-	@Column(nullable = false)
 	private Color color;
 
 	@Column(nullable = false)
@@ -51,6 +49,9 @@ public class ProduitFini implements Serializable {
 //	@Column(nullable = false)
 	@OneToOne
 	private Modele modele;
+	
+	@ManyToOne
+	private Serigraphie serigraphie;
 
 	@Column(nullable = false)
 	private double prix;
@@ -59,18 +60,18 @@ public class ProduitFini implements Serializable {
 		super();
 	}
 
-	public ProduitFini(long id, int version, String referenceProduit, String designation, Color color, Taille taille,
-			Modele modele, double prix) {
+	public ProduitFini(long id, int version, Color color, Taille taille, Modele modele,
+			Serigraphie serigraphie) {
 		super();
 		this.id = id;
 		this.version = version;
-		this.referenceProduit = referenceProduit;
-		this.designation = designation;
 		this.color = color;
 		this.taille = taille;
 		this.modele = modele;
-		this.prix = prix;
+		this.serigraphie = serigraphie;
 	}
+	
+	
 
 	public long getId() {
 		return id;
@@ -96,14 +97,6 @@ public class ProduitFini implements Serializable {
 		this.referenceProduit = referenceProduit;
 	}
 
-	public String getDesignation() {
-		return designation;
-	}
-
-	public void setDesignation(String designation) {
-		this.designation = designation;
-	}
-
 	public Color getColor() {
 		return color;
 	}
@@ -126,6 +119,14 @@ public class ProduitFini implements Serializable {
 
 	public void setModele(Modele modele) {
 		this.modele = modele;
+	}
+
+	public Serigraphie getSerigraphie() {
+		return serigraphie;
+	}
+
+	public void setSerigraphie(Serigraphie serigraphie) {
+		this.serigraphie = serigraphie;
 	}
 
 	public double getPrix() {

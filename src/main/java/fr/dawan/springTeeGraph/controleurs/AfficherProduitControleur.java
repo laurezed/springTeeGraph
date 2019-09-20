@@ -58,7 +58,7 @@ public class AfficherProduitControleur {
 	}
 
 	@GetMapping(value = "/{s_nom}")
-	public String popup(@Valid @ModelAttribute("ProduitForm") ProduitForm produitForm, BindingResult br,
+	public String popup(@ModelAttribute("produitForm") ProduitForm produitForm, BindingResult br,
 			@PathVariable("s_nom") String s_nom, Model model) {
 
 		logger.info("DEBUT - popup ProduitForm : " + model.toString() );
@@ -72,15 +72,11 @@ public class AfficherProduitControleur {
 		try {
 			logger.info("DEBUT - popup appel findByName : " + model.toString() );
 			System.out.println(s_nom);
-			seri = produitService.findByName(s_nom);
-			model.addAttribute("serigraphie", seri);
-			Serigraphie sg = produitService.findByName(s_nom);
+//			seri = produitService.findByName(s_nom);
+//			model.addAttribute("serigraphie", seri);
+//			Serigraphie sg = produitService.findByName(s_nom);
 
 			produitForm = new ProduitForm();
-			produitForm.setId(sg.getId());
-			produitForm.setReferenceProduit(sg.getReferenceProduit());
-			produitForm.setDesignation(sg.getDesignation());
-			produitForm.setPhoto(sg.getPhoto());
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -110,8 +106,6 @@ public class AfficherProduitControleur {
 		model.addAttribute("tailles", Taille.values());
 		model.addAttribute("produitForm", produitForm);
 
-		model.addAttribute("ajax", "ma réponse ajax");
-
 		model.addAttribute("msg", msg);
 		model.addAttribute("msg2", msg2);
 
@@ -119,6 +113,7 @@ public class AfficherProduitControleur {
 		try {
 			logger.info("DEBUT - produitService - findAll " + modeles.toString() );
 			myList = produitService.findAll();
+			System.out.println(myList.size());
 			model.addAttribute("myList", myList);
 		} catch (Exception e) {
 			e.printStackTrace();

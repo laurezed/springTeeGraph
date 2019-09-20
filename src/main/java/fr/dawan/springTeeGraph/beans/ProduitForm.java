@@ -15,14 +15,8 @@ public class ProduitForm implements Serializable {
 
 	private int version;
 
-//	@NotNull(message = "Ce champs ne doit pas être vide")
-	private String referenceProduit;
-
-//	@NotNull(message = "Ce champs ne doit pas être vide")
-	private String designation;
-
-//	@NotNull(message = "Ce champs ne doit pas être vide")
-	private String photo;
+	@NotNull(message = "Ce champs ne doit pas être vide")
+	private String serigraphie;
 
 	@NotNull(message = "Ce champs ne doit pas être vide")
 	private String color;
@@ -32,9 +26,6 @@ public class ProduitForm implements Serializable {
 
 	@NotNull(message = "Ce champs ne doit pas être vide")
 	private String modele;
-
-	@NotNull(message = "Ce champs ne doit pas être vide")
-	private String prix;
 
 	public ProduitForm() {
 
@@ -56,20 +47,12 @@ public class ProduitForm implements Serializable {
 		this.version = version;
 	}
 
-	public String getReferenceProduit() {
-		return referenceProduit;
+	public String getSerigraphie() {
+		return serigraphie;
 	}
 
-	public void setReferenceProduit(String referenceProduit) {
-		this.referenceProduit = referenceProduit;
-	}
-
-	public String getDesignation() {
-		return designation;
-	}
-
-	public void setDesignation(String designation) {
-		this.designation = designation;
+	public void setSerigraphie(String serigraphie) {
+		this.serigraphie = serigraphie;
 	}
 
 	public String getColor() {
@@ -94,22 +77,6 @@ public class ProduitForm implements Serializable {
 
 	public void setModele(String modele) {
 		this.modele = modele;
-	}
-
-	public String getPrix() {
-		return prix;
-	}
-
-	public void setPrix(String prix) {
-		this.prix = prix;
-	}
-
-	public String getPhoto() {
-		return photo;
-	}
-
-	public void setPhoto(String photo) {
-		this.photo = photo;
 	}
 
 }

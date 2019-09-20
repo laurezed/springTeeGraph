@@ -35,16 +35,16 @@ public class LigneCommande implements Serializable {
 	@OneToOne
 	private ProduitFini produitFini;
 	
-	
 	public LigneCommande() {
 		super();
 	}
-	public LigneCommande(long id, int quantite, double prixUht, double prixTtc) {
+	public LigneCommande(long id, int quantite, double prixUht, double prixTtc, ProduitFini produitFini) {
 		super();
 		this.id = id;
 		this.quantite = quantite;
 		this.prixUht = prixUht;
 		this.prixTtc = prixTtc;
+		this.produitFini = produitFini;
 	}
 	public long getId() {
 		return id;
@@ -70,6 +70,15 @@ public class LigneCommande implements Serializable {
 	public void setPrixTtc(double prixTtc) {
 		this.prixTtc = prixTtc;
 	}
+	
+	public ProduitFini getProduitFini() {
+		return produitFini;
+	}
+	public void setProduitFini(ProduitFini produitFini) {
+		this.produitFini = produitFini;
+	}
+	
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

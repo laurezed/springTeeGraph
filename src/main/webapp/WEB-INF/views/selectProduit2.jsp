@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 <title>Tee Graph</title>
 <meta name="description"
-	content="Tee Graph, une semaine, 8 modèles, qui defilent au grès de nos experts graffeurs! Découvrez notre univers!">
+	content="Tee Graph, une semaine, 8 modï¿½les, qui defilent au grï¿½s de nos experts graffeurs! Dï¿½couvrez notre univers!">
 <link
 	href="<c:url value="/resources/css/font-awesome-4.7.0/css/font-awesome.min.css" />"
 	rel="stylesheet">
@@ -36,12 +36,12 @@
 
 <body>
 	<c:forEach items="${myList}" var="seri" varStatus="loop">
-		<section id="graph${loop.index+1}" class="collection fade prod${loop.index+1}">
-			<a class="prev" onclick="generalSlides(-1)">
-				<i class="fa fa-step-backward" aria-hidden="true"></i> 
-			</a> 
-			<a class="next" onclick="generalSlides(1)">
-				<i class="fa fa-step-forward" aria-hidden="true"></i>
+		<section id="graph${loop.index+1}"
+			class="collection fade prod${loop.index+1} ">
+			<a class="prev" onclick="generalSlides(-1)"> <i
+				class="fa fa-step-backward" aria-hidden="true"></i>
+			</a> <a class="next" onclick="generalSlides(1)"> <i
+				class="fa fa-step-forward" aria-hidden="true"></i>
 			</a>
 
 			<div class="prod">
@@ -63,7 +63,7 @@
 									type="password" name="password" placeholder="mot de passe">
 								<br> <input type="submit" value="- GO -"> <br>
 								<a href="${pageContext.request.contextPath}/auth/noMember">Vous
-									n'êtes pas encore membre!!!!<br> <strong>Cliquez
+									n'ï¿½tes pas encore membre!!!!<br> <strong>Cliquez
 										ICI</strong>
 								</a>
 							</form>
@@ -83,24 +83,25 @@
 				</div>
 
 				<div class="detail">
-					<a id="croix" href="#fiches"><i class="fa fa-times"
-						aria-hidden="true"></i></a>
+					<a id="croix" href="#fiches"> <i class="fa fa-times"
+						aria-hidden="true"></i>
+					</a>
 
 					<div class="gauche">
 
-						<div class="mySlides fade">
+						<div class="mySlides i${loop.index+1} fade">
 							<img src="${seri.photo}" alt="">
 						</div>
-						<div class="mySlides fade">
+						<div class="mySlides i${loop.index+1} fade">
 							<img src="${seri.modeleTFemme}" alt="">
 						</div>
-						<div class="mySlides fade">
+						<div class="mySlides i${loop.index+1} fade">
 							<img src="${seri.modeleTHomme}" alt="">
 						</div>
-						<div class="mySlides fade">
+						<div class="mySlides i${loop.index+1} fade">
 							<img src="${seri.modelePull}" alt="">
 						</div>
-						<div class="mySlides fade">
+						<div class="mySlides i${loop.index+1} fade">
 							<img src="${seri.modeleSweat}" alt="">
 						</div>
 						<a class="prev" onclick="plusSlides(-1)"><i
@@ -109,365 +110,81 @@
 							class="fa fa-chevron-right" aria-hidden="true"></i> </a>
 					</div>
 					<div class="droit">
-					<div>
-						<p>
-							<span>M</span>odèles:
-						</p>
-						<c:forEach items="${modeles}" var="modele">
-							<img src="${modele.image}" alt="${modele.label}"
-								title="${modele.label}">
-							<input type="radio">
-						</c:forEach>
-					</div>
-					<div>
-						<p class="titre">
-							<span>T</span>aille:
-						</p>
-						<select name="" id="">
-							<c:forEach items="${tailles}" var="taille">
-								<option value="">${taille}</option>
+						<div>
+							<p>
+								<span>M</span>odèles:
+							</p>
+							<c:forEach items="${modeles}" var="modele">
+								<img src="${modele.image}" alt="${modele.label}"
+									title="${modele.label}">
+								<input id="${modele.label}" value="${modele.label}" type="radio"
+									name="modele">
 							</c:forEach>
-						</select>
-					</div>
-					<div>
-						<p>
-							<span>C</span>ouleur:
-						</p>
-						<img class="color" src="resources/images/tee-shirt-atelier/th-bleu-clair.png" alt="">
-						<input type="radio"> 
-						<img class="color" src="resources/images/tee-shirt-atelier/th-bleu-fonce.png" alt="">
-						<input type="radio"> 
-						<img class="color" src="resources/images/tee-shirt-atelier/th-noir.png" alt="">
-						<input type="radio"> 
-						<img class="color" src="resources/images/tee-shirt-atelier/th-orange.png" alt="">
-						<input type="radio"> 
-						<img class="color" src="resources/images/tee-shirt-atelier/th-rouge.png" alt="">
-						<input type="radio"> 
-						<img class="color" src="resources/images/tee-shirt-atelier/th-vert.png" alt="">
-						<input type="radio">
-					</div>
+						</div>
+						<div id="">
+							<p class="titre">
+								<span>T</span>aille:
+							</p>
+							<select name="" class="tailleSelect" id="tailles-${loop.index+1}">
+								<c:forEach items="${tailles}" var="taille">
+									<option value="${tailles}">${taille}</option>
+								</c:forEach>
+							</select>
+						</div>
+						<div id="couleurs">
+							<p>
+								<span>C</span>ouleur:
+							</p>
+							<img class="color"
+								src="resources/images/tee-shirt-atelier/th-bleu-clair.png"
+								alt=""> <input type="radio" name="couleur"
+								value="bleuclair"> <img class="color"
+								src="resources/images/tee-shirt-atelier/th-bleu-fonce.png"
+								alt=""> <input type="radio" name="couleur"
+								value="bleufonce"> <img class="color"
+								src="resources/images/tee-shirt-atelier/th-noir.png" alt="">
+							<input type="radio" name="couleur" value="noir"> <img
+								class="color"
+								src="resources/images/tee-shirt-atelier/th-orange.png" alt="">
+							<input type="radio" name="couleur" value="orange"> <img
+								class="color"
+								src="resources/images/tee-shirt-atelier/th-rouge.png" alt="">
+							<input type="radio" name="couleur" value="rouge"> <img
+								class="color"
+								src="resources/images/tee-shirt-atelier/th-vert.png" alt="">
+							<input type="radio" name="couleur" value="vert">
+						</div>
 						<div class="boutons">
 							<div class="boutonselect">
-								<a class="panier" href=""><strong>Ajouter au panier</strong></a>
-								<a class="commande" href=""><strong>Poursuivre la
-										commande</strong></a>
+								<a class="panier" data-serigraphie="${seri.designation}"
+									id="prod${loop.index+1}" href=""> <strong>Ajouter
+										au panier</strong>
+								</a>
+								<!-- 								<button class="panier" id="panier"><strong>Ajouter au panier</button> -->
+								<a class="commande" href=""> <strong>Valider le
+										panier</strong>
+								</a>
 							</div>
 							<div class="clear"></div>
-							<a class="valid" href=""><strong>Valider le panier</strong></a>
 						</div>
 					</div>
 				</div>
+			</div>
 		</section>
 	</c:forEach>
 
 
-
-
-
-	<!--
-<section class="collection fade prod6">
-    <a class="prev" onclick="generalSlides(-1)"><i class="fa fa-step-backward" aria-hidden="true"></i>
-    </a>
-    <a class="next" onclick="generalSlides(1)"><i class="fa fa-step-forward" aria-hidden="true"></i>
-    </a>
-    <div class="prod">
-        <div class="left">
-            <img class="logo" src="images/logo-Tee-Graph.png" alt="logo TeeGraph.">
-            <div class="connection"> 
-                <form action="connection" method="post" modelAttribute="">
-                    <label for="identify">Identifiez-vous</label>
-                    <br>
-                    <input type="text" name="utilisateur" placeholder="nom d'utilisateur">
-                    <br>
-                    <input type="password" name="password" placeholder="mot de passe">
-                    <br>
-                    <input type="submit" value="- GO -">
-                    <br>
-                    <a href="">Vous n'êtes pas encore membre!!!!<br><strong>Cliquez ICI</strong></a>
-                </form> 
-            </div>
-            <div class="sociaux">
-                <ul>
-                    <li><a href="#" class="btn-sociaux"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
-                    <li><a href="#" class="btn-sociaux"><i class="fa fa-pinterest-square" aria-hidden="true"></i></a></li>
-                    <li><a href="#" class="btn-sociaux"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                </ul>
-            </div>
-
-        </div>
-
-        <div class="detail">
-            <a id="croix" href="index.html#fiches"><i class="fa fa-times" aria-hidden="true"></i></a>
-
-            <div class="gauche">
-
-                <div class="mySlides fade">
-                    <img src="images/graphiti-6.jpg" alt="">
-                </div>
-                <div class="mySlides fade">
-                    <img src="images/produits/modele-6-f.jpg" alt="">
-                </div>
-                <div class="mySlides fade">
-                    <img src="images/produits/modele-6-h.jpg" alt="">
-                </div>
-                <div class="mySlides fade">
-                    <img src="images/produits/modele-6-p.jpg" alt="">
-                </div>
-                <div class="mySlides fade">
-                    <img src="images/produits/modele-6-s.jpg" alt="">
-                </div>
-                <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-chevron-left" aria-hidden="true"></i>
-                </a>
-                <a class="next" onclick="plusSlides(1)"><i class="fa fa-chevron-right" aria-hidden="true"></i>
-                </a>
-            </div>
-            <div class="droit">
-                <p class="titre"><span>T</span>aille:</p>
-                <select name="" id="">
-                    <option selected="selected" value="XL">XL</option>
-                    <option value="L">L</option>
-                    <option value="M">M</option>
-                    <option value="S">S</option>
-                </select>
-
-                <p><span>M</span>odèles:</p>
-                    <img src="images/fiches-prod/base-coupe-femme.png" alt="tee-shirt femme" title="tee-shirt femme">
-                     <input type="radio">
-                    <img src="images/fiches-prod/base-homme-femme.png" alt="tee-shirt homme" title="tee-shirt femme">
-                     <input type="radio">
-                    <img src="images/fiches-prod/base-pull.png" alt="pull" title="pull mixte">
-                     <input type="radio">
-                    <img src="images/fiches-prod/base-sweat.png" alt="sweat" title="sweat miste">
-                     <input type="radio">
-                    <p><span>C</span>ouleur:</p>
-                    <img class="color" src="images/tee-shirt-atelier/th-bleu-clair.png" alt="">
-                    <input type="radio">
-                    <img class="color" src="images/tee-shirt-atelier/th-bleu-fonce.png" alt="">          
-                    <input type="radio">
-                    <img class="color" src="images/tee-shirt-atelier/th-noir.png" alt="">
-                    <input type="radio">
-                    <img class="color" src="images/tee-shirt-atelier/th-orange.png" alt="">
-                    <input type="radio">
-                    <img class="color" src="images/tee-shirt-atelier/th-rouge.png" alt="">
-                    <input type="radio">
-                    <img class="color" src="images/tee-shirt-atelier/th-vert.png" alt="">
-                    <input type="radio">
-                <div class="boutons">
-                   <div class="boutonselect">
-                    <a class="panier" href=""><strong>Ajouter au panier</strong></a>
-                    <a class="commande" href=""><strong>Poursuivre la commande</strong></a>
-                    </div>
-                    <div class="clear"></div>
-                    <a class="valid" href=""><strong>Valider le panier</strong></a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</section>
-
-<section class="collection fade prod7">
-    <a class="prev" onclick="generalSlides(-1)"><i class="fa fa-step-backward" aria-hidden="true"></i>
-    </a>
-    <a class="next" onclick="generalSlides(1)"><i class="fa fa-step-forward" aria-hidden="true"></i>
-    </a>
-    <div class="prod">
-        <div class="left">
-            <img class="logo" src="images/logo-Tee-Graph.png" alt="logo TeeGraph.">
-            <div class="connection"> 
-                <form action="connection" method="post" modelAttribute="">
-                    <label for="identify">Identifiez-vous</label>
-                    <br>
-                    <input type="text" name="utilisateur" placeholder="nom d'utilisateur">
-                    <br>
-                    <input type="password" name="password" placeholder="mot de passe">
-                    <br>
-                    <input type="submit" value="- GO -">
-                    <br>
-                    <a href="">Vous n'êtes pas encore membre!!!!<br><strong>Cliquez ICI</strong></a>
-                </form> 
-            </div>
-            <div class="sociaux">
-                <ul>
-                    <li><a href="#" class="btn-sociaux"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
-                    <li><a href="#" class="btn-sociaux"><i class="fa fa-pinterest-square" aria-hidden="true"></i></a></li>
-                    <li><a href="#" class="btn-sociaux"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                </ul>
-            </div>
-
-        </div>
-
-        <div class="detail">
-            <a id="croix" href="index.html#fiches"><i class="fa fa-times" aria-hidden="true"></i></a>
-
-            <div class="gauche">
-
-                <div class="mySlides fade">
-                    <img src="images/graphiti-7.jpg" alt="">
-                </div>
-                <div class="mySlides fade">
-                    <img src="images/produits/modele-7-f.jpg" alt="">
-                </div>
-                <div class="mySlides fade">
-                    <img src="images/produits/modele-7-h.jpg" alt="">
-                </div>
-                <div class="mySlides fade">
-                    <img src="images/produits/modele-7-p.jpg" alt="">
-                </div>
-                <div class="mySlides fade">
-                    <img src="images/produits/modele-7-s.jpg" alt="">
-                </div>
-                <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-chevron-left" aria-hidden="true"></i>
-                </a>
-                <a class="next" onclick="plusSlides(1)"><i class="fa fa-chevron-right" aria-hidden="true"></i>
-                </a>
-            </div>
-            <div class="droit">
-                <p class="titre"><span>T</span>aille:</p>
-                <select name="" id="">
-                    <option selected="selected" value="XL">XL</option>
-                    <option value="L">L</option>
-                    <option value="M">M</option>
-                    <option value="S">S</option>
-                </select>
-
-                <p><span>M</span>odèles:</p>
-                    <img src="images/fiches-prod/base-coupe-femme.png" alt="tee-shirt femme" title="tee-shirt femme">
-                     <input type="radio">
-                    <img src="images/fiches-prod/base-homme-femme.png" alt="tee-shirt homme" title="tee-shirt femme">
-                     <input type="radio">
-                    <img src="images/fiches-prod/base-pull.png" alt="pull" title="pull mixte">
-                     <input type="radio">
-                    <img src="images/fiches-prod/base-sweat.png" alt="sweat" title="sweat miste">
-                     <input type="radio">
-                    <p><span>C</span>ouleur:</p>
-                    <img class="color" src="images/tee-shirt-atelier/th-bleu-clair.png" alt="">
-                    <input type="radio">
-                    <img class="color" src="images/tee-shirt-atelier/th-bleu-fonce.png" alt="">          
-                    <input type="radio">
-                    <img class="color" src="images/tee-shirt-atelier/th-noir.png" alt="">
-                    <input type="radio">
-                    <img class="color" src="images/tee-shirt-atelier/th-orange.png" alt="">
-                    <input type="radio">
-                    <img class="color" src="images/tee-shirt-atelier/th-rouge.png" alt="">
-                    <input type="radio">
-                    <img class="color" src="images/tee-shirt-atelier/th-vert.png" alt="">
-                    <input type="radio">
-                <div class="boutons">
-                   <div class="boutonselect">
-                    <a class="panier" href=""><strong>Ajouter au panier</strong></a>
-                    <a class="commande" href=""><strong>Poursuivre la commande</strong></a>
-                    </div>
-                    <div class="clear"></div>
-                    <a class="valid" href=""><strong>Valider le panier</strong></a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</section>
-
-<section class="collection fade prod8">
-    <a class="prev" onclick="generalSlides(-1)"><i class="fa fa-step-backward" aria-hidden="true"></i>
-    </a>
-    <a class="next" onclick="generalSlides(1)"><i class="fa fa-step-forward" aria-hidden="true"></i>
-    </a>
-    <div class="prod">
-        <div class="left">
-            <img class="logo" src="images/logo-Tee-Graph.png" alt="logo TeeGraph.">
-            <div class="connection"> 
-                <form action="connection" method="post" modelAttribute="">
-                    <label for="identify">Identifiez-vous</label>
-                    <br>
-                    <input type="text" name="utilisateur" placeholder="nom d'utilisateur">
-                    <br>
-                    <input type="password" name="password" placeholder="mot de passe">
-                    <br>
-                    <input type="submit" value="- GO -">
-                    <br>
-                    <a href="">Vous n'êtes pas encore membre!!!!<br><strong>Cliquez ICI</strong></a>
-                </form> 
-            </div>
-            <div class="sociaux">
-                <ul>
-                    <li><a href="#" class="btn-sociaux"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
-                    <li><a href="#" class="btn-sociaux"><i class="fa fa-pinterest-square" aria-hidden="true"></i></a></li>
-                    <li><a href="#" class="btn-sociaux"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                </ul>
-            </div>
-
-        </div>
-
-        <div class="detail">
-            <a id="croix" href="index.html#fiches"><i class="fa fa-times" aria-hidden="true"></i></a>
-
-            <div class="gauche">
-
-                <div class="mySlides fade">
-                    <img src="images/graphiti-8.jpg" alt="">
-                </div>
-                <div class="mySlides fade">
-                    <img src="images/produits/modele-8-f.jpg" alt="">
-                </div>
-                <div class="mySlides fade">
-                    <img src="images/produits/modele-8-h.jpg" alt="">
-                </div>
-                <div class="mySlides fade">
-                    <img src="images/produits/modele-8-p.jpg" alt="">
-                </div>
-                <div class="mySlides fade">
-                    <img src="images/produits/modele-8-s.jpg" alt="">
-                </div>
-                <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-chevron-left" aria-hidden="true"></i>
-                </a>
-                <a class="next" onclick="plusSlides(1)"><i class="fa fa-chevron-right" aria-hidden="true"></i>
-                </a>
-            </div>
-            <div class="droit">
-                <p class="titre"><span>T</span>aille:</p>
-                <select name="" id="">
-                    <option selected="selected" value="XL">XL</option>
-                    <option value="L">L</option>
-                    <option value="M">M</option>
-                    <option value="S">S</option>
-                </select>
-
-                <p><span>M</span>odèles:</p>
-                    <img src="images/fiches-prod/base-coupe-femme.png" alt="tee-shirt femme" title="tee-shirt femme">
-                     <input type="radio">
-                    <img src="images/fiches-prod/base-homme-femme.png" alt="tee-shirt homme" title="tee-shirt femme">
-                     <input type="radio">
-                    <img src="images/fiches-prod/base-pull.png" alt="pull" title="pull mixte">
-                     <input type="radio">
-                    <img src="images/fiches-prod/base-sweat.png" alt="sweat" title="sweat miste">
-                     <input type="radio">
-                    <p><span>C</span>ouleur:</p>
-                    <img class="color" src="images/tee-shirt-atelier/th-bleu-clair.png" alt="">
-                    <input type="radio">
-                    <img class="color" src="images/tee-shirt-atelier/th-bleu-fonce.png" alt="">          
-                    <input type="radio">
-                    <img class="color" src="images/tee-shirt-atelier/th-noir.png" alt="">
-                    <input type="radio">
-                    <img class="color" src="images/tee-shirt-atelier/th-orange.png" alt="">
-                    <input type="radio">
-                    <img class="color" src="images/tee-shirt-atelier/th-rouge.png" alt="">
-                    <input type="radio">
-                    <img class="color" src="images/tee-shirt-atelier/th-vert.png" alt="">
-                    <input type="radio">
-                <div class="boutons">
-                   <div class="boutonselect">
-                    <a class="panier" href=""><strong>Ajouter au panier</strong></a>
-                    <a class="commande" href=""><strong>Poursuivre la commande</strong></a>
-                    </div>
-                    <div class="clear"></div>
-                    <a class="valid" href=""><strong>Valider le panier</strong></a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</section>
--->
+	<form:form id="produitForm" method="post" action="${pageContext.request.contextPath}/commande/"
+		modelAttribute="produitForm">
+		<input type="text" name="serigraphie">
+		<br>
+		<input type="text" name="color">
+		<br>
+		<input type="text" name="taille" id="tailleInput">
+		<br>
+		<input type="text" name="modele">
+		<br>
+	</form:form>
 
 	<!--JAVASCRIPT-->
 	<script
@@ -489,8 +206,11 @@
 
 		function showSlides(n) {
 			var i;
-			var slides = document
-					.querySelectorAll(`.prod${slideIndexGen} .mySlides`);
+			let classSelector = ".prod" + slideIndexGen + " .mySlides";
+			// 			console.log("classe selector = ", classSelector);
+			var slides = document.querySelectorAll(classSelector);
+			// 			console.log("slides = ", slides);
+			// 			console.log("index = ", slideIndexGen);
 			if (n > slides.length) {
 				slideIndex = 1
 			}
@@ -517,6 +237,7 @@
 		function showSlidesGen(n) {
 			var i;
 			var slidesGen = document.getElementsByClassName("collection");
+			// 			console.log("Slides gen = ", slidesGen);
 			if (n > slidesGen.length) {
 				slideIndexGen = 1
 			}
@@ -533,6 +254,35 @@
 
 		showSlides(slideIndex);
 	</script>
+
+	<script>
+		$(".tailleSelect").change(function(e) {
+			var input = document.getElementById("tailleInput");
+			input.value = this.options[this.selectedIndex].text;
+			alert(this.selectedIndex);
+		})
+	</script>
+
+	<script>
+		$("a.panier").click(function(e) {
+			e.preventDefault();
+			var monLien = this;
+			var form = document.getElementById("produitForm");
+			var modele = document
+					.querySelector('input[type="radio"][name = "modele"]:checked').value;
+			var couleur = document
+					.querySelector('input[type="radio"][name = "couleur"]:checked').value;
+			alert(modele);
+			form.elements.serigraphie.value = monLien.dataset.serigraphie;
+			form.elements.color.value = couleur;
+			form.elements.modele.value = modele;
+			form.submit();
+		});
+	</script>
+
+
+
+
 
 </body>
 
