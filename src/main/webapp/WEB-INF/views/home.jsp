@@ -143,7 +143,7 @@ request.getServerPort() + request.getContextPath() + "/"%>" />
 		<div class="connection">
 			<c:if test="${connecte == 'connecte'}">
 				<h2>${user.nom}</h2>
-				<a href="auth/member/${user.id}" alt="">Mon compte</a>
+				<a href="auth/member/${user.id}" alt=""><spring:message code = "auth.member" /></a>
 			</c:if>
 			<c:if test="${connecte != 'connecte'}">
 				<form action="connection" method="post" modelAttribute="">

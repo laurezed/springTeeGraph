@@ -6,43 +6,43 @@ import javax.validation.constraints.NotNull;
 
 public class ConnectForm implements Serializable {
 
-	@NotNull(message = "{connect.champ.obligatoire}")
+	@NotNull(message = "{connect.field.required}")
 	private String nom;
 	
-	@NotNull(message = "{connect.champ.obligatoire}")
+	@NotNull(message = "{connect.field.required}")
 	private String prenom;
 	
-	@NotNull(message = "{connect.champ.obligatoire}")
+	@NotNull(message = "{connect.field.required}")
 	private String dateNaissance;
 	
-	@NotNull(message = "{connect.*champ.obligatoire}")
+	@NotNull(message = "{connect.field.required}")
 	private String adresse;
 	
-	@NotNull(message = "{connect.*champ.obligatoire}")
+	@NotNull(message = "{connect.field.required}")
 	private String codePostale;
 	
-	@NotNull(message = "{connect.*champ.obligatoire}")
+	@NotNull(message = "{connect.field.required}")
 	private String ville;
 	
 	private String telephoneFixe;
 	
-	@NotNull(message = "{connect.*champ.obligatoire}")
+	@NotNull(message = "{connect.field.required}")
 	private String telephoneMobile;
 	
-	@NotNull(message = "{connect.*champ.obligatoire}")
+	@NotNull(message = "{connect.field.required}")
 	private String email;
 
 	// Pour la confirmation de l'email
-	@NotNull(message = "{connect.*champ.obligatoire}")
+	@NotNull(message = "{connect.field.required}")
 	private String email2;
 	
-	@NotNull(message = "{connect.*champ.obligatoire}")
+	@NotNull(message = "{connect.field.required}")
 	private String password;
 	
-	@NotNull(message = "{connect.*champ.obligatoire}")
+	@NotNull(message = "{connect.field.required}")
 	private String passwordNew;
 	
-	@NotNull(message = "{connect.*champ.obligatoire}")
+	@NotNull(message = "{connect.field.required}")
 	private String passwordNewConf;
 
 	public String getNom() {
