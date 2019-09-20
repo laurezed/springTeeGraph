@@ -37,9 +37,9 @@ request.getServerPort() + request.getContextPath() + "/"%>" />
 				<div class="menu">
 					<nav class="menu">
 						<ul>
-							<li><a id="actif" href="<c:url value="/" />">Accueil</a></li>
-							<li><a href="atelier.html">Notre atelier</a></li>
-							<li><a href="contact.html">Contact</a></li>
+							<li><a id="actif" href="<c:url value="/" />"><spring:message code="menu.actif" /></a></li>
+							<li><a href="atelier.html"><spring:message code="menu.workshop" /></a></li>
+							<li><a href="contact.html"><spring:message code="menu.contact" /></a></li>
 						</ul>
 					</nav>
 				</div>
@@ -47,49 +47,46 @@ request.getServerPort() + request.getContextPath() + "/"%>" />
 				<div class="connection">
 					<c:if test="${connecte == 'connecte'}">
 						<h2>${user.nom}</h2>
-						<a href="auth/member/${user.id}" alt="">Mon compte</a>
+						<a href="auth/member/${user.id}" alt=""><spring:message code = "auth.member" /></a>
 					</c:if>
 					<c:if test="${connecte != 'connecte'}">
 						<form method="post"
 							action="${pageContext.request.contextPath}/auth/member"
 							modelAttribute="userBean">
-							<label for="identify">Identifiez-vous</label>
+							<label for="identify"><spring:message code = "identification.member" /></label>
 							<p>${msg}</p>
 							<br> 
 							<input type="text" name="email" placeholder="nom d'utilisateur"> <br> 
 							<input type="password" name="password" placeholder="mot de passe"> <br> 
 							<input type="submit" value="- GO -"> <br>
 							<a href="${pageContext.request.contextPath}/auth/noMember"
-								modelAttribute="cocoBean">Vous n'êtes pas encore membre!!!!<br>
-							<strong>Cliquez ICI</strong></a>
+								modelAttribute="cocoBean"><spring:message code = "noMember.auth" /><br>
+							<strong><spring:message code = "noMember.clic" /></strong></a>
 						</form>
-						</c:if>
 						<div class="langue">
-							<a id="francais" href=""><img
-								src="resources/images/drapeau-francais.png" alt=""></a> <a id="anglais"
-								href=""><img src="resources/images/drapeau-anglais.png" alt=""></a>
-						</div>
+						<a href="${requestScope['javax.servlet.forward.request_uri']}?lang=fr" ><img src="resources/images/drapeau-francais.png" alt=""></a>
+						<a href="${requestScope['javax.servlet.forward.request_uri']}?lang=en"><img src="resources/images/drapeau-anglais.png" alt=""></a>
+	</div>
+						
+						</c:if>
+						
 				</div>
 				<div class="clear"></div>
 			</div>
 		</div>
 		<section class="introduction">
 			<h1>
-				Tee Graph. <br>Le Graffeur en série!
+				Tee Graph. <br><spring:message code = "introduction" />
 			</h1>
 			<p>
-				15 jours, c'est le temps nécessaire à nos petites mimines pour
-				inventer, créer et innover dans la loi des séries!<br> C'est
-				une culture populaire ouverte à tous! des murs s'en sont suivi les
-				graffitis sur les metros, trains et tout endroit vide de couleurs et
-				de punch! <br> alors pourquoi pas s'exprimer sur nous-meme!
-				l'idée lancée, nous avons crée TeeGraph. Atravers une large une
-				gamme de tee shirts, sweat et pull, à l'impression bien trempée!
+				<spring:message code = "description1" />
+			    <spring:message code = "description2" />
+			    <spring:message code = "description3" />
 			</p>
 		</section>
 	</header>
 
-	<h2 id="fiches">- Découvrez notre sélection -</h2>
+	<h2 id="fiches">- <spring:message code = "selection.discovery" /> -</h2>
 
 	<section class="produits" id="fiches">
 		<c:forEach items="${myList}" var="seri">
@@ -101,9 +98,8 @@ request.getServerPort() + request.getContextPath() + "/"%>" />
 
 	<section class="atelier">
 		<p>
-			Retrouvez notre newletter avec les dates de visite de notre atelier!
-			<br> L'occasion pour vous, d'échanger avec notre équipe, sur les
-			techniques de sérigraphies.
+			<spring:message code = "workshop.discovery1" />
+			<spring:message code = "workshop.discovery2" />
 		</p>
 
 		<img src="resources/images/atelier.jpg" alt="">
@@ -111,8 +107,7 @@ request.getServerPort() + request.getContextPath() + "/"%>" />
 	</section>
 
 
-	<h2>- BEST SELLERS DE LA SEMAINE DERNIERE | Dernière chance les
-		amis! -</h2>
+	<h2>- <spring:message code = "best.sellers.week" /> -</h2>
 
 	<section class="chance">
 		<c:forEach items="${myBestSeller}" var="seri">
@@ -129,7 +124,7 @@ request.getServerPort() + request.getContextPath() + "/"%>" />
 			<img src="resources/images/logo-Tee-Graph-footer.png" alt="logo-TeeGraph">
 		</div>
 		<div class="sociaux">
-			<p>Retrouvez-nous sur les réseaux</p>
+			<p><spring:message code = "networks" /></p>
 			<ul>
 				<li><a href="#" class="btn-sociaux"><i
 						class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
@@ -152,19 +147,18 @@ request.getServerPort() + request.getContextPath() + "/"%>" />
 			</c:if>
 			<c:if test="${connecte != 'connecte'}">
 				<form action="connection" method="post" modelAttribute="">
-					<label for="identify">Identifiez-vous</label> <br> <input
+					<label for="identify"><spring:message code = "connection.member" /></label> <br> <input
 						type="text" name="utilisateur" placeholder="nom d'utilisateur">
 					<br> <input type="password" name="password"
 						placeholder="mot de passe"> <br> <input type="submit"
-						value="- GO -"> <br> <a href="">Vous n'êtes pas
-						encore membre!!!!<br>Cliquez ICI
+						value="- GO -"> <br> <a href=""><spring:message code = "noMember.auth" /><br><spring:message code = "noMember.clic" />
 					</a>
 				</form>
 			</c:if>
 		</div>
 		<div class="clear"></div>
 		<div class="bottom">
-			<a class="mention" href="#">MENTION LEGALES | RGPD</a>
+			<a class="mention" href="#"><spring:message code = "legal.mention" /></a>
 			<p class="mention" href="">| Copyright TeeGraph.</p>
 		</div>
 
@@ -198,3 +192,4 @@ request.getServerPort() + request.getContextPath() + "/"%>" />
 </body>
 
 </html>
+q
