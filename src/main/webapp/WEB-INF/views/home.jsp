@@ -55,7 +55,7 @@ request.getServerPort() + request.getContextPath() + "/"%>" />
 							modelAttribute="userBean">
 							<label for="identify"><spring:message code = "identification.member" /></label>
 							<p>${msg}</p>
-							<br> 
+							
 							<input type="text" name="email" placeholder="nom d'utilisateur"> <br> 
 							<input type="password" name="password" placeholder="mot de passe"> <br> 
 							<input type="submit" value="- GO -"> <br>
