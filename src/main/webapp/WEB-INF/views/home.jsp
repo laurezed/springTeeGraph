@@ -34,6 +34,9 @@
 </head>
 
 <body>
+	<a href="${requestScope['javax.servlet.forward.request_uri']}?lang=fr"><spring:message code="${lang.fr}" /></a>
+	<a href="${requestScope['javax.servlet.forward.request_uri']}?lang=en"><spring:message code="${lang.en}"/></a>
+	
 	<header id="top" class="header">
 		<div class="bandeau">
 			<div class="gauche">
@@ -44,23 +47,23 @@
 				<div class="menu">
 					<nav class="menu">
 						<ul>
-							<li><a id="actif" href="index.html">Accueil</a></li>
-							<li><a href="atelier.html">Notre atelier</a></li>
-							<li><a href="contact.html">Contact</a></li>
+							<li><a id="actif" href="index.html"><spring:message code="${menu.actif}" /></a></li>
+							<li><a href="atelier.html"><spring:message code="${menu.workshop}" /></a></li>
+							<li><a href="contact.html"><spring:message code="${menu.contact}" /></a></li>
 						</ul>
 					</nav>
 				</div>
 				<div class="connection">
 					<c:if test="${connecte == 'connecte'}">
-					<h2>${user.nom}</h2>
-					<a href="auth/member/${user.id}" alt="">Mon compte</a>
+						<h2>${user.nom}</h2>
+						<a href="auth/member/${user.id}" alt=""><spring:message code = "${auth.member}" /></a>
 					</c:if>
 					<c:if test="${connecte != 'connecte'}">
 						<form:form method="post"
 							action="${pageContext.request.contextPath}/auth/member"
 							modelAttribute="userBean">
 
-							<label for="identify">Identifiez-vous</label>
+							<label for="identify"><spring:message code = "${identification.member}" /></label>
 							<p>${msg}</p>
 							<p>${msg2}</p>
 
@@ -74,9 +77,8 @@
 							<br>
 							<input type="submit" value="- GO- ">
 							<a href="${pageContext.request.contextPath}/auth/noMember"
-								modelAttribute="cocoBean">Vous n'êtes pas encore membre!!!!!
-								<br>
-							<strong>Cliquez ICI</strong>
+								modelAttribute="cocoBean"><spring:message code = "${noMember.auth}" />
+								<br> <strong><spring:message code = "${noMember.clic}" /></strong>
 							</a>
 						</form:form>
 					</c:if>
@@ -87,20 +89,16 @@
 		</div>
 		<section class="introduction">
 			<h1>
-				Tee Graph. <br>Le Graffeur en série!
+				Tee Graph. <br><spring:message code = "${introduction}" />
 			</h1>
-			<p>
-				15 jours, c'est le temps nécessaire à nos petites mimines pour
-				inventer, créer et innover dans la loi des séries!<br> C'est
-				une culture populaire ouverte à tous! des murs s'en sont suivi les
-				graffitis sur les metros, trains et tout endroit vide de couleurs et
-				de punch! <br> alors pourquoi pas s'exprimer sur nous-meme!
-				l'idée lancée, nous avons crée TeeGraph. Atravers une large une
-				gamme de tee shirts, sweat et pull, à l'impression bien trempée!
+			<p><spring:message code = "${description1}" />
+			   <spring:message code = "${description2}" />
+			   <spring:message code = "${description3}" />
+				
 			</p>
 		</section>
 	</header>
-	<h2>- Découvrez notre sélection -</h2>
+	<h2>- <spring:message code = "${selection.discovery}" /> -</h2>
 
 	<section class="produits">
 		<a class="rayon" href="#"><img
@@ -118,7 +116,8 @@
 	</section>
 
 	<section class="atelier">
-		<p>
+		<p><spring:message code = "${workshop.discovery1}" />
+		<spring:message code = "${workshop.discovery2}" />
 			Retrouvez notre newletter avec les dates de visite de notre atelier!
 			<br> L'occasion pour vous, d'échanger avec notre équipe, sur les
 			techniques de sérigraphies.
@@ -129,8 +128,7 @@
 	</section>
 
 
-	<h2>- BEST SELLERS DE LA SEMAINE DERNIERE | Dernière chance les
-		amis! -</h2>
+	<h2><spring:message code = "${best.sellers.week}" /></h2>
 
 	<section class="chance">
 		<img src="resources/images/graphiti-1.jpg"
@@ -150,7 +148,7 @@
 				alt="logo-TeeGraph">
 		</div>
 		<div class="sociaux">
-			<p>Retrouvez-nous sur les réseaux</p>
+			<p><spring:message code = "${networks}" /></p>
 			<ul>
 				<li><a href="#" class="btn-sociaux"><i
 						class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
@@ -168,18 +166,17 @@
 		</div>
 		<div class="connection">
 			<form action="connection" method="post" modelAttribute="">
-				<label for="identify">Identifiez-vous</label> <br> <input
+				<label for="identify"><spring:message code = "${connection.member}" /></label> <br> <input
 					type="text" name="utilisateur" placeholder="nom d'utilisateur">
 				<br> <input type="password" name="password"
 					placeholder="mot de passe"> <br> <input type="submit"
-					value="- GO -"> <br> <a href="">Vous n'êtes pas
-					encore membre!!!!<br>Cliquez ICI
+					value="- GO -"> <br> <a href=""><spring:message code = "${noMember.auth}" />br><spring:message code = "${noMember.clic}" />
 				</a>
 			</form>
 		</div>
 		<div class="clear"></div>
 		<div class="bottom">
-			<a class="mention" href="#">MENTION LEGALES | RGPD</a>
+			<a class="mention" href="#"><spring:message code = "${legal.mention}" /></a>
 			<p class="mention" href="">| Copyright TeeGraph.</p>
 		</div>
 

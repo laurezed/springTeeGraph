@@ -1,50 +1,48 @@
 package fr.dawan.springTeeGraph.beans;
 
 import java.io.Serializable;
-import java.util.Date;
 
-import javax.persistence.Column;
 import javax.validation.constraints.NotNull;
 
 public class ConnectForm implements Serializable {
 
-	@NotNull(message = "*champ obligatoire")
+	@NotNull(message = "{connect.champ.obligatoire}")
 	private String nom;
 	
-	@NotNull(message = "*champ obligatoire")
+	@NotNull(message = "{connect.champ.obligatoire}")
 	private String prenom;
 	
-	@NotNull(message = "*champ obligatoire")
+	@NotNull(message = "{connect.champ.obligatoire}")
 	private String dateNaissance;
 	
-	@NotNull(message = "*champ obligatoire")
+	@NotNull(message = "{connect.*champ.obligatoire}")
 	private String adresse;
 	
-	@NotNull(message = "*champ obligatoire")
+	@NotNull(message = "{connect.*champ.obligatoire}")
 	private String codePostale;
 	
-	@NotNull(message = "*champ obligatoire")
+	@NotNull(message = "{connect.*champ.obligatoire}")
 	private String ville;
 	
 	private String telephoneFixe;
 	
-	@NotNull(message = "*champ obligatoire")
+	@NotNull(message = "{connect.*champ.obligatoire}")
 	private String telephoneMobile;
 	
-	@NotNull(message = "*champ obligatoire")
+	@NotNull(message = "{connect.*champ.obligatoire}")
 	private String email;
 
 	// Pour la confirmation de l'email
-	@NotNull(message = "*champ obligatoire")
+	@NotNull(message = "{connect.*champ.obligatoire}")
 	private String email2;
 	
-	@NotNull(message = "*champ obligatoire")
+	@NotNull(message = "{connect.*champ.obligatoire}")
 	private String password;
 	
-	@NotNull(message = "*champ obligatoire")
+	@NotNull(message = "{connect.*champ.obligatoire}")
 	private String passwordNew;
 	
-	@NotNull(message = "*champ obligatoire")
+	@NotNull(message = "{connect.*champ.obligatoire}")
 	private String passwordNewConf;
 
 	public String getNom() {
