@@ -72,7 +72,7 @@ public class UserService {
 	@Transactional
 	public Utilisateur findByString(String email) throws Exception {
 		try {
-			return genericDao.findByString(Utilisateur.class, "email", email, true);
+			return genericDao.findByString("Utilisateur", "email", email, true);
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw e;

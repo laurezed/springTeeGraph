@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import fr.dawan.springTeeGraph.SendMail;
 import fr.dawan.springTeeGraph.beans.UserForm;
 import fr.dawan.springTeeGraph.entites.Serigraphie;
 import fr.dawan.springTeeGraph.service.ProduitService;
@@ -41,7 +42,7 @@ public class HomeController {
 		}
 
 		model.addAttribute("msg", msg);
-
+		
 		return "home";
 	}
 

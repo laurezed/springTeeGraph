@@ -1,5 +1,6 @@
 package fr.dawan.springTeeGraph.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -31,10 +32,41 @@ public class ProduitService {
 			throw e;
 		}
 	}
+	
+	@Transactional
+	public List<Serigraphie> findAll(String name) throws Exception {
+		Serigraphie seri = new Serigraphie();
+		try {
+			List<Serigraphie> ls = genericDao.findAll(seri.getClass().getName(), true);
+			Serigraphie s = findByName(name);
+			List<Serigraphie> ls2 = new ArrayList<Serigraphie>();
+			ls2.add(s);
+			boolean ajouter = false;
+			for (Serigraphie serigraphie : ls) {
+				if (serigraphie.getId() == s.getId()) {
+					ajouter = true;
+				}
+				else if(ajouter) {
+					ls2.add(serigraphie);
+				}
+			}
+			for (Serigraphie serigraphie : ls) {
+				if (!ls2.contains(serigraphie)) {
+					ls2.add(serigraphie);
+				}
+			}
+			return ls2;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("ProduitService.findAll: " + e.getMessage());
+			throw e;
+		}
+	}
 
 	public Serigraphie findByName(String name) throws Exception {
 		try {
-			return genericDao.findByString(Serigraphie.class, "designation", name, true);
+			return genericDao.findByString("Serigraphie", "designation", name, true);
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("ProduitService.findByName: " + e.getMessage());

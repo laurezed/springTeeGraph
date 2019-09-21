@@ -176,8 +176,9 @@
 
 	<form:form id="produitForm" method="post" action="${pageContext.request.contextPath}/commande/"
 		modelAttribute="produitForm">
-		<input type="text" name="serigraphie">
+		<input type="text" name="utilisateur">
 		<br>
+		<input type="text" name="serigraphie">
 		<input type="text" name="color">
 		<br>
 		<input type="text" name="taille" id="tailleInput">
@@ -196,14 +197,14 @@
 		/*javascript galerie d'image produit*/
 		var slideIndex = 1;
 
-		/* javascript page produit*/
+		/* javascript page produits*/
 		var slideIndexGen = 1;
 
 		// Next/previous controle
 		function plusSlides(n) {
 			showSlides(slideIndex += n);
 		}
-
+		
 		function showSlides(n) {
 			var i;
 			let classSelector = ".prod" + slideIndexGen + " .mySlides";
@@ -227,7 +228,6 @@
 
 		};
 
-		showSlidesGen(slideIndexGen);
 
 		// Next/previous controle
 		function generalSlides(n) {
@@ -251,8 +251,10 @@
 			showSlides(1);
 
 		};
+		showSlidesGen(slideIndexGen);
 
 		showSlides(slideIndex);
+
 	</script>
 
 	<script>

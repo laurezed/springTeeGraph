@@ -71,6 +71,7 @@ public class AuthenticationController {
 		if (u != null && u.getPassword() != null && u.getPassword().equals(userForm.getPassword())) {
 
 			model.addAttribute("connecte", "connecte");
+			model.addAttribute("utilisateurConnecte", u.getId());
 
 			List<Serigraphie> myList;
 			String msg2 = "";
@@ -85,7 +86,7 @@ public class AuthenticationController {
 				logger.info("FIN - afficher fin d'appel findAll : " + model.toString());
 			}
 
-			model.addAttribute("msg52", msg2);
+			model.addAttribute("msg2", msg2);
 
 			// model.addAttribute("user", u);
 			return "home";
@@ -98,7 +99,7 @@ public class AuthenticationController {
 		}
 	}
 
-	@RequestMapping("/member/{id}")
+	@RequestMapping({"/member/{id}"})
 	public String afficheProfil(@ModelAttribute("cocoBean") ConnectForm connectForm, @PathVariable("id") String id,
 			BindingResult br, Model model) {
 		// String email = userForm.getEmail();
@@ -121,6 +122,7 @@ public class AuthenticationController {
 			connectForm.setDateNaissance(u.getDateNaissance().toString());
 
 			model.addAttribute("userForm", connectForm);
+			model.addAttribute("utilisateurConnecte", id);
 			return "membre";
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -171,6 +173,7 @@ public class AuthenticationController {
 			model.addAttribute("userToModify", u);
 			model.addAttribute("msg", "Votre profil a bien été modifié");
 			model.addAttribute("passwordForm", new PasswordForm());
+			model.addAttribute("utilisateurConnecte", u.getId());
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -229,6 +232,7 @@ public class AuthenticationController {
 		}
 
 		model.addAttribute("connecte", "connecte");
+		model.addAttribute("utilisateurConnecte", u.getId());
 		logger.info("FIN - ChangePassword findByString : " + passwordForm.toString());
 		return "membre";
 	}
@@ -275,6 +279,7 @@ public class AuthenticationController {
 
 				userService.create(u);
 				model.addAttribute("user", u);
+				model.addAttribute("utilisateurConnecte", u.getId());
 				// bravo nouveau client chargé en BDD!!!!!
 				msg = "Félicitation et bienvenue parmi nos membres actifs!";
 

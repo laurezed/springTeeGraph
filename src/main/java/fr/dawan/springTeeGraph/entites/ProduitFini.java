@@ -60,11 +60,12 @@ public class ProduitFini implements Serializable {
 		super();
 	}
 
-	public ProduitFini(long id, int version, Color color, Taille taille, Modele modele,
+	public ProduitFini(long id, int version, String referenceProduit, Color color, Taille taille, Modele modele,
 			Serigraphie serigraphie) {
 		super();
 		this.id = id;
 		this.version = version;
+		this.referenceProduit = referenceProduit;
 		this.color = color;
 		this.taille = taille;
 		this.modele = modele;

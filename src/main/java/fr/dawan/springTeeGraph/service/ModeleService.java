@@ -44,19 +44,12 @@ public class ModeleService {
 	public Modele findByName(String name) throws Exception {
 //		GenericDao genericDao = new GenericDao();
 		try {
-			return genericDao.findByString(Modele.class, "designation", name, true);
+			return genericDao.findByString("Modele", "label", name, true);
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw e;
 		}
 	}
 
-//	public GenericDao getGenericDao() {
-//		return genericDao;
-//	}
-//
-//	public void setGenericDao(GenericDao genericDao) {
-//		this.genericDao = genericDao;
-//	}
 
 }

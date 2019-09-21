@@ -32,6 +32,7 @@ public class CommandePanier implements Serializable{
 	//Utilisateur OneToOne
 	@OneToOne
 	private Utilisateur utilisateur;
+	
 	//LigneDeCommande OneToMany
 	@OneToMany
 	private List<LigneCommande> ligneCommande;

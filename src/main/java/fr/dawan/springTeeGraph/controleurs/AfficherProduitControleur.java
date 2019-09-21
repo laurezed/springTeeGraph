@@ -2,8 +2,6 @@ package fr.dawan.springTeeGraph.controleurs;
 
 import java.util.List;
 
-import javax.validation.Valid;
-
 import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,8 +16,8 @@ import fr.dawan.springTeeGraph.beans.ProduitForm;
 import fr.dawan.springTeeGraph.entites.Modele;
 import fr.dawan.springTeeGraph.entites.ProduitFini.Taille;
 import fr.dawan.springTeeGraph.entites.Serigraphie;
-import fr.dawan.springTeeGraph.service.ModeleService;
-import fr.dawan.springTeeGraph.service.ProduitService;
+import fr.dawan.springTeeGraph.entites.Utilisateur;
+import fr.dawan.springTeeGraph.service.*;
 
 @Controller
 @RequestMapping("/product")
@@ -30,6 +28,9 @@ public class AfficherProduitControleur {
 
 	@Autowired
 	ModeleService modeleService;
+
+	@Autowired
+	UserService userService;
 	
 	 private static Logger logger = Logger.getLogger(AfficherProduitControleur.class);
 	@GetMapping
@@ -57,8 +58,8 @@ public class AfficherProduitControleur {
 		return "afficher";
 	}
 
-	@GetMapping(value = "/{s_nom}")
-	public String popup(@ModelAttribute("produitForm") ProduitForm produitForm, BindingResult br,
+	@GetMapping(value = "/{s_nom}/{id}")
+	public String popup(@PathVariable("id") String id,
 			@PathVariable("s_nom") String s_nom, Model model) {
 
 		logger.info("DEBUT - popup ProduitForm : " + model.toString() );
@@ -67,6 +68,7 @@ public class AfficherProduitControleur {
 //		modeleService = new ModeleService();
 
 		Serigraphie seri = null;
+		ProduitForm produitForm = null;
 		String msg = "";
 		String msg2 = "";
 		try {
@@ -77,6 +79,7 @@ public class AfficherProduitControleur {
 //			Serigraphie sg = produitService.findByName(s_nom);
 
 			produitForm = new ProduitForm();
+			produitForm.setUtilisateur(id);
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -112,9 +115,11 @@ public class AfficherProduitControleur {
 		List<Serigraphie> myList;
 		try {
 			logger.info("DEBUT - produitService - findAll " + modeles.toString() );
-			myList = produitService.findAll();
+			myList = produitService.findAll(s_nom);
 			System.out.println(myList.size());
+			System.out.println("myList.get(0).getId() : " + myList.get(0).getId());
 			model.addAttribute("myList", myList);
+			model.addAttribute("indexe", myList.get(0).getId());
 		} catch (Exception e) {
 			e.printStackTrace();
 			msg = "Erreur lors du chargement des sérigraphies";

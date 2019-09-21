@@ -31,35 +31,48 @@ public class LigneCommandeControleur {
 
 	@Autowired
 	ProduitService produitService;
+	
+
+	@Autowired
+	ModeleService modeleService;
 
 	 private static Logger logger = Logger.getLogger(AfficherProduitControleur.class);
 
 	@PostMapping
 	public String creeLigneCommande(@ModelAttribute("ProduitForm") ProduitForm produitForm, BindingResult br,
-			Model model) {
+			Model model) throws Exception {
+		logger.info("DEBUT - LigneCommandeControleur - creeLigneCommande ");
+		
+		
+		logger.info("TEST - produitForm.getModele() :" + produitForm.getModele());
 
-		ModeleService ms = new ModeleService();
+
 		Modele modele = null;
 		try {
-			modele = ms.findByName(produitForm.getModele());
+			logger.info("DEBUT - LigneCommandeControleur - creeLigneCommande  try ms.findByName ");
+			modele = modeleService.findByName(produitForm.getModele());
+			logger.info("FIN - LigneCommandeControleur - creeLigneCommande  try ms.findByName ");
 		} catch (Exception e2) {
+			logger.info("ERREUR - LigneCommandeControleur - creeLigneCommande  try ms.findByName ");
 			e2.printStackTrace();
 		}
-		ProduitService ps = new ProduitService();
 		Serigraphie seri = null;
 		try {
-			seri = ps.findByName(produitForm.getSerigraphie());
+			logger.info("DEBUT - LigneCommandeControleur - creeLigneCommande  try ps.findByName ");
+			seri = produitService.findByName(produitForm.getSerigraphie());
+			logger.info("FIN - LigneCommandeControleur - creeLigneCommande  try ps.findByName ");
 		} catch (Exception e1) {
+			logger.info("ERREUR - LigneCommandeControleur - creeLigneCommande  try ps.findByName ");
 			e1.printStackTrace();
 		}
-		ProduitFini produitFini = new ProduitFini(0L, 0, Color.valueOf(produitForm.getColor().toUpperCase()), Taille.valueOf(produitForm.getTaille().toUpperCase()),
+		ProduitFini produitFini = new ProduitFini(0L, 0, "nouveau produit", Color.valueOf(produitForm.getColor().toUpperCase()), Taille.valueOf(produitForm.getTaille().toUpperCase()),
 				modele, seri);
 		
 		try {
 			produitService.create(produitFini, 0, true);
 		} catch (Exception e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
+			throw e1;
 		}
 
 		LigneCommande lCommande = new LigneCommande(0, 1, 10, 15, produitFini);

@@ -16,6 +16,9 @@ public class ProduitForm implements Serializable {
 	private int version;
 
 	@NotNull(message = "Ce champs ne doit pas être vide")
+	private String utilisateur;
+
+	@NotNull(message = "Ce champs ne doit pas être vide")
 	private String serigraphie;
 
 	@NotNull(message = "Ce champs ne doit pas être vide")
@@ -45,6 +48,14 @@ public class ProduitForm implements Serializable {
 
 	public void setVersion(int version) {
 		this.version = version;
+	}
+	
+	public String getUtilisateur() {
+		return utilisateur;
+	}
+
+	public void setUtilisateur(String utilisateur) {
+		this.utilisateur = utilisateur;
 	}
 
 	public String getSerigraphie() {

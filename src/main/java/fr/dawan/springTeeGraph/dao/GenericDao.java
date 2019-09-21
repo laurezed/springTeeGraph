@@ -88,14 +88,14 @@ public class GenericDao {
 	/**
 	 * 
 	 * @param <T>
-	 * @param entityClass
+	 * @param entityClassName
 	 * @param valeur
 	 * @param champ
 	 * @param closeCnx
 	 * @return
 	 * @throws Exception
 	 */
-	public <T> T findByString(Class<T> entityClass, Object champ, String valeur, boolean closeCnx) throws Exception {
+	public <T> T findByString(String entityClassName, Object champ, String valeur, boolean closeCnx) throws Exception {
 //		EntityTransaction tx = em.getTransaction();
 //
 		T obj = null;
@@ -109,7 +109,7 @@ public class GenericDao {
 		// ou un produit fini par sa couleur...
 		// "From :entityClass WHERE :champ= :valeur" signifie: dans la table Utilisateur
 		// quand le champ email = donner la valeur du mail (@)
-		obj = (T) em.createQuery("FROM " + entityClass.getName() + " WHERE " + champ + "= :valeur")
+		obj = (T) em.createQuery("FROM " + entityClassName + " WHERE " + champ + "= :valeur")
 				.setParameter("valeur", valeur).getSingleResult();
 		// tx.commit = valide la transaction:
 
