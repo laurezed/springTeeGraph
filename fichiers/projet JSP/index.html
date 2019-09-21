@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Tee Graph</title>
+    <title>Tee Graph | accueil</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-tee-graph.png">
     <meta name="description" content="Tee Graph, une semaine, 8 modèles, qui defilent au grès de nos experts graffeurs! Découvrez notre univers!">
     <link href="css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="screen">
     <link href="css/styles.css" rel="stylesheet" type="text/css" media="screen">
@@ -19,86 +20,103 @@
 </head>
 
 <body>
-<header id="top" class="header">
-    <div class="bandeau">
-        <div class="gauche">
-          <a href="index.html"><img src="images/logo-Tee-Graph.png" alt=""></a>
+    <header id="top" class="header">
+        <div class="bandeau">
+            <div class="gauche">
+              <a href="index.html"><img src="images/logo-Tee-Graph.png" alt=""></a>
+            </div>
+            <div class="droit">
+                <div class="menu">
+                    <nav class="menu">
+                        <ul>
+                            <li><a id="actif" href="index.html">Accueil</a></li>
+                            <li><a href="atelier.html" >Notre atelier</a></li>
+                            <li><a href="contact.html" >Contact</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="connection"> 
+                    <form action="connection" method="post" modelAttribute="">
+                        <label for="identify">Identifiez-vous</label>
+                        <br>
+                        <input type="text" name="utilisateur" placeholder="nom d'utilisateur">
+                        <br>
+                        <input type="password" name="password" placeholder="mot de passe">
+                        <br>
+                        <input type="submit" value="- GO -">
+                        <br>
+                        <a href="">Vous n'êtes pas encore membre!!!!<br><strong>Cliquez ICI</strong></a>
+                    </form> 
+                    <div class="langue">
+                        <a id="francais"  href=""><img src="images/drapeau-francais.png" alt=""></a>
+                        <a id="anglais" href=""><img src="images/drapeau-anglais.png" alt=""></a>
+                </div>
+                </div>
+                <div class="clear"></div>
+            </div>
         </div>
-        <div class="droit">
-            <div class="menu">
-                <nav class="menu">
-                    <ul>
-                        <li><a id="actif" href="index.html">Accueil</a></li>
-                        <li><a href="atelier.html" >Notre atelier</a></li>
-                        <li><a href="contact.html" >Contact</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
+        <section class="introduction">
+            <h1>Tee Graph. <br>Le Graffeur en série!</h1>
+            <p>15 jours, c'est le temps nécessaire à nos petites mimines pour inventer, créer et innover dans la loi des séries!<br>
+            C'est une culture populaire ouverte à tous! Des murs, s'en sont suivi les graffitis sur les métros, trains et tout endroit vide de couleurs et de punch! <br>
+            alors pourquoi pas, s'exprimer sur nos vêtements! L'idée lancée, nous avons crée TeeGraph.
+            A travers une large une gamme de tee shirts, sweat et pull, à l'impression bien trempée!
+            </p>
+        </section>
+    </header>
 
-            <div class="connection"> 
-                <form action="connection" method="post" modelAttribute="">
-                    <label for="identify">Identifiez-vous</label>
-                    <br>
-                    <input type="text" name="utilisateur" placeholder="nom d'utilisateur">
-                    <br>
-                    <input type="password" name="password" placeholder="mot de passe">
-                    <br>
-                    <input type="submit" value="- GO -">
-                    <br>
-                    <a href="">Vous n'êtes pas encore membre!!!!<br><strong>Cliquez ICI</strong></a>
-                </form> 
-                <div class="langue">
-                    <a id="francais"  href=""><img src="images/drapeau-francais.png" alt=""></a>
-                    <a id="anglais" href=""><img src="images/drapeau-anglais.png" alt=""></a>
-            </div>
-            </div>
-            <div class="clear"></div>
-        </div>
-    </div>
-    <section class="introduction">
-    <h1>Tee Graph. <br>Le Graffeur en série!</h1>
-    <p>15 jours, c'est le temps nécessaire à nos petites mimines pour inventer, créer et innover dans la loi des séries!<br>
-    C'est une culture populaire ouverte à tous! Des murs, s'en sont suivi les graffitis sur les métros, trains et tout endroit vide de couleurs et de punch! <br>
-    alors pourquoi pas, s'exprimer sur nos vêtements! L'idée lancée, nous avons crée TeeGraph.
-    A travers une large une gamme de tee shirts, sweat et pull, à l'impression bien trempée!
-    </p>
-</section>
-</header>
+    <h2 id="fiches">- Découvrez notre sélection -</h2> 
 
-<h2 id="fiches">- Découvrez notre sélection -</h2> 
-
-<section class="produits" id="fiches" >
-    <a href="produit.html" class="btn"><img src="images/graphiti-1.jpg" alt=""></a>
-    
-    <a href="produit.html" data-attribute="graph2" class="btn"><img src="images/graphiti-2.jpg" alt=""></a>
-    
-    <a class="produit.html" href="#"><img src="images/graphiti-3.jpg" alt=""></a>
-    <a class="produit.html" href="#"><img src="images/graphiti-4.jpg" alt=""></a>
-    <a class="produit.html" href="#"><img src="images/graphiti-5.jpg" alt=""></a>
-    <a class="produit.html" href="#"><img src="images/graphiti-1.jpg" alt=""></a>
-    <a class="rayon" href="#"><img src="images/graphiti-2.jpg" alt=""></a>
-    <a class="rayon" href="#"><img src="images/graphiti-3.jpg" alt=""></a>
-</section>
-
-<section class="atelier">
-    <p>Retrouvez notre newletter avec les dates de visite de notre atelier! <br> L'occasion pour vous, d'échanger avec notre équipe, sur les techniques de sérigraphies.</p>
-    
-    <img src="images/atelier.jpg" alt="">
-    <div class="clear"></div>
-</section>
-
-
-<h2>- BEST SELLERS DE LA SEMAINE DERNIERE | Dernière chance les amis!  -</h2>  
- 
-<section class="chance">
-    <img src="images/graphiti-1.jpg" alt="proposition-serigraphie-1">
-    <img src="images/graphiti-2.jpg" alt="proposition-serigraphie-2">
-    <img src="images/graphiti-3.jpg" alt="proposition-serigraphie-3">
-    <img src="images/graphiti-4.jpg" alt="proposition-serigraphie-4">
-
-    
+    <section class="produits" id="fiches" >
+        <a href="produit.html#graph2" class="btn">
+            <img src="images/graphiti-1.jpg" alt="">
+        </a>
+        <a href="produit.html#graph2" class="btn">
+            <img src="images/graphiti-2.jpg" alt="">
+        </a>
+        <a class="produit.html#graph3" href="#">
+            <img src="images/graphiti-3.jpg" alt="">
+        </a>
+        <a class="produit.html#graph4" href="#">
+            <img src="images/graphiti-4.jpg" alt="">
+        </a>
+        <a class="produit.html#graph5" href="#">
+            <img src="images/graphiti-5.jpg" alt="">
+        </a>
+        <a class="produit.html#graph6" href="#">
+            <img src="images/graphiti-6.jpg" alt="">
+        </a>
+        <a class="produit.html#graph7" href="#">
+            <img src="images/graphiti-7.jpg" alt="">
+        </a>
+        <a class="produit.html#graph8" href="#">
+            <img src="images/graphiti-8.jpg" alt="">
+        </a>
     </section>
+
+    <section class="atelier">
+        <p>Retrouvez notre newletter avec les dates de visite de notre atelier! <br> L'occasion pour vous, d'échanger avec notre équipe, sur les techniques de sérigraphies.</p>
+        
+        <img src="images/atelier.jpg" alt="">
+         <div class="clear"></div>
+    </section>
+   
+
+    <h2>- BEST SELLERS DE LA SEMAINE DERNIERE | Dernière chance les amis!  -</h2>  
+ 
+    <section class="chance">
+        <a class="produit.html" href="#">
+            <img src="images/graphiti-5.jpg" alt=""></a>
+        <a class="produit.html" href="#">
+            <img src="images/graphiti-6.jpg" alt=""></a>
+        <a class="produit.html" href="#">
+            <img src="images/graphiti-7.jpg" alt=""></a>
+        <a class="produit.html" href="#">
+            <img src="images/graphiti-8.jpg" alt=""></a>
+    </section>
+    
     <section class="color"></section>
     
     <footer>
@@ -118,10 +136,6 @@
             7, rue du bonheur <br>
             80000 AMIENS <br>
             tél: 03 22 30 00 00</p>
-            <div class="langue">
-                <a id="francais"  href=""><img src="images/drapeau-francais.png" alt=""></a>
-                <a id="anglais" href=""><img src="images/drapeau-anglais.png" alt=""></a>
-            </div>
         </div>
          <div class="connection"> 
                 <form action="connection" method="post" modelAttribute="">
