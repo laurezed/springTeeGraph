@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Tee Graph</title>
+    <title>Contact</title>
     <meta name="description" content="Tee Graph, une semaine, 8 modèles, qui defilent au grès de nos experts graffeurs! Découvrez notre univers!">
     <link href="css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="screen">
     <link href="css/styles.css" rel="stylesheet" type="text/css" media="screen">
@@ -19,81 +19,93 @@
 </head>
 
 <body>
-<header id="top" class="header">
-    <div class="bandeau">
-        <div class="gauche">
-          <img src="images/logo-Tee-Graph.png" alt="">
+    <header id="contact" class="header">
+        <div class="bandeau">
+            <div class="gauche">
+              <img src="images/logo-Tee-Graph.png" alt="">
+            </div>
+            <div class="droit">
+                <div class="menu">
+                    <nav class="menu">
+                        <ul>
+                            <li><a  href="index.html">Accueil</a></li>
+                            <li><a href="atelier.html" >Notre atelier</a></li>
+                            <li><a id="actif" href="contact.html" >Contact</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="connection"> 
+                    <form action="connection" method="post" modelAttribute="">
+                        <label for="identify">Identifiez-vous</label>
+                        <br>
+                        <input type="text" name="utilisateur" placeholder="nom d'utilisateur">
+                        <br>
+                        <input type="password" name="password" placeholder="mot de passe">
+                        <br>
+                        <input type="submit" value="- GO -">
+                        <br>
+                        <a href="">Vous n'êtes pas encore membre!!!!<br><strong>Cliquez ICI</strong></a>
+                    </form> 
+                </div>
+                <div class="clear"></div>
+            </div>
         </div>
-        <div class="droit">
-            <div class="menu">
-                <nav class="menu">
-                    <ul>
-                        <li><a  href="index.html">Accueil</a></li>
-                        <li><a href="atelier.html" >Notre atelier</a></li>
-                        <li><a id="actif" href="contact.html" >Contact</a>
-                        </li>
-                    </ul>
-                </nav>
+        <section class="introduction">
+        <h1>Tee Graph. <br>Contactez-nous les amis!</h1>
+        <p>Envie d'un modèle bien particulier ou simplement, de partager des idées<br>
+        N'hésitez pas, nous sommes à votre écoute! <br>
+        Egalement s'il y a la moindre déconvenue sur la reception de vos commandes, faites le nous savoir afin que la prise en charge se fasse rapidement.
+        </p>
+        <p>Il est impératif pour nous, de vous savoir comblé par nos produits!!!</p>
+    </section>
+    </header>
+
+    <h2 class="contact" style="background-color: #3a2a32;">- A vos claviers! -</h2> 
+    <section class="formulaire">
+        <section class="forma ct center">
+
+            <form:form method="post" action="${pageContext.request.contextPath}/auth/modify" modelAttribute="CocoBean">
+            
+            <div class="gauche">
+
+               <form:errors path="nom" />
+                    <label for="nom">Nom:*</label> <br>
+                    <input type="text" value="${userToModify.nom}" name="nom" id="nom"/> 
+                    <form:errors path="prenom" />
+                <br>
+                <form:errors path="prenom" />
+                    <label for="prenom">Prénom:*</label> <br>
+                    <input type="text" value="${userToModify.prenom}" name="prenom" id="prenom" /> 
+                <br>
+                <form:errors path="email" />
+                    <label id="email" for="email">Email:*</label> 
+                    <input type="email" readonly value="${userToModify.email}" name="email" id="email" />
+                <br>   
+                <form:errors path="emailConf" />
+                    <label id="emailConf" for="emailConf">Confirmation Email:*</label> 
+                    <input type="emailConf" value="${userToModify.email}" name="email" id="email" />
+                <br>
+                <form:errors path="message" />
+                    <label id="message" for="message">Message:*</label> 
+                    <textarea name="message" placeholder="Write your message here" required=""> </textarea>
+
+                <input type="submit" value="Envoyer" />
+
             </div>
 
-            <div class="connection"> 
-                <form action="connection" method="post" modelAttribute="">
-                    <label for="identify">Identifiez-vous</label>
-                    <br>
-                    <input type="text" name="utilisateur" placeholder="nom d'utilisateur">
-                    <br>
-                    <input type="password" name="password" placeholder="mot de passe">
-                    <br>
-                    <input type="submit" value="- GO -">
-                    <br>
-                    <a href="">Vous n'êtes pas encore membre!!!!<br>Cliquez ICI</a>
-                </form> 
-            </div>
-            <div class="clear"></div>
-        </div>
-    </div>
-    <section class="introduction">
-    <h1>Tee Graph. <br>Contactez-nous les amis!</h1>
-    <p>15 jours, c'est le temps nécessaire à nos petites mimines pour inventer, créer et innover dans la loi des séries! <br>
-    le graffiti etait à l'origine réalisé sur des murs prone des valeurs positives! <br>
-    C'est une culture populaire ouverte à tous! des murs s'en sont suivi les graffitis sur les metros, trains et tout endroit vide de couleurs et de punch! <br>
-    alors pourquoi pas s'exprimer sur nous-meme! l'idée lancée, nous avons crée TeeGraph.
-    Atravers une large une gamme de tee shirts, sweat et pull, à l'impression bien trempée!
-    </p>
-</section>
-</header>
+            </form:form>	
+        </section>
+    </section>
 
-<h2>- Découvrez notre sélection -</h2> 
+    <section class="adresse">
+         <img src="images/icones-pied.png">
+        <p>Mieux qu'un message, venez nous rencontrer!</p> 
+        <p><strong>7, rue du bonheur <br> 80000 AMIENS </strong></p>
+         <a href="index.html">Retour à l'accueil </a>
+    </section>
 
-<section class="produits">
-    <img src="images/graphiti-1.jpg" alt="">
-    <img src="images/graphiti-2.jpg" alt="">
-    <img src="images/graphiti-3.jpg" alt="">
-    <img src="images/graphiti-4.jpg" alt="">
-    <img src="images/graphiti-5.jpg" alt="">
-    <img src="images/graphiti-1.jpg" alt="">
-    <img src="images/graphiti-2.jpg" alt="">
-    <img src="images/graphiti-3.jpg" alt="">
-</section>
-
-<section class="atelier">
-    <p>Retrouvez notre newletter avec les dates de visite de notre atelier! <br> L'occasion pour vous, d'échanger avec notre équipe, sur les techniques de sérigraphies.</p>
-    
-    <img src="images/atelier.jpg" alt="">
-    <div class="clear"></div>
-</section>
-
-
-<h2>- BEST SELLER DE LA SEMAINE DERNIERE | Dernière chance les amis!  -</h2>  
- 
-<section class="chance">
-    <img src="images/graphiti-1.jpg" alt="proposition-serigraphie-1">
-    <img src="images/graphiti-2.jpg" alt="proposition-serigraphie-2">
-    <img src="images/graphiti-3.jpg" alt="proposition-serigraphie-3">
-    <img src="images/graphiti-4.jpg" alt="proposition-serigraphie-4">
-
-    
-</section>
     <section class="color"></section>
     
     <footer>
@@ -109,11 +121,12 @@
             </ul>
         </div>
         <div class="adresse">
-        <p><strong>Tee-Graph. </strong><br>
-        7, rue du bonheur <br>
-        80000 AMIENS <br>
-        tél: 03 22 30 00 00</p>
+            <p><strong>Tee-Graph. </strong><br>
+            7, rue du bonheur <br>
+            80000 AMIENS <br>
+            tél: 03 22 30 00 00</p>
         </div>
+        
          <div class="connection"> 
                 <form action="connection" method="post" modelAttribute="">
                     <label for="identify">Identifiez-vous</label>
