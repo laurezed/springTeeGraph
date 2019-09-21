@@ -46,7 +46,7 @@ public class ConnectForm implements Serializable {
 	private String passwordNewConf;
 
 	public String getNom() {
-		return nom;
+		return this.nom;
 	}
 
 	public void setNom(String nom) {
@@ -54,7 +54,7 @@ public class ConnectForm implements Serializable {
 	}
 
 	public String getPrenom() {
-		return prenom;
+		return this.prenom;
 	}
 
 	public void setPrenom(String prenom) {
@@ -62,7 +62,7 @@ public class ConnectForm implements Serializable {
 	}
 
 	public String getDateNaissance() {
-		return dateNaissance;
+		return this.dateNaissance;
 	}
 
 	public void setDateNaissance(String dateNaissance) {
@@ -70,7 +70,7 @@ public class ConnectForm implements Serializable {
 	}
 
 	public String getAdresse() {
-		return adresse;
+		return this.adresse;
 	}
 
 	public void setAdresse(String adresse) {
@@ -86,7 +86,7 @@ public class ConnectForm implements Serializable {
 	}
 
 	public String getVille() {
-		return ville;
+		return this.ville;
 	}
 
 	public void setVille(String ville) {
@@ -94,7 +94,7 @@ public class ConnectForm implements Serializable {
 	}
 
 	public String getTelephoneFixe() {
-		return telephoneFixe;
+		return this.telephoneFixe;
 	}
 
 	public void setTelephoneFixe(String telephoneFixe) {
@@ -102,7 +102,7 @@ public class ConnectForm implements Serializable {
 	}
 
 	public String getTelephoneMobile() {
-		return telephoneMobile;
+		return this.telephoneMobile;
 	}
 
 	public void setTelephoneMobile(String telephoneMobile) {
@@ -110,7 +110,7 @@ public class ConnectForm implements Serializable {
 	}
 
 	public String getEmail() {
-		return email;
+		return this.email;
 	}
 
 	public void setEmail(String email) {
@@ -118,7 +118,7 @@ public class ConnectForm implements Serializable {
 	}
 
 	public String getPassword() {
-		return password;
+		return this.password;
 	}
 
 	public void setPassword(String password) {
@@ -126,7 +126,7 @@ public class ConnectForm implements Serializable {
 	}
 
 	public String getPasswordNew() {
-		return passwordNew;
+		return this.passwordNew;
 	}
 
 	public void setPasswordNew(String passwordNew) {
@@ -134,7 +134,7 @@ public class ConnectForm implements Serializable {
 	}
 
 	public String getPasswordNewConf() {
-		return passwordNewConf;
+		return this.passwordNewConf;
 	}
 
 	public void setPasswordNewConf(String passwordNewConf) {
@@ -142,7 +142,7 @@ public class ConnectForm implements Serializable {
 	}
 
 	public String getEmail2() {
-		return email2;
+		return this.email2;
 	}
 
 	public void setEmail2(String email2) {

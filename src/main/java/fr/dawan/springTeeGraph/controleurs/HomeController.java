@@ -43,6 +43,12 @@ public class HomeController {
 
 		model.addAttribute("msg", msg);
 		
+//
+//		String emailID = "mauro.fadika@led-prog.fr";
+//
+//		SendMail.sendEmail(emailID,"Renseignement sérigraphie simple", "Votre nouvelle serigraphie vient d'arriver!");
+
+		
 		return "home";
 	}
 

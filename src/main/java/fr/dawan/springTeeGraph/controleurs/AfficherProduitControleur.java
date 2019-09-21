@@ -58,9 +58,8 @@ public class AfficherProduitControleur {
 		return "afficher";
 	}
 
-	@GetMapping(value = "/{s_nom}/{id}")
-	public String popup(@PathVariable("id") String id,
-			@PathVariable("s_nom") String s_nom, Model model) {
+	@GetMapping(value = "/{s_nom}")
+	public String popup(@PathVariable("s_nom") String s_nom, Model model) {
 
 		logger.info("DEBUT - popup ProduitForm : " + model.toString() );
 //		List<Serigraphie> myList;
@@ -79,7 +78,7 @@ public class AfficherProduitControleur {
 //			Serigraphie sg = produitService.findByName(s_nom);
 
 			produitForm = new ProduitForm();
-			produitForm.setUtilisateur(id);
+			produitForm.setUtilisateur("1");
 
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -7,7 +7,8 @@
 
 <head>
 <meta charset="UTF-8">
-<title>Tee Graph</title>
+<title>Tee Graph | accueil</title>
+<link rel="icon" type="image/png" sizes="16x16" href="<c:url value="/resources/images/favicon-tee-graph.png" />">
 <meta name="description"
 	content="Tee Graph, une semaine, 8 modèles, qui defilent au grès de nos experts graffeurs! Découvrez notre univers!">
 <link
@@ -58,9 +59,11 @@
 
 				<div class="connection">
 					<c:if test="${connecte == 'connecte'}">
-						<h2>${user.nom}</h2>
-						<a href="auth/member/${user.id}" alt=""><spring:message
-								code="auth.member" /></a>
+                <div class="membre">
+                    <h1><em>Espace membre:</em></h1>
+                    <p>Bienvenue <strong>${user.nom}</strong></p>
+                </div>
+                <div class="clear"></div>
 					</c:if>
 					<c:if test="${connecte != 'connecte'}">
 						<form method="post"
@@ -79,15 +82,12 @@
 									code="noMember.auth" /><br> <strong><spring:message
 										code="noMember.clic" /></strong></a>
 						</form>
-						<div class="langue">
-							<a
-								href="${requestScope['javax.servlet.forward.request_uri']}?lang=fr"><img
-								src="resources/images/drapeau-francais.png" alt=""></a> <a
-								href="${requestScope['javax.servlet.forward.request_uri']}?lang=en"><img
-								src="resources/images/drapeau-anglais.png" alt=""></a>
-						</div>
-
 					</c:if>
+                    <div class="langue">
+                        <a id="francais"  href=""><img src="<c:url value="/resources/images/drapeau-francais.png" />" alt=""></a>
+                        <a id="anglais" href=""><img src="<c:url value="/resources/images/drapeau-anglais.png" />" alt=""></a>
+                </div>
+
 
 				</div>
 				<div class="clear"></div>
@@ -115,12 +115,12 @@
 	<section class="produits" id="fiches">
 		<c:forEach items="${myList}" var="seri">
 
-			<c:if test="${utilisateurConnecte != null}">
-				<a href="product/${seri.designation}/${utilisateurConnecte}" id="${seri.designation}" class="link">
-			</c:if>
-			<c:if test="${utilisateurConnecte == null}">
-				<a href="product/${seri.designation}/0" id="${seri.designation}" class="link">
-			</c:if>
+<%-- 			<c:if test="${utilisateurConnecte != null}"> --%>
+				<a href="product/${seri.designation}" id="${seri.designation}" class="link">
+<%-- 			</c:if> --%>
+<%-- 			<c:if test="${utilisateurConnecte == 0}"> --%>
+<%-- 				<a href="product/${seri.designation}/0" id="${seri.designation}" class="link"> --%>
+<%-- 			</c:if> --%>
 				<img alt="graph" src="${seri.photo}" class="img_product">
 			</a>
 		</c:forEach>

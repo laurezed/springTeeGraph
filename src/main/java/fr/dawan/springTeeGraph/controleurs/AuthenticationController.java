@@ -2,7 +2,8 @@ package fr.dawan.springTeeGraph.controleurs;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Locale;
 
@@ -44,6 +45,22 @@ public class AuthenticationController {
 
 		logger.info("DEBUT - authentification membre.userBean: " + userForm.toString());
 
+
+		List<Serigraphie> myList;
+		String msg2 = "";
+		try {
+			logger.info("DEBUT - afficher appel findAll : " + model.toString());
+			myList = produitService.findAll();
+			model.addAttribute("myList", myList);
+		} catch (Exception e) {
+			e.printStackTrace();
+			msg2 = "Erreur lors du chargement des sérigraphies";
+		} finally {
+			logger.info("FIN - afficher fin d'appel findAll : " + model.toString());
+		}
+
+		model.addAttribute("msg2", msg2);
+		
 		String email = userForm.getEmail();
 		String msg = "";
 		Utilisateur u = null;
@@ -73,20 +90,6 @@ public class AuthenticationController {
 			model.addAttribute("connecte", "connecte");
 			model.addAttribute("utilisateurConnecte", u.getId());
 
-			List<Serigraphie> myList;
-			String msg2 = "";
-			try {
-				logger.info("DEBUT - afficher appel findAll : " + model.toString());
-				myList = produitService.findAll();
-				model.addAttribute("myList", myList);
-			} catch (Exception e) {
-				e.printStackTrace();
-				msg2 = "Erreur lors du chargement des sérigraphies";
-			} finally {
-				logger.info("FIN - afficher fin d'appel findAll : " + model.toString());
-			}
-
-			model.addAttribute("msg2", msg2);
 
 			// model.addAttribute("user", u);
 			return "home";
@@ -253,14 +256,11 @@ public class AuthenticationController {
 			Locale locale) {
 		logger.info("DEBUT - Load: " + connectForm.toString());
 
-		Date dateNaissance = null;
+		logger.info("DEBUT - connectForm.getDateNaissance(): " + connectForm.getDateNaissance());
+		LocalDate dateNaissance = null;
 
-		try {
-			dateNaissance = new SimpleDateFormat("dd-MM-yyyy").parse((connectForm.getDateNaissance()));
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		dateNaissance = LocalDate.parse(connectForm.getDateNaissance(),DateTimeFormatter.ISO_LOCAL_DATE);
+//			dateNaissance = new SimpleDateFormat("dd-MM-yyyy").parse((connectForm.getDateNaissance()));
 
 		String msg = "";
 		try {
@@ -270,7 +270,7 @@ public class AuthenticationController {
 			e1.printStackTrace();
 		}
 		logger.info("DEBUT - creation2: " + connectForm.getDateNaissance());
-		if (connectForm.getEmail().equals(connectForm.getEmail2())) {
+		if (connectForm.getEmail().trim().equals(connectForm.getEmail2().trim())) {
 			try {
 				Utilisateur u = new Utilisateur(0, 0, connectForm.getNom(), connectForm.getPrenom(), dateNaissance,
 						connectForm.getAdresse(), connectForm.getCodePostale(), connectForm.getVille(),
@@ -295,6 +295,9 @@ public class AuthenticationController {
 
 		model.addAttribute("msg", msg);
 		model.addAttribute("connecte", "connecte");
+		
+
+		
 		logger.info("FIN - Load: " + connectForm.toString());
 		return "home";
 

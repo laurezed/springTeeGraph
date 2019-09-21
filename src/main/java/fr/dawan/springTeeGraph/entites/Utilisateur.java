@@ -1,6 +1,7 @@
 package fr.dawan.springTeeGraph.entites;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -30,7 +31,7 @@ public class Utilisateur implements Serializable {
 	private String prenom;
 	
 	@Column(nullable = false)
-	private Date dateNaissance;
+	private LocalDate dateNaissance;
 	
 	@Column(nullable = false)
 	private String adresse;
@@ -62,9 +63,10 @@ public class Utilisateur implements Serializable {
 	
 	public Utilisateur() {
 		super();
+		nbrMember++;
 	}
 	
-	public Utilisateur(long id, int version, String nom, String prenom, Date dateNaissance, String adresse,
+	public Utilisateur(long id, int version, String nom, String prenom, LocalDate dateNaissance, String adresse,
 			String codePostale, String ville, String telephoneFixe, String telephoneMobile, String email,
 			String password, String role) {
 		super();
@@ -81,6 +83,7 @@ public class Utilisateur implements Serializable {
 		this.email = email;
 		this.password = password;
 		this.role = role;
+		nbrMember++;
 	}
 	public long getId() {
 		return id;
@@ -106,10 +109,10 @@ public class Utilisateur implements Serializable {
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
-	public Date getDateNaissance() {
+	public LocalDate getDateNaissance() {
 		return dateNaissance;
 	}
-	public void setDateNaissance(Date dateNaissance) {
+	public void setDateNaissance(LocalDate dateNaissance) {
 		this.dateNaissance = dateNaissance;
 	}
 	public String getAdresse() {

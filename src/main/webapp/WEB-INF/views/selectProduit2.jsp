@@ -7,7 +7,8 @@
 
 <head>
 <meta charset="UTF-8">
-<title>Tee Graph</title>
+<title>Tee Graph | nos produits</title>
+<link rel="icon" type="image/png" sizes="16x16" href="<c:url value="/resources/images/favicon-tee-graph.png" />">
 <meta name="description"
 	content="Tee Graph, une semaine, 8 modï¿½les, qui defilent au grï¿½s de nos experts graffeurs! Dï¿½couvrez notre univers!">
 <link
@@ -115,10 +116,12 @@
 								<span>M</span>odèles:
 							</p>
 							<c:forEach items="${modeles}" var="modele">
-								<img src="${modele.image}" alt="${modele.label}"
-									title="${modele.label}">
-								<input id="${modele.label}" value="${modele.label}" type="radio"
-									name="modele">
+	+                			<div class="section">
+									<img src="${modele.image}" alt="${modele.label}"
+										title="${modele.label}">
+									<input id="${modele.label}" value="${modele.label}" type="radio"
+										name="modele">
+								</div>
 							</c:forEach>
 						</div>
 						<div id="">
