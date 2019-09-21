@@ -249,7 +249,6 @@ section.introduction {
   display: inline-block;
   width: 60%;
   padding: 100px 50px 80px 50px;
-  text-transform: capitalize;
 }
 section.introduction h1 {
   color: #226b71;
@@ -267,7 +266,7 @@ section.introduction p {
   line-height: 30px;
 }
 h2 {
-  padding: 40px 0px 40px 50px;
+  padding: 40px 50px;
   color: #f3f3f3;
   font-weight: 400;
   font-size: 40px;
@@ -276,14 +275,16 @@ h2 {
   animation-name: texte;
   animation-duration: 2s;
 }
-section.produits {
+section.produits,
+section.chance {
   width: 100%;
   background-color: #226b71;
   margin: 0 auto;
   padding: 100px 0px;
   text-align: center;
 }
-section.produits a {
+section.produits a,
+section.chance a {
   position: relative;
   width: calc(25% - 40px);
   padding: 20px;
@@ -291,7 +292,8 @@ section.produits a {
   border: solid 5px #c9c4c2;
   overflow: hidden;
 }
-section.produits a::before {
+section.produits a::before,
+section.chance a::before {
   content: '';
   position: absolute;
   top: 0;
@@ -305,7 +307,8 @@ section.produits a::before {
   -webkit-transform: skewX(-25deg);
   transform: skewX(-25deg);
 }
-section.produits a:hover::before {
+section.produits a:hover::before,
+section.chance a:hover::before {
   -webkit-animation: shine .75s;
   animation: shine .75s;
 }
@@ -322,7 +325,19 @@ section.produits a:hover::before {
 section.atelier {
   background-color: #f3f3f3;
   width: 100%;
-  padding: 150px 0;
+  padding: 100px;
+  margin: 0 auto;
+}
+section.atelier img {
+  border-radius: 20px;
+  display: inline-block;
+  width: 50%;
+  float: right;
+  animation-name: logo;
+  animation-duration: 5s;
+  -webkit-box-shadow: 0px 10px 29px 1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 10px 29px 1px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 10px 29px 1px rgba(0, 0, 0, 0.75);
 }
 section.atelier p {
   margin-top: 150px;
@@ -331,7 +346,7 @@ section.atelier p {
   color: #dd772d;
   text-align: left;
   float: left;
-  padding: 0px 100px;
+  padding: 0px 50px;
   font-weight: 700;
   animation-name: texte;
   animation-duration: 5s;
@@ -343,27 +358,31 @@ section.atelier p:before {
   height: 22%;
   margin: 0px -30px;
 }
-section.atelier img {
-  text-align: center;
-  margin: 0 auto;
-  width: 50%;
-  border-radius: 20px;
-  box-shadow: -12px 10px 22px 0px rgba(0, 0, 0, 0.75);
-  animation-name: logo;
-  animation-duration: 5s;
-}
-section.chance {
+section.atelier section.modele {
   width: 100%;
-  background-color: #226b71;
+  padding: 50px;
   margin: 0 auto;
-  padding: 100px 0px;
   text-align: center;
 }
-section.chance img {
-  border: solid 5px #dd772d;
-  width: calc(25% - 40px);
-  padding: 20px;
+section.atelier section.modele #slideshow {
+  margin: 50px 20px;
+  position: relative;
   display: inline-block;
+  width: 500px;
+  height: 500px;
+  padding: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  border-radius: 20px;
+}
+section.atelier section.modele #slideshow > div {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+}
+section.chance a {
+  border: solid 5px #dd772d;
 }
 section.color {
   background-color: #dd772d;
@@ -782,48 +801,6 @@ section.formulaire .StripeElement--invalid {
 }
 section.formulaire .StripeElement--webkit-autofill {
   background-color: #fefde5 !important;
-}
-section.modele {
-  width: 100%;
-  padding: 50px;
-  margin: 0 auto;
-  text-align: center;
-}
-section.modele #slideshow {
-  margin: 50px 20px;
-  position: relative;
-  float: left;
-  display: inline-block;
-  width: 240px;
-  height: 240px;
-  padding: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-  border-radius: 20px;
-}
-section.modele #slideshow > div {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  right: 10px;
-  bottom: 10px;
-}
-section.modele #slideshow2 {
-  margin: 50px 20px;
-  position: relative;
-  float: left;
-  display: inline-block;
-  width: 240px;
-  height: 240px;
-  padding: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-  border-radius: 20px;
-}
-section.modele #slideshow2 > div {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  right: 10px;
-  bottom: 10px;
 }
 /* -- CONTACT -- */
 section.adresse {
