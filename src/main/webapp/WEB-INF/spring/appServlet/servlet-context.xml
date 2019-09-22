@@ -5,13 +5,14 @@
 	xmlns:beans="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:tx="http://www.springframework.org/schema/tx"
-	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd 
-	http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+	xsi:schemaLocation="
+    http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+    http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd
     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-	<!-- DispatcherServlet Context: defines this servlet's request-processing 
-		infrastructure -->
+
+	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
 
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<context:annotation-config />
@@ -22,7 +23,7 @@
 	<resources mapping="/resources/**" location="/resources/" />
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
-		in the /WEB-INF/views directory -->
+		in the /WEB-INF/views directory -->	
 	<beans:bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
@@ -92,18 +93,18 @@
         <beans:property name="basename" value="classpath:messages" />
         <beans:property name="defaultEncoding" value="utf-8" />
     </beans:bean>
--
-Ces lignes sont pour que le projet puisse trouver les deux fichiers de messages ci-dessus
--
-<!-- définition de la locale par défaut -->
-    <beans:bean id="localeResolver"
-        class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
-        <beans:property name="defaultLocale" value="fr" />
-    </beans:bean>
--
-Ces lignes sont pour dire qu'on veut que de base le projet soit en français
--
-<interceptors>
+	<!-- -
+	Ces lignes sont pour que le projet puisse trouver les deux fichiers de messages ci-dessus
+	- -->
+	<!-- définition de la locale par défaut -->
+	    <beans:bean id="localeResolver"
+	        class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
+	        <beans:property name="defaultLocale" value="fr" />
+	    </beans:bean>
+	<!-- -
+	Ces lignes sont pour dire qu'on veut que de base le projet soit en français
+	- -->
+	<interceptors>
         <beans:bean id="localeChangeInterceptor"
             class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
             <beans:property name="paramName" value="lang" />

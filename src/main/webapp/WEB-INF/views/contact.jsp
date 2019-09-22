@@ -203,7 +203,8 @@
             <div class="clear"></div>
         <div class="bottom">
             <a class="mention" href="#">MENTION LEGALES | RGPD</a>
-            <p class="mention" href="">| Copyright TeeGraph.</p>
+            <p class="mention">| Copyright TeeGraph.</p>
+            <p class="mention">| ce site utilise des cookies</p>
         </div>
         
     </footer>

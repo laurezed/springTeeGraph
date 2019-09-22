@@ -215,6 +215,7 @@
 		<div class="bottom">
 			<a class="mention" href="#"><spring:message code="legal.mention" /></a>
 			<p class="mention" href="#">| Copyright TeeGraph.</p>
+			<p class="mention">| ce site utilise des cookies</p>
 		</div>
 
 	</footer>

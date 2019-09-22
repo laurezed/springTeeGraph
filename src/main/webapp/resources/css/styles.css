@@ -128,17 +128,16 @@ img {
   }
 }
 /* -- ACCUEIL -- */
-header {
+header.header {
   margin: 0;
   padding: 0;
-  background-image: url(../images/fond-heade-v2r.jpg);
   background-size: auto;
   background-repeat: no-repeat;
   background-position: right;
   width: 100%;
-  margin-bottom: 80px;
+  padding-bottom: 80px;
 }
-header div.gauche {
+header.header div.gauche {
   z-index: 5;
   width: 50%;
   display: inline-block;
@@ -146,48 +145,40 @@ header div.gauche {
   background-color: rgba(201, 196, 194, 0.4);
   height: 200px;
 }
-header div.gauche img {
+header.header div.gauche img {
   z-index: 20;
   width: 20%;
   animation-name: logo;
   animation-duration: 5s;
 }
-header div.droit {
+header.header div.droit {
   float: right;
   width: 50%;
   margin: 0;
   padding: 0;
   background-color: rgba(201, 196, 194, 0.4);
   height: 200px;
-  padding-top: 20px;
+  padding-top: 30px;
 }
-header div.droit div.membre {
+header.header div.droit div.membre {
   display: inline-block;
- margin-bottom: 20px;
+  /*width: 35%;
+            float: right;*/
 }
-header div.droit div.membre h3,
-header div.droit div.membre p {
+header.header div.droit div.membre h3,
+header.header div.droit div.membre p {
   color: #226b71;
   font-size: 16px;
   display: inline-block;
   margin-bottom: 10px;
 }
-header div.droit div.membre h3 {
+header.header div.droit div.membre h3 {
   border-bottom: solid 2px #226b71;
 }
-header div.droit div.membre p {
+header.header div.droit div.membre p {
   display: block;
 }
-header div.connection div.membre a.compte {
-	text-align: left;
-	font-size: 14px;
-}
-header div.connection div.membre a.compte:hover {
-	color: #dd772d;
-	font-size: 16px;
-	font-weight: 700;
-}
-header div.droit div.menu {
+header.header div.droit div.menu {
   display: inline-block;
   width: 65%;
   float: left;
@@ -195,19 +186,19 @@ header div.droit div.menu {
   animation-duration: 2s;
   margin: 0 auto;
 }
-header div.droit div.menu nav {
+header.header div.droit div.menu nav {
   width: 100%;
 }
-header div.droit div.menu nav ul {
+header.header div.droit div.menu nav ul {
   display: inline-block;
   width: 100%;
 }
-header div.droit div.menu nav ul li {
+header.header div.droit div.menu nav ul li {
   width: 30%;
   display: inline-block;
   text-align: center;
 }
-header div.droit div.menu nav ul li a {
+header.header div.droit div.menu nav ul li a {
   display: block;
   width: 100%;
   text-decoration: none;
@@ -216,7 +207,7 @@ header div.droit div.menu nav ul li a {
   font-size: 16px;
   padding: 20px 0;
 }
-header div.droit div.menu nav ul li a#actif {
+header.header div.droit div.menu nav ul li a#actif {
   color: #226b71;
   background-color: rgba(243, 243, 243, 0.54);
   border: solid 3px #226b71;
@@ -225,30 +216,30 @@ header div.droit div.menu nav ul li a#actif {
   -webkit-border-radius: 5px;
   border: 0px solid #000000;
 }
-header div.droit div.menu nav ul li a#actif:before {
+header.header div.droit div.menu nav ul li a#actif:before {
   content: '';
   position: absolute;
   border-bottom: solid 3px #226b71;
   width: 10px;
   padding-bottom: 20px;
 }
-header div.droit div.connection {
+header.header div.droit div.connection {
   display: inline-block;
   width: 35%;
   float: right;
 }
-header div.droit div.connection label {
+header.header div.droit div.connection label {
   color: #226b71;
   font-weight: 700;
   font-style: italic;
   font-size: 14px;
 }
-header div.droit div.connection input {
+header.header div.droit div.connection input {
   margin: 2px;
   padding: 3px;
   width: 200px;
 }
-header div.droit div.connection input[type="submit"] {
+header.header div.droit div.connection input[type="submit"] {
   padding: 3px 20px;
   background-color: rgba(201, 102, 18, 0.7);
   border: none;
@@ -256,7 +247,7 @@ header div.droit div.connection input[type="submit"] {
   font-weight: 700;
   width: 200px;
 }
-header div.droit div.connection a {
+header.header div.droit div.connection a {
   text-decoration: none;
   color: #226b71;
   font-size: 12px;
@@ -264,12 +255,12 @@ header div.droit div.connection a {
   margin: 0 auto;
   text-align: center;
 }
-header div.droit div.connection div.langue {
+header.header div.droit div.connection div.langue {
   width: 100%;
 }
-header div.droit div.connection div.langue a {
+header.header div.droit div.connection div.langue a {
   display: inline-block;
-  width: 8%;
+  width: 10%;
 }
 section.introduction {
   display: inline-block;
@@ -349,9 +340,8 @@ section.chance a:hover::before {
   }
 }
 section.atelier {
-  background-color: #f3f3f3;
-  width: 100%;
-  padding: 100px;
+  width: calc(100% - 200px);
+  padding: 50px 100px;
   margin: 0 auto;
 }
 section.atelier div.usine img {
@@ -385,30 +375,61 @@ section.atelier div.usine p:before {
   margin: 0px -30px;
 }
 section.atelier div.valeur {
-  background-image: url(../images/logo-Tee-Graph.png);
-  width: 50%;
-  float: left;
+  text-align: center;
+  width: 100%;
+  display: block;
+  padding: 100px;
+  background-color: #3a2a32;
+  border-radius: 10px;
 }
-section.atelier div.valeur p span {
-  color: #226b71;
-  font-size: 20px;
+section.atelier div.valeur div.img {
+  float: left;
+  color: white;
+  height: 50px;
+  font-size: 200px;
+  width: 20%;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+section.atelier div.valeur div.text {
+  float: right;
+  width: 80%;
+}
+section.atelier div.valeur div.text p span {
+  color: #dd772d;
+  font-size: 25px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 50px;
 }
 section.atelier div.modele {
-  width: 50%;
+  width: 100%;
+  display: block;
   margin: 0 auto;
-  text-align: center;
-  float: left;
+  padding: 0;
+}
+section.atelier div.modele:before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/logo-Tee-Graph.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 section.atelier div.modele #slideshow {
-  margin: 50px 20px;
+  margin: 50px auto;
   position: relative;
-  float: left;
-  display: inline-block;
-  width: 500px;
-  height: 500px;
+  width: 800px;
+  height: 800px;
   padding: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-  border-radius: 20px;
+  filter: drop-shadow(10px 20px 4px grey);
+  text-align: center;
 }
 section.atelier div.modele #slideshow > div {
   position: absolute;
@@ -416,13 +437,52 @@ section.atelier div.modele #slideshow > div {
   left: 10px;
   right: 10px;
   bottom: 10px;
-  transition: all 2.5s;
+}
+section.atelier div.modele #slideshow > div:before {
+  content: '';
+  position: absolute;
+  width: 800px;
+  height: 800px;
+  background-image: url(../images/logo-Tee-Graph.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
 }
 section.atelier div.modele #slideshow > div img {
   width: 100%;
 }
 section.chance a {
   border: solid 5px #dd772d;
+}
+section.chance p {
+  color: #f3f3f3;
+  font-size: 25px;
+  text-align: center;
+}
+section.chance p span {
+  font-size: 30px;
+  color: #dd772d;
+  font-weight: 700;
+}
+section.chance section.retour a {
+  display: inline-block;
+  text-decoration: none;
+  background-color: #3a2a32;
+  color: #f3f3f3;
+  padding: 20px 40px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 50px;
+}
+section.chance section.retour a:hover {
+  background-color: #f3f3f3;
+  color: #3a2a32;
+  font-weight: 700;
 }
 section.color {
   background-color: #dd772d;
@@ -506,7 +566,6 @@ footer div.connection {
   padding: 10px;
   width: calc(20% - 20px);
   float: right;
-  margin: 50px 20px;
 }
 footer div.connection label {
   color: #f3f3f3;
@@ -540,28 +599,21 @@ footer div.connection a:hover {
 }
 footer div.connection div.membre {
   display: inline-block;
+  /*width: 35%;
+            float: right;*/
 }
 footer div.connection div.membre h3,
 footer div.connection div.membre p {
-  color: #f3f3f3;
-  font-size: 20px;
+  color: #226b71;
+  font-size: 16px;
   display: inline-block;
   margin-bottom: 10px;
 }
 footer div.connection div.membre h3 {
-  border-bottom: solid 4px #f3f3f3;
+  border-bottom: solid 2px #226b71;
 }
 footer div.connection div.membre p {
   display: block;
-  
-}
-footer div.connection div.membre strong {
-  color: #dd772d;
-  
-}
-footer div.connection div.membre a.compte {
-	text-align: left;
-	font-size: 16px;
 }
 footer div.bottom a.mention,
 footer div.bottom p.mention {
@@ -577,6 +629,15 @@ footer div.bottom p.mention:hover {
   color: #dd772d;
 }
 /* -- ATELIER -- */
+header#top {
+  background-image: url(../images/fond-heade-v2r.jpg);
+}
+header#top section.introduction h1 {
+  color: #dd772d;
+}
+header#top section.introduction p {
+  color: rgba(221, 119, 45, 0.7);
+}
 header#accueil {
   background-image: url(../images/fond-header-accueil.jpg);
 }
