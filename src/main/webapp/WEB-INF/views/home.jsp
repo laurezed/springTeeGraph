@@ -1,16 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ page session="false"%>
-<!DOCTYPE html>
-<html lang="fr">
 
+<!DOCTYPE html>
+<html>
 <head>
 <meta charset="UTF-8">
 <title>Tee Graph | accueil</title>
 <link rel="icon" type="image/png" sizes="16x16" href="<c:url value="/resources/images/favicon-tee-graph.png" />">
 <meta name="description"
-	content="Tee Graph, une semaine, 8 modèles, qui defilent au grès de nos experts graffeurs! Découvrez notre univers!">
+	content="Tee Graph, une semaine, 8 modÃ¨les, qui defilent au grÃ¨s de nos experts graffeurs! DÃ©couvrez notre univers!">
 <link
 	href="<c:url value="/resources/css/font-awesome-4.7.0/css/font-awesome.min.css" />"
 	rel="stylesheet">
@@ -40,37 +42,40 @@
 	<header id="top" class="header">
 		<div class="bandeau">
 			<div class="gauche">
-				<a href="index.html"><img
-					src="resources/images/logo-Tee-Graph.png" alt=""></a>
+				<a href="<c:url value="/" />">
+					<img src="resources/images/logo-Tee-Graph.png" alt="">
+				</a>
 			</div>
 			<div class="droit">
 				<div class="menu">
 					<nav class="menu">
 						<ul>
-							<li><a id="actif" href="<c:url value="/" />"><spring:message
-										code="menu.actif" /></a></li>
-							<li><a href="atelier.html"><spring:message
-										code="menu.workshop" /></a></li>
-							<li><a href="contact.html"><spring:message
+							<li><a id="actif" href="<c:url value="/" />">
+							<spring:message code="menu.actif" /></a></li>
+							
+							<li><a href="<c:url value="/qui-sommes-nous/atelier"/>">
+							<spring:message code="menu.workshop" /></a></li>
+							
+							<li><a href="<c:url value="/on-echange/contact"/>"><spring:message
 										code="menu.contact" /></a></li>
 						</ul>
 					</nav>
 				</div>
-
 				<div class="connection">
 					<c:if test="${connecte == 'connecte'}">
-                <div class="membre">
-                    <h1><em>Espace membre:</em></h1>
-                    <p>Bienvenue <strong>${user.nom}</strong></p>
-                </div>
-                <div class="clear"></div>
+		                <div class="membre">
+		                    <h3><em>Espace membre:</em></h3>
+		                    <p>Bienvenue <strong>${user.prenom}</strong></p>
+		                    <a class="compte" href="auth/member/${user.id}" alt="mon compte"><spring:message
+						code="auth.member" /></a>	
+		                </div>
+		                <div class="clear"></div>
 					</c:if>
 					<c:if test="${connecte != 'connecte'}">
 						<form method="post"
 							action="${pageContext.request.contextPath}/auth/member"
 							modelAttribute="userBean">
-							<label for="identify"><spring:message
-									code="identification.member" /></label>
+							<label for="identify"><spring:message code="identification.member" /></label>
 							<p>${msg}</p>
 
 							<input type="text" name="email" placeholder="nom d'utilisateur">
@@ -84,10 +89,9 @@
 						</form>
 					</c:if>
                     <div class="langue">
-                        <a id="francais"  href=""><img src="<c:url value="/resources/images/drapeau-francais.png" />" alt=""></a>
-                        <a id="anglais" href=""><img src="<c:url value="/resources/images/drapeau-anglais.png" />" alt=""></a>
-                </div>
-
+                        <a id="francais"  href="${requestScope['javax.servlet.forward.request_uri']}?lang=fr"><img src="<c:url value="/resources/images/drapeau-francais.png" />" alt=""></a>
+                        <a id="anglais" href="${requestScope['javax.servlet.forward.request_uri']}?lang=en"><img src="<c:url value="/resources/images/drapeau-anglais.png" />" alt=""></a>
+            	    </div>
 
 				</div>
 				<div class="clear"></div>
@@ -127,13 +131,14 @@
 	</section>
 
 	<section class="atelier">
-		<p>
-			<spring:message code="workshop.discovery1" />
-			<spring:message code="workshop.discovery2" />
-		</p>
-
-		<img src="resources/images/atelier.jpg" alt="">
-		<div class="clear"></div>
+		<div class="usine">
+			<p>
+				<spring:message code="workshop.discovery1" />
+				<spring:message code="workshop.discovery2" />
+			</p>
+			<img src="resources/images/atelier.jpg" alt="">
+			<div class="clear"></div>
+		</div>	
 	</section>
 
 
@@ -174,31 +179,42 @@
 		<div class="adresse">
 			<p>
 				<strong>Tee-Graph. </strong><br> 7, rue du bonheur <br>
-				80000 AMIENS <br> tél: 03 22 30 00 00
+				80000 AMIENS <br> tÃ©l: 03 22 30 00 00
 			</p>
 		</div>
 		<div class="connection">
-			<c:if test="${connecte == 'connecte'}">
-				<h2>${user.nom}</h2>
-				<a href="auth/member/${user.id}" alt=""><spring:message
-						code="auth.member" /></a>
-			</c:if>
-			<c:if test="${connecte != 'connecte'}">
-				<form action="connection" method="post" modelAttribute="">
-					<label for="identify"><spring:message
-							code="connection.member" /></label> <br> <input type="text"
-						name="utilisateur" placeholder="nom d'utilisateur"> <br>
-					<input type="password" name="password" placeholder="mot de passe">
-					<br> <input type="submit" value="- GO -"> <br> <a
-						href=""><spring:message code="noMember.auth" /><br>
-					<spring:message code="noMember.clic" /> </a>
-				</form>
-			</c:if>
-		</div>
+					<c:if test="${connecte == 'connecte'}">
+		                <div class="membre">
+		                    <h3><em>Espace membre:</em></h3>
+		                    <p>Bienvenue <strong>${user.prenom}</strong></p>
+		                    <a class="compte" href="auth/member/${user.id}" alt="mon compte"><spring:message
+						code="auth.member" /></a>	
+		                </div>
+		                <div class="clear"></div>
+					</c:if>
+					<c:if test="${connecte != 'connecte'}">
+						<form method="post"
+							action="${pageContext.request.contextPath}/auth/member"
+							modelAttribute="userBean">
+							<label for="identify"><spring:message code="identification.member" /></label>
+							<p>${msg}</p>
+
+							<input type="text" name="email" placeholder="nom d'utilisateur">
+							<br> <input type="password" name="password"
+								placeholder="mot de passe"> <br> <input
+								type="submit" value="- GO -"> <br> <a
+								href="${pageContext.request.contextPath}/auth/noMember"
+								modelAttribute="cocoBean"><spring:message
+									code="noMember.auth" /><br> <strong><spring:message
+										code="noMember.clic" /></strong></a>
+						</form>
+					</c:if>
+
+				</div>
 		<div class="clear"></div>
 		<div class="bottom">
 			<a class="mention" href="#"><spring:message code="legal.mention" /></a>
-			<p class="mention" href="">| Copyright TeeGraph.</p>
+			<p class="mention" href="#">| Copyright TeeGraph.</p>
 		</div>
 
 	</footer>

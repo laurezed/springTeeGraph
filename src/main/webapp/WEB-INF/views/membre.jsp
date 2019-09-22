@@ -46,116 +46,116 @@
 <header id="member" class="header">
     <div class="bandeau">
         <div class="gauche">
-          <a href="index.html"><img src="<c:url value="/resources/images/logo-Tee-Graph.png" />" alt=""></a>
-        </div>
+				<a href="<c:url value="/" />">
+					<img src="resources/images/logo-Tee-Graph.png" alt="">
+				</a>
+			</div>
         <div class="droit">
             <div class="menu">
                 <nav class="menu">
                     <ul>
-                        <li><a href="index.html">Accueil</a></li>
-                        <li><a href="atelier.html" >Notre atelier</a></li>
-                        <li><a href="contact.html" >Contact</a>
-                        </li>
-                    </ul>
+							<li><a id="actif" href="<c:url value="/" />">
+							<spring:message code="menu.actif" /></a></li>
+							
+							<li><a href="<c:url value="/qui-sommes-nous/atelier"/>">
+							<spring:message code="menu.workshop" /></a></li>
+							
+							<li><a href="<c:url value="/on-echange/contact"/>"><spring:message
+										code="menu.contact" /></a></li>
+						</ul>
                 </nav>
             </div>
                 <div class="membre">
-                    <h1><em>Espace membre:</em></h1>
-                    <p>Bienvenue <strong>${userToModify.nom}</strong></p>
+                    <h3><em>Espace membre:</em></h3>
+                    <p>Bienvenue <strong>${userToModify.prenom}</strong></p>
+                
                 </div>
                 <div class="clear"></div>
         </div>
     </div>
 </header>
 
-	<h1>Espace membre</h1>
-	<h2>Vos coordonnées</h2>
-<h3>${msg}</h3>
-    <section class="formulaire">
-        <h2>- Mes coordonnées de membre actif TeeGraph. -</h2>
-        <div class="explications">
-            <p>Vous êtes membre à part entière et nous vous en remercions!</p>
-            <p>Si vous avez un changement dans votre vie et donc des modification d'enregistrement à apporter, n'hésitez pas, cliquez sur "Modifier".</p>
-            <p><strong>N'oubliez pas d'enregistrer vos modifications à la fin!</strong></p>
-        </div>
+<section class="formulaire">
+    <h2>- Mes coordonnées de membre actif TeeGraph. -</h2>
+    <div class="explications">
+        <p>Vous êtes membre à part entière et nous vous en remercions!</p>
+        <p>Si vous avez un changement dans votre vie et donc des modification d'enregistrement à apporter, n'hésitez pas, cliquez sur "Modifier".</p>
+        <p><strong>N'oubliez pas d'enregistrer vos modifications à la fin!</strong></p>
+    </div>
 
-        <section class="forma center">
-		 <form:form method="post" action="${pageContext.request.contextPath}/auth/modify" modelAttribute="CocoBean">
-                <div class="gauche">
+    <section class="forma center">
+		<form:form method="post" action="${pageContext.request.contextPath}/auth/modify" modelAttribute="CocoBean">
+            <div class="gauche">
 
-                    <form:errors path="nom" />
-                    <label for="nom">Nom:*</label> <br>
-                    <input disabled type="text" value="${userToModify.nom}" name="nom" id="nom" class="inputGeneral" />
+                <form:errors path="nom" />
+                <label for="nom">Nom:*</label> <br>
+                <input disabled type="text" value="${userToModify.nom}" name="nom" id="nom" class="inputGeneral" />
 
-                    <form:errors path="dateNaissance" />
-                    <label for="dateNaissance">Date de naissance:*</label> <br>
-                    <input disabled type="date" value="${userToModify.dateNaissance}" name="dateNaissance" id="dateNaissance" class="inputGeneral" />
+                <form:errors path="dateNaissance" />
+                <label for="dateNaissance">Date de naissance:*</label> <br>
+                <input disabled type="date" value="${userToModify.dateNaissance}" name="dateNaissance" id="dateNaissance" class="inputGeneral" />
 
-                    <form:errors path="adresse" />
-                    <label for="adresse">Adresse:*</label> <br>
-                    <input disabled type="text" value="${userToModify.adresse}" name="adresse" id="adresse" class="inputGeneral" />
+                <form:errors path="adresse" />
+                <label for="adresse">Adresse:*</label> <br>
+                <input disabled type="text" value="${userToModify.adresse}" name="adresse" id="adresse" class="inputGeneral" />
 
-                    <form:errors path="telephoneFixe" />
-                    <label for="telephoneFixe">Téléphone fixe:</label> <br>
-                    <input disabled type="text" value="${userToModify.telephoneFixe}" name="telephoneFixe" id="telephoneFixe" class="inputGeneral" />
-                    <br>
-                </div>
-                <div class="droit">
-                    <form:errors path="prenom" />
-                    <label for="prenom">Prénom:*</label> <br>
-                    <input disabled type="text" value="${userToModify.prenom}" name="prenom" id="prenom" class="inputGeneral" />
+                <form:errors path="telephoneFixe" />
+                <label for="telephoneFixe">Téléphone fixe:</label> <br>
+                <input disabled type="text" value="${userToModify.telephoneFixe}" name="telephoneFixe" id="telephoneFixe" class="inputGeneral" />
+                <br>
+            </div>
+            <div class="droit">
+                <form:errors path="prenom" />
+                <label for="prenom">Prénom:*</label> <br>
+                <input disabled type="text" value="${userToModify.prenom}" name="prenom" id="prenom" class="inputGeneral" />
 
-                    <form:errors path="codePostale" />
-                    <label for=codePostale>Code Postale:*</label> <br>
-                    <input disabled type="text" value="${userToModify.codePostale}" name="codePostale" id="codePostale" class="inputGeneral" />
+                <form:errors path="codePostale" />
+                <label for=codePostale>Code Postale:*</label> <br>
+                <input disabled type="text" value="${userToModify.codePostale}" name="codePostale" id="codePostale" class="inputGeneral" />
 
-                    <form:errors path="ville" />
-                    <label for="ville">Ville:*</label> <br>
-                    <input disabled type="text" value="${userToModify.ville}" name="ville" id="ville" class="inputGeneral" />
-                    <form:errors path="telephoneMobile" />
-                    <label for="telephoneMobile">Téléphone mobile:*</label> <br>
-                    <input disabled type="text" value="${userToModify.telephoneMobile}" name="telephoneMobile" id="mob" class="inputGeneral" />
-                </div>
-                <div class="clear"></div>
+                <form:errors path="ville" />
+                <label for="ville">Ville:*</label> <br>
+                <input disabled type="text" value="${userToModify.ville}" name="ville" id="ville" class="inputGeneral" />
+                <form:errors path="telephoneMobile" />
+                <label for="telephoneMobile">Téléphone mobile:*</label> <br>
+                <input disabled type="text" value="${userToModify.telephoneMobile}" name="telephoneMobile" id="mob" class="inputGeneral" />
+            </div>
+            <div class="clear"></div>
 
-                <div class="centre">
-                    <form:errors path="email" />
-                    <label id="email" for="email">Email:*</label>
-                    <input type="email" readonly value="${userToModify.email}" name="email" id="email" />
-                </div>
+            <div class="centre">
+                <form:errors path="email" />
+                <label id="email" for="email">Email:*</label>
+                <input type="email" readonly value="${userToModify.email}" name="email" id="email" />
+            </div>
 
-                <button id="declenche" type="text" value="Modifier">Modifier
+            <button id="declenche" type="text" value="Modifier">Modifier
+            </button>
+            <input type="submit" value="Enregistrer" />
+            <br><br>
+        </form:form>
+        <div class="password">
+            <form:form method="post" action="${pageContext.request.contextPath}/auth/modify" modelAttribute="CocoBean">
+
+                <form:errors path="password" />
+                <label for="password">Mot de passe actuel:*</label> <br>
+                <input disabled type="password" name="password" class="inputPassword" id="passwordActuel" />
+                <br>
+
+                <form:errors path="passwordNew" />
+                <label for="passwordNew">Modification Mot de passe:*</label> <br>
+                <input disabled type="password" name="passwordNew" class="inputPassword" id="passwordNew" />
+                <br>
+                <form:errors path="passwordNewConf" />
+                <label for="passwordNewConf">Confirmation Mot de passe:*</label> <br>
+                <input disabled type="password" name="passwordNewConf" class="inputPassword" id="passwordNewConf" />
+                <br>
+                <button id="declenchePass" type="text" value="Modifier">Modifier
                 </button>
                 <input type="submit" value="Enregistrer" />
-                <br><br>
+                <br>
             </form:form>
-			
-			
-
-            <div class="password">
-                <form:form method="post" action="${pageContext.request.contextPath}/auth/modify" modelAttribute="CocoBean">
-
-                    <form:errors path="password" />
-                    <label for="password">Mot de passe actuel:*</label> <br>
-                    <input disabled type="password" name="password" class="inputPassword" id="passwordActuel" />
-                    <br>
-
-                    <form:errors path="passwordNew" />
-                    <label for="passwordNew">Modification Mot de passe:*</label> <br>
-                    <input disabled type="password" name="passwordNew" class="inputPassword" id="passwordNew" />
-                    <br>
-                    <form:errors path="passwordNewConf" />
-                    <label for="passwordNewConf">Confirmation Mot de passe:*</label> <br>
-                    <input disabled type="password" name="passwordNewConf" class="inputPassword" id="passwordNewConf" />
-                    <br>
-                    <button id="declenchePass" type="text" value="Modifier">Modifier
-                    </button>
-                    <input type="submit" value="Enregistrer" />
-                    <br>
-                </form:form>
-            </div>
-        </section>
-        
+        </div>
+    </section>
         
         <section class="imagerie">
             <img src="<c:url value="/resources/images/tee-membre.jpg" />" alt="">
@@ -167,7 +167,6 @@
             <p>Comme nous aimons nos membres chez TeeGraph., vous pouvez à tout moment rechoisir une des nos anciennes sérigraphies pour relancer la machine d'impression! <br>
                 Alors n'hésitez plus, reselectionner la ligne de commande que vous souhaitez recommander en plus des nouveautés! </p>
         </div>
-        
         
         <section class="historique">
             <form:form method="post" action="HistoriqueDesProduitAchetés">
@@ -217,7 +216,7 @@
                 </tr>
             </table>
             <div class="boutons">
-                <a href="panier.html">Valider le panier</a>
+                <a href="<c:url value="/mes-achats/panier"/>">Valider le panier</a>
                 <a href="index.html">Poursuivre la commande</a>
             </div>
 
@@ -244,19 +243,7 @@
         80000 AMIENS <br>
         tél: 03 22 30 00 00</p>
         </div>
-         <div class="connection"> 
-                <form action="connection" method="post" modelAttribute="">
-                    <label for="identify">Identifiez-vous</label>
-                    <br>
-                    <input type="text" name="utilisateur" placeholder="nom d'utilisateur">
-                    <br>
-                    <input type="password" name="password" placeholder="mot de passe">
-                    <br>
-                    <input type="submit" value="- GO -">
-                    <br>
-                    <a href="">Vous n'êtes pas encore membre!!!!<br>Cliquez ICI</a>
-                </form> 
-            </div>
+       
             <div class="clear"></div>
         <div class="bottom">
             <a class="mention" href="#">MENTION LEGALES | RGPD</a>
@@ -264,10 +251,8 @@
         </div>
         
     </footer>
-    
 		
-    <a id="scrolltop"><img src="images/scroll-logo-v2.png" alt="TeeGraph-up"></a>
-
+    <a id="scrolltop"><img src="resources/images/scroll-logo-v2.png" alt="TeeGraph-up"></a>
 
     <!--JAVASCRIPT-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script>

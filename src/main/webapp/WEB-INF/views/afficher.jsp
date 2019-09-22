@@ -37,9 +37,14 @@ request.getServerPort() + request.getContextPath() + "/"%>" />
 				<div class="menu">
 					<nav class="menu">
 						<ul>
-							<li><a id="actif" href="index.html">Accueil</a></li>
-							<li><a href="atelier.html">Notre atelier</a></li>
-							<li><a href="contact.html">Contact</a></li>
+							<li><a id="actif" href="<c:url value="/" />">
+							<spring:message code="menu.actif" /></a></li>
+							
+							<li><a href="<c:url value="/qui-sommes-nous/atelier"/>">
+							<spring:message code="menu.workshop" /></a></li>
+							
+							<li><a href="<c:url value="/on-echange/contact"/>"><spring:message
+										code="menu.contact" /></a></li>
 						</ul>
 					</nav>
 				</div>

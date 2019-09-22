@@ -6,11 +6,13 @@
 <%@ page session="false"%>
 
 <!DOCTYPE html>
-<html lang="fr">
+<html>
 <head>
 <meta charset="UTF-8">
-    <title>Tee Graph | inscription</title>
+<title>Tee Graph | panier d'achat</title>
 <link rel="icon" type="image/png" sizes="16x16" href="<c:url value="/resources/images/favicon-tee-graph.png" />">
+<meta name="description"
+	content="Tee Graph, une semaine, 8 modèles, qui defilent au grès de nos experts graffeurs! Découvrez notre univers!">
 <link
 	href="<c:url value="/resources/css/font-awesome-4.7.0/css/font-awesome.min.css" />"
 	rel="stylesheet">
@@ -27,23 +29,18 @@
 	href="
 <%=request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
 					+ request.getContextPath() + "/"%>" />
+
+
+<meta content="IE=edge" http-equiv=X-UA-Compatible>
+<meta content="width=device-width, initial-scale=1" name="viewport">
 <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <![endif]-->
-<!--[if IE 7]>
-        <link href="css/stylesie7.css" rel="stylesheet" type="text/css" media="screen">
-    <![endif]-->
-<!------------------------------------RESPONSIVE----------------------------->
-<meta content="IE=edge" http-equiv=X-UA-Compatible>
-<meta content="width=device-width, initial-scale=1" name="viewport">
-
 </head>
-
 <body>
-
 <header id="member" class="header">
     <div class="bandeau">
-        <div class="gauche">
+       		<div class="gauche">
 				<a href="<c:url value="/" />">
 					<img src="resources/images/logo-Tee-Graph.png" alt="">
 				</a>
@@ -51,11 +48,11 @@
         <div class="droit">
             <div class="menu">
                 <nav class="menu">
-                    <ul>
-							<li><a id="actif" href="<c:url value="/" />">
+                     <ul>
+							<li><a href="<c:url value="/" />">
 							<spring:message code="menu.actif" /></a></li>
 							
-							<li><a href="<c:url value="/qui-sommes-nous/atelier"/>">
+							<li><a id="actif" href="<c:url value="/qui-sommes-nous/atelier"/>">
 							<spring:message code="menu.workshop" /></a></li>
 							
 							<li><a href="<c:url value="/on-echange/contact"/>"><spring:message
@@ -63,87 +60,80 @@
 						</ul>
                 </nav>
             </div>
+            <div class="membre"> 
+               <h1><em>Espace membre:</em></h1>
+                    <p>Bienvenue <strong>${user.prenom}</strong></p>     
+            </div>
             <div class="clear"></div>
         </div>
     </div>
 </header>
 
+
 <section class="formulaire">
-    <h2>- Formulaire d'inscription d'activation de compte TeeGraph. -</h2>
+    <h2>- Votre panier d'achat -</h2>
     <div class="explications">
-        <p>Bienvenue sur le formulaire d'inscription pour  bientôt vous compter parmi nos membres actifs! 
-        </p>
-        <p>Pourquoi devenir membre TeeGraph? <br> Et bien vous aurez accès aux anciennes sérigraphies développées par nos équipes Graffeurs et vous pourrez les recommander à volonté!
-        aussi nous vous aurez accès aux bonnes nouvelles et nouveautés via notre newsletter.</p>
-        <p><strong>Enfin, nous vous offrons 10% de reduction sur vos achats! </strong></p>
-    </div> 
-<!-- 	<h2>Vos coordonnées</h2> -->
-    <section class="forma nm center">
-		<form:form method="post" action="${pageContext.request.contextPath}/auth/load" modelAttribute="cocoBean">
-		<div class="gauche">
+         <p style="color: #3a2a32; font-size: 20px"><strong><em>Et non, ce n'est pas un panier de légumes bio, mais un panier rempli de couleur , d'expressions variées, alors régalez-vous!</em></strong></p>
+    </div>
+	<section class="historique">
+            <form:form method="post" action="HistoriqueDesProduitAchetés">
 
-           <form:errors path="nom" />
-            <label for="nom">Nom:*</label> <br>
-            <input type="text" name="nom" id="nom"/>  
-            
-            <form:errors path="dateNaissance" />
-            <label for="dateNaissance">Date de naissance:*</label> <br>
-            <input type="date" name="dateNaissance" id="dateNaissance"/>
-            
-            <form:errors path="adresse" />
-			<label for="adresse">Adresse:*</label> <br>
-			<input type="text" name="adresse" id="adresse"  />
-			
-            <form:errors path="telephoneFixe" /> 
-			<label for="telephoneFixe">Téléphone fixe:</label> <br>
-			<input type="text" name="telephoneFixe" id="telephoneFixe" />
-			<br>
-       <form:errors path="email" />
-			<label id="email" for="email">Email:*</label> 
-			<input type="email" name="email" id="email" />
-       <form:errors path="password" />
-			<label for="passwordActuel">Mot de passe:*</label> <br>
-			<input type="password" name="password" id="passwordActuel" /> 
-			<br>
-        </div>   
-        <div class="droit">
-            <form:errors path="prenom" />
-            <label for="prenom">Prénom:*</label> <br>
-            <input type="text" name="prenom" id="prenom" /> 
+            </form:form>
+            <table>
+                <tr>
+                    <th class="graph">Modèle</th>
+                    <th>Référence produit</th>
+                    <th>Désignation</th>
+                    <th class="qte">Quantité</th>
+                    <th>Prix unitaire TTC</th>
+                    <th>Total/produit</th>
+                </tr>
 
-            <form:errors path="codePostale" />
-            <label for=codePostale>Code Postale:*</label> <br>
-            <input type="text" name="codePostale" id="codePostale"  />
-            
-            <form:errors path="ville" />
-			<label for="ville">Ville:*</label> <br>    
-			<input type="text" name="ville" id="ville" />
-            <form:errors path="telephoneMobile" /> 
-			<label for="telephoneMobile">Téléphone mobile:*</label> <br>
-			<input type="text" name="telephoneMobile" id="telephoneMobile" />
-            <form:errors path="emailConf" />
-			<label id="emailConf" for="email2">Confirmation Email:*</label> 
-			<input type="email" name="email2" id="email2" />
-            <form:errors path="passwordConf" />
-			<label for="passwordNewConf">Confirmation Mot de passe:*</label> <br>
-			<input type="password" name="password" id="passwordNewConf" /> 
-			<br>
-			<input type="submit" value="Enregistrer" />
-			<br>
-        </div>
-        <div class="clear"></div>
-		
-			
-		</form:form>
-		
-	</section>
-			
+                <tr>
+                    <td><img src="images/graphiti-1.jpg" alt=""></td>
+                    <td>XL-sw-rouge-Graph1020</td>
+                    <td>Sweat rouge taille XL graph réf: 1020</td>
+                    <td><input type="number" value="1" style="width: 50px; padding: 3px;"></td>
+                    <td>100€</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><img src="images/graphiti-5.jpg" alt=""></td>
+                    <td>XL-th-noir-Graph1045</td>
+                    <td>Tee-shirt homme noir taille XL graph réf: 1020</td>
+                    <td><input type="number" value="1" style="width: 50px; padding: 3px;"></td>
+                    <td>25€</td>
+                </tr>
+                <tr>
+                    <td><img src="images/graphiti-2.jpg" alt=""></td>
+                    <td>L-pull-vert-Graph1220</td>
+                    <td>Pull vert taille L graph réf: 1220</td>
+                    <td><input type="number" value="1" style="width: 50px; padding: 3px;"></td>
+                    <td>40€</td>
+
+                </tr>
+                <tr>
+                    <td><img src="images/graphiti-3.jpg" alt=""></td>
+                    <td>M-tf-rouge-Graph1065</td>
+                    <td>Tee-Shirt femme rouge taille M graph réf: 1065</td>
+                    <td><input type="number" value="1" style="width: 50px; padding: 3px;"></td>
+                    <td>25€</td>
+                </tr>
+                
+            </table>
+            <table>
+                <tr>
+                <th class="general">TOTAL de votre panier d'achat:</th>
+                </tr>
+                <tr></tr>
+            </table>
+            <div class="boutons">
+                <a href="<c:url value="/mes-achat/panier" />">Finaliser la commande</a>
+                <a href="index.html">Poursuivre la commande</a>
+            </div>
+
+        </section>
 	
-	<section id="nm" class="imagerie">
-        <img id="connect" src="<c:url value="/resources/images/logo-connecte.png" />"
-         alt="">
-    </section>
-	 <div class="clear"></div>
 	
 	<h2>- Coordonnées bancaire -</h2>
 	<div class="explications">
@@ -181,12 +171,12 @@
 	</div>
 	
 </section>
-			
+
     <section class="color"></section>
     
     <footer>
         <div class="logo">
-            <img src="<c:url value="/resources/images/logo-Tee-Graph-footer.png" />" alt="logo-TeeGraph">
+            <img src="images/logo-Tee-Graph-footer.png" alt="logo-TeeGraph">
         </div>
         <div class="sociaux">
            <p>Retrouvez-nous sur les réseaux </p>
@@ -202,35 +192,19 @@
         80000 AMIENS <br>
         tél: 03 22 30 00 00</p>
         </div>
-         <div class="connection">
-					<c:if test="${connecte == 'connecte'}">
-		                <div class="membre">
-		                    <h3><em>Espace membre:</em></h3>
-		                    <p>Bienvenue <strong>${user.prenom}</strong></p>
-		                    <a class="compte" href="auth/member/${user.id}" alt="mon compte"><spring:message
-						code="auth.member" /></a>	
-		                </div>
-		                <div class="clear"></div>
-					</c:if>
-					<c:if test="${connecte != 'connecte'}">
-						<form method="post"
-							action="${pageContext.request.contextPath}/auth/member"
-							modelAttribute="userBean">
-							<label for="identify"><spring:message code="identification.member" /></label>
-							<p>${msg}</p>
-
-							<input type="text" name="email" placeholder="nom d'utilisateur">
-							<br> <input type="password" name="password"
-								placeholder="mot de passe"> <br> <input
-								type="submit" value="- GO -"> <br> <a
-								href="${pageContext.request.contextPath}/auth/noMember"
-								modelAttribute="cocoBean"><spring:message
-									code="noMember.auth" /><br> <strong><spring:message
-										code="noMember.clic" /></strong></a>
-						</form>
-					</c:if>
-
-				</div>
+         <div class="connection"> 
+                <form action="connection" method="post" modelAttribute="">
+                    <label for="identify">Identifiez-vous</label>
+                    <br>
+                    <input type="text" name="utilisateur" placeholder="nom d'utilisateur">
+                    <br>
+                    <input type="password" name="password" placeholder="mot de passe">
+                    <br>
+                    <input type="submit" value="- GO -">
+                    <br>
+                    <a href="">Vous n'êtes pas encore membre!!!!<br>Cliquez ICI</a>
+                </form> 
+            </div>
             <div class="clear"></div>
         <div class="bottom">
             <a class="mention" href="#">MENTION LEGALES | RGPD</a>
@@ -239,7 +213,6 @@
         
     </footer>
     
-			
      <a id="scrolltop"><img src="images/scroll-logo-v2.png" alt="TeeGraph-up"></a>
  
        
@@ -294,7 +267,6 @@
         //Add an instance of the card Element into the `card-element` <div>.-->
         card.mount('#card-element');
     </script>
-			
 
 </body>
 </html>
