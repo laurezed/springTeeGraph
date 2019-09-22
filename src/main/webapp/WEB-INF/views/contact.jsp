@@ -61,16 +61,21 @@
                 </div>
 
                 <div class="connection">
-					<c:if test="${connecte == 'connecte'}">
-		                <div class="membre">
-		                    <h3><em>Espace membre:</em></h3>
-		                    <p>Bienvenue <strong>${user.prenom}</strong></p>
-		                    <a class="compte" href="auth/member/${user.id}" alt="mon compte"><spring:message
-						code="auth.member" /></a>	
-		                </div>
-		                <div class="clear"></div>
+					<c:if test="${user != null}">
+						<div class="membre">
+							<h1>
+								<em>Espace membre:</em>
+							</h1>
+							<p>
+								Bienvenue <strong>${user.prenom}</strong>
+							</p>
+							<a class="compte" href="auth/member/${user.id}" alt="mon compte"><spring:message
+									code="auth.member" /></a>
+							<p>${msg}</p>
+						</div>
+						<div class="clear"></div>
 					</c:if>
-					<c:if test="${connecte != 'connecte'}">
+					<c:if test="${user == null}">
 						<form method="post"
 							action="${pageContext.request.contextPath}/auth/member"
 							modelAttribute="userBean">

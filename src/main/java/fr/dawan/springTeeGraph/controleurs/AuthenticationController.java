@@ -31,6 +31,7 @@ import fr.dawan.springTeeGraph.entites.Serigraphie;
 import fr.dawan.springTeeGraph.entites.Utilisateur;
 import fr.dawan.springTeeGraph.service.ProduitService;
 import fr.dawan.springTeeGraph.service.UserService;
+import fr.dawan.springTeeGraph.utils.SessionManagement;
 
 @Controller
 @RequestMapping("/auth")
@@ -46,11 +47,8 @@ public class AuthenticationController {
 
 	@RequestMapping("/member")
 	public String authentication(@Valid @ModelAttribute("userBean") UserForm userForm, BindingResult br, Model model, HttpSession session) {
-//			@CookieValue( defaultValue = "vide") String c, HttpServletResponse response) {
 
 		logger.info("DEBUT - authentification membre.userBean: " + userForm.toString());
-
-		Utilisateur us = (Utilisateur)session.getAttribute("user");
 
 		List<Serigraphie> myList;
 		String msg2 = "";
@@ -95,29 +93,9 @@ public class AuthenticationController {
 
 			model.addAttribute("connecte", "connecte");
 			model.addAttribute("utilisateurConnecte", u.getId());
-
-			// model.addAttribute("user", u);
-
-//			if (c.equals("vide")) {
-//				Cookie cookie = new Cookie("maSession", u.getEmail());
-//				cookie.setMaxAge(60 * 60 * 24 * 365 * 10);// en seconde
-//				cookie.setDomain("teegraph");
-//				response.addCookie(cookie);
-//			} else {
-//				// recupérer la valeur de l'ancien cookie
-//				// ajouter des infos
-//			}
-
-			Utilisateur u4 = null;
-//			if(us == null || us.getNom() == "Anonyme") {
-//				us = new Utilisateur();
-				us.setNom(u.getNom());
-				us.setPrenom(u.getNom());
-				us.setEmail(u.getEmail());
-				session.setAttribute("user", us);
-				logger.info("DEBUT - utilisateur actuel : " + us.getNom());
-				System.out.println("utilisateur actuel: " + us.getId());
-//			}
+			
+			
+			SessionManagement.setUserSession(model, userService, session, u);
 			
 			return "home";
 		} else {
@@ -153,6 +131,9 @@ public class AuthenticationController {
 
 			model.addAttribute("userForm", connectForm);
 			model.addAttribute("utilisateurConnecte", id);
+			
+			SessionManagement.setUserSession(model, userService, session, u);
+			
 			return "membre";
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -205,6 +186,8 @@ public class AuthenticationController {
 			model.addAttribute("passwordForm", new PasswordForm());
 			model.addAttribute("utilisateurConnecte", u.getId());
 
+			SessionManagement.setUserSession(model, userService, session, u);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println(e.getMessage());
@@ -254,6 +237,8 @@ public class AuthenticationController {
 
 			model.addAttribute("msg", "Votre mot de passe a bien été modifié");
 
+			SessionManagement.setUserSession(model, userService, session, u);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println(e.getMessage());
@@ -273,6 +258,7 @@ public class AuthenticationController {
 		logger.info("DEBUT - afficher: " + model.toString());
 		logger.info("FIN - afficher: " + model.toString());
 
+		SessionManagement.setUserSession(model, userService, session, null);
 		return "nonMembre";
 
 	}
@@ -310,13 +296,16 @@ public class AuthenticationController {
 				// bravo nouveau client chargé en BDD!!!!!
 				msg = "Félicitation et bienvenue parmi nos membres actifs!";
 
+				SessionManagement.setUserSession(model, userService, session, u);
 			} catch (ParseException e) {
 				e.printStackTrace();
 				msg = "Erreur lors du formattage de la date";
 
+				SessionManagement.setUserSession(model, userService, session, null);
 			} catch (Exception e) {
 				e.printStackTrace();
 				msg = "Une erreur est survenue";
+				SessionManagement.setUserSession(model, userService, session, null);
 			}
 		}
 

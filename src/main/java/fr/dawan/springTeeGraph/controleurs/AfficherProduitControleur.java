@@ -2,6 +2,8 @@ package fr.dawan.springTeeGraph.controleurs;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,6 +20,7 @@ import fr.dawan.springTeeGraph.entites.ProduitFini.Taille;
 import fr.dawan.springTeeGraph.entites.Serigraphie;
 import fr.dawan.springTeeGraph.entites.Utilisateur;
 import fr.dawan.springTeeGraph.service.*;
+import fr.dawan.springTeeGraph.utils.SessionManagement;
 
 @Controller
 @RequestMapping("/product")
@@ -34,7 +37,7 @@ public class AfficherProduitControleur {
 	
 	 private static Logger logger = Logger.getLogger(AfficherProduitControleur.class);
 	@GetMapping
-	public String afficher(Model model) {
+	public String afficher(Model model, HttpSession session) {
 		
 		logger.info("DEBUT - afficher produit.model : " + model.toString() );
 
@@ -53,13 +56,14 @@ public class AfficherProduitControleur {
 		}
 
 		model.addAttribute("msg", msg);
-		
+
+		SessionManagement.setUserSession(model, userService, session, null);
 		
 		return "afficher";
 	}
 
 	@GetMapping(value = "/{s_nom}")
-	public String popup(@PathVariable("s_nom") String s_nom, Model model) {
+	public String popup(@PathVariable("s_nom") String s_nom, Model model, HttpSession session) {
 
 		logger.info("DEBUT - popup ProduitForm : " + model.toString() );
 //		List<Serigraphie> myList;
@@ -126,6 +130,8 @@ public class AfficherProduitControleur {
 			logger.info("FIN - produitsService - findAll : " + model.toString() );
 		}
 
+		SessionManagement.setUserSession(model, userService, session, null);
+		
 		logger.info("FIN - popup ProduitService : " + model.toString() );
 //		{ "seri" : seri };
 		return "selectProduit2";

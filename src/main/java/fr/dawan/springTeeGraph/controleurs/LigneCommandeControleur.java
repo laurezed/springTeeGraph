@@ -2,6 +2,8 @@ package fr.dawan.springTeeGraph.controleurs;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,6 +23,8 @@ import fr.dawan.springTeeGraph.entites.ProduitFini.Taille;
 import fr.dawan.springTeeGraph.entites.Serigraphie;
 import fr.dawan.springTeeGraph.service.ModeleService;
 import fr.dawan.springTeeGraph.service.ProduitService;
+import fr.dawan.springTeeGraph.service.UserService;
+import fr.dawan.springTeeGraph.utils.SessionManagement;
 
 @Controller
 @RequestMapping("/commande")
@@ -40,7 +44,7 @@ public class LigneCommandeControleur {
 
 	@PostMapping
 	public String creeLigneCommande(@ModelAttribute("ProduitForm") ProduitForm produitForm, BindingResult br,
-			Model model) throws Exception {
+			Model model, HttpSession session, UserService userService) throws Exception {
 		logger.info("DEBUT - LigneCommandeControleur - creeLigneCommande ");
 		
 		
@@ -99,6 +103,7 @@ public class LigneCommandeControleur {
 			logger.info("FIN - creeLigneCommande fin d'appel findAll : " + model.toString() );
 		}
 
+		SessionManagement.setUserSession(model, userService, session, null);
 		
 		
 		return "selectProduit2";
