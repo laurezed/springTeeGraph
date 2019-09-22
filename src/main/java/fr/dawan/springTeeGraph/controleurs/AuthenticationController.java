@@ -7,6 +7,9 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Locale;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.jboss.logging.Logger;
@@ -14,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -41,10 +45,12 @@ public class AuthenticationController {
 	private static Logger logger = Logger.getLogger(AuthenticationController.class);
 
 	@RequestMapping("/member")
-	public String authentication(@Valid @ModelAttribute("userBean") UserForm userForm, BindingResult br, Model model) {
+	public String authentication(@Valid @ModelAttribute("userBean") UserForm userForm, BindingResult br, Model model, HttpSession session) {
+//			@CookieValue( defaultValue = "vide") String c, HttpServletResponse response) {
 
 		logger.info("DEBUT - authentification membre.userBean: " + userForm.toString());
 
+		Utilisateur us = (Utilisateur)session.getAttribute("user");
 
 		List<Serigraphie> myList;
 		String msg2 = "";
@@ -60,7 +66,7 @@ public class AuthenticationController {
 		}
 
 		model.addAttribute("msg2", msg2);
-		
+
 		String email = userForm.getEmail();
 		String msg = "";
 		Utilisateur u = null;
@@ -90,8 +96,29 @@ public class AuthenticationController {
 			model.addAttribute("connecte", "connecte");
 			model.addAttribute("utilisateurConnecte", u.getId());
 
-
 			// model.addAttribute("user", u);
+
+//			if (c.equals("vide")) {
+//				Cookie cookie = new Cookie("maSession", u.getEmail());
+//				cookie.setMaxAge(60 * 60 * 24 * 365 * 10);// en seconde
+//				cookie.setDomain("teegraph");
+//				response.addCookie(cookie);
+//			} else {
+//				// recupérer la valeur de l'ancien cookie
+//				// ajouter des infos
+//			}
+
+			Utilisateur u4 = null;
+//			if(us == null || us.getNom() == "Anonyme") {
+//				us = new Utilisateur();
+				us.setNom(u.getNom());
+				us.setPrenom(u.getNom());
+				us.setEmail(u.getEmail());
+				session.setAttribute("user", us);
+				logger.info("DEBUT - utilisateur actuel : " + us.getNom());
+				System.out.println("utilisateur actuel: " + us.getId());
+//			}
+			
 			return "home";
 		} else {
 			msg = "Couple login password incorrect";
@@ -102,9 +129,9 @@ public class AuthenticationController {
 		}
 	}
 
-	@RequestMapping({"/member/{id}"})
+	@RequestMapping({ "/member/{id}" })
 	public String afficheProfil(@ModelAttribute("cocoBean") ConnectForm connectForm, @PathVariable("id") String id,
-			BindingResult br, Model model) {
+			BindingResult br, Model model, HttpSession session) {
 		// String email = userForm.getEmail();
 		logger.info("DEBUT - afficheProfil findById: " + connectForm.toString());
 		String msg = "";
@@ -140,7 +167,7 @@ public class AuthenticationController {
 	// modifier
 	@PostMapping("/modify")
 	public String UserModify(@ModelAttribute("passwordForm") PasswordForm passwordForm,
-			@ModelAttribute("cocoBean") ConnectForm connectForm, BindingResult br, Model model) {
+			@ModelAttribute("cocoBean") ConnectForm connectForm, BindingResult br, Model model, HttpSession session) {
 
 		try {
 			logger.info("DEBUT - modify findByString: " + passwordForm.toString());
@@ -191,7 +218,7 @@ public class AuthenticationController {
 
 	@PostMapping("/password")
 	public String ChangePassword(@ModelAttribute("passwordForm") PasswordForm passwordForm,
-			@ModelAttribute("cocoBean") ConnectForm connectForm, BindingResult br, Model model) {
+			@ModelAttribute("cocoBean") ConnectForm connectForm, BindingResult br, Model model, HttpSession session) {
 		logger.info("DEBUT - ChangePassword: " + passwordForm.toString());
 		model.addAttribute("passwordForm", passwordForm);
 		Utilisateur u = null;
@@ -242,7 +269,7 @@ public class AuthenticationController {
 
 	// en reference au lien de la page home pour lancer une nouvelle inscription
 	@GetMapping("/noMember")
-	public String display(Model model) {
+	public String display(Model model, HttpSession session) {
 		logger.info("DEBUT - afficher: " + model.toString());
 		logger.info("FIN - afficher: " + model.toString());
 
@@ -253,13 +280,13 @@ public class AuthenticationController {
 	// pour enregistrer le nouveau membre en BDD
 	@PostMapping("/load")
 	public String load(@Valid @ModelAttribute("cocoBean") ConnectForm connectForm, BindingResult br, Model model,
-			Locale locale) {
+			Locale locale, HttpSession session) {
 		logger.info("DEBUT - Load: " + connectForm.toString());
 
 		logger.info("DEBUT - connectForm.getDateNaissance(): " + connectForm.getDateNaissance());
 		LocalDate dateNaissance = null;
 
-		dateNaissance = LocalDate.parse(connectForm.getDateNaissance(),DateTimeFormatter.ISO_LOCAL_DATE);
+		dateNaissance = LocalDate.parse(connectForm.getDateNaissance(), DateTimeFormatter.ISO_LOCAL_DATE);
 //			dateNaissance = new SimpleDateFormat("dd-MM-yyyy").parse((connectForm.getDateNaissance()));
 
 		String msg = "";
@@ -295,9 +322,7 @@ public class AuthenticationController {
 
 		model.addAttribute("msg", msg);
 		model.addAttribute("connecte", "connecte");
-		
 
-		
 		logger.info("FIN - Load: " + connectForm.toString());
 		return "home";
 

@@ -125,8 +125,8 @@
 			<label id="emailConf" for="email2">Confirmation Email:*</label> 
 			<input type="email" name="email2" id="email2" />
             <form:errors path="passwordConf" />
-			<label for="passwordNewConf">Confirmation Mot de passe:*</label> <br>
-			<input type="password" name="password" id="passwordNewConf" /> 
+			<label for="passwordConf">Confirmation Mot de passe:*</label> <br>
+			<input type="password" name="passwordConf" id="passwordConf" /> 
 			<br>
 			<input type="submit" value="Enregistrer" />
 			<br>

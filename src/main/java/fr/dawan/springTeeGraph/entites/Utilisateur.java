@@ -86,79 +86,79 @@ public class Utilisateur implements Serializable {
 		nbrMember++;
 	}
 	public long getId() {
-		return id;
+		return this.id;
 	}
 	public void setId(long id) {
 		this.id = id;
 	}
 	public int getVersion() {
-		return version;
+		return this.version;
 	}
 	public void setVersion(int version) {
 		this.version = version;
 	}
 	public String getNom() {
-		return nom;
+		return this.nom;
 	}
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
 	public String getPrenom() {
-		return prenom;
+		return this.prenom;
 	}
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
 	public LocalDate getDateNaissance() {
-		return dateNaissance;
+		return this.dateNaissance;
 	}
 	public void setDateNaissance(LocalDate dateNaissance) {
 		this.dateNaissance = dateNaissance;
 	}
 	public String getAdresse() {
-		return adresse;
+		return this.adresse;
 	}
 	public void setAdresse(String adresse) {
 		this.adresse = adresse;
 	}
 	public String getCodePostale() {
-		return codePostale;
+		return this.codePostale;
 	}
 	public void setCodePostale(String codePostale) {
 		this.codePostale = codePostale;
 	}
 	public String getVille() {
-		return ville;
+		return this.ville;
 	}
 	public void setVille(String ville) {
 		this.ville = ville;
 	}
 	public String getTelephoneFixe() {
-		return telephoneFixe;
+		return this.telephoneFixe;
 	}
 	public void setTelephoneFixe(String telephoneFixe) {
 		this.telephoneFixe = telephoneFixe;
 	}
 	public String getTelephoneMobile() {
-		return telephoneMobile;
+		return this.telephoneMobile;
 	}
 	public void setTelephoneMobile(String telephoneMobile) {
 		this.telephoneMobile = telephoneMobile;
 	}
 	public String getEmail() {
-		return email;
+		return this.email;
 	}
 	public void setEmail(String email) {
 		this.email = email;
 	}
 	public String getPassword() {
-		return password;
+		return this.password;
 	}
 	public void setPassword(String password) {
 		this.password = password;
 	}
 	public String getRole() {
-		return role;
+		return this.role;
 	}
 	public void setRole(String role) {
 		this.role = role;
